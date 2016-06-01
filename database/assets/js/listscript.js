@@ -1,9 +1,6 @@
 // Define spreadsheet URL.
 var mySpreadsheet = 'https://docs.google.com/spreadsheets/d/1OQNHBcDIUSI8Scz_WdXAuRk8ikWJ9trtBt3-cuvid2E/edit#gid=0';
 
-// Compile the Handlebars template for HR leaders.
-var HRTemplate = Handlebars.compile($('#hr-template').html());
-
 var updateResults = function(error, options, response) {
     console.log("Errors:", error);
     var data = [];
@@ -22,11 +19,31 @@ var updateResults = function(error, options, response) {
 
 }
 
-// Load top five HR leaders.
+//compile the Handlebars template
+var HRTemplate = Handlebars.compile($('#hr-template').html());
+
+
+//truncate description length
+var maxdescriplength=300
+
+Handlebars.registerHelper ('truncate', function (str, len) {
+    if (str.length > maxdescriplength && str.length > 0) {
+        var new_str = str + " ";
+        new_str = str.substr (0, maxdescriplength);
+        new_str = str.substr (0, new_str.lastIndexOf(" "));
+        new_str = (new_str.length > 0) ? new_str : str.substr (0, len);
+
+        return new Handlebars.SafeString ( new_str +'...' );
+    }
+    return str;
+});
+
+
+// Load Sheetrock.
 $('#hr').sheetrock({
   url: mySpreadsheet,
   query: "select *",
-  fetchSize: 10,
   callback: updateResults,
-  rowTemplate: HRTemplate
+  rowTemplate: HRTemplate,
+  reset:true
 });
