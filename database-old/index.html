@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>Yale Labs</title>
+<link rel='shortcut icon' href='assets/images/favicon-database.ico' type='image/x-icon'/ >
+<!-- Bootstrap core CSS-->
+<link href="assets/css/bootstrap.css" rel="stylesheet">
+
+
+<!-- Custom CSS -->
+<link href="assets/css/main.css" rel="stylesheet">
+<link href="assets/css/labdb.css" rel="stylesheet">
+<link href="assets/css/font-awesome.css" rel="stylesheet">
+<link href="assets/css/animate-custom.css" rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
+
+<script src="assets/js/jquery.js"></script>
+<script type="text/javascript" src="assets/js/modernizr.custom.js"></script>
+<script src="assets/js/list.js"></script>
+<script src="assets/js/sheetrock.min.js"></script>
+<script src="assets/js/departments.js"></script>
+
+
+
+
+</head>
+
+<body data-spy="scroll" data-offset="0" data-target="#navbar-main">
+	<!-- DB start -->
+  <div id="labs">
+    <input class="search" placeholder="Search" />
+<select class="form-control" id="categories">
+  <option selected="selected" value="">Select category...</option>
+  <option value="Biological Sciences">Biological Sciences</option>
+  <option value="Engineering">Engineering</option>
+  <option value="Health and Medicine">Health and Medicine</option>
+  <option value="Humanities">Humanities</option>
+  <option value="Physical Sciences">Physical Sciences</option>
+  <option value="Social Sciences">Social Sciences</option>
+</select>
+
+<select class="form-control" id="subcats">
+</select>
+
+    <p>Click on the table headers to sort.</p>
+    <table>
+        <thead class="head">
+          <tr>
+            <th><button class="sort" data-sort="name">Name</button></th>
+            <th><button class="sort" data-sort="departments">Department</button></th>
+            <th class="no-sort" align="center">Description</th>
+            <th><button class="sort" data-sort="website">Website</button></th>
+          </tr>
+        </thead>
+        <!-- IMPORTANT, class="list" have to be at tbody -->
+        <tbody class="list">
+        	<tr id="database">
+        		<td class="pi_name">
+              <p class="name"></p>
+              <p a href="#" class="email"></p>
+            </td>
+        		<td class="departments"></td>
+        		<td class="description"></td>
+        		<td><a href="#" class="website"></a></td>
+      		</tr>
+        </tbody>
+    </table>
+
+  </div>
+  <!-- DB end -->
+
+<script src="assets/js/listscript.js"></script>
+
+</body>
+</html>
