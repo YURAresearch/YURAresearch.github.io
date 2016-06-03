@@ -21,7 +21,8 @@
 
 
 <body>
-
+<!-- db start -->
+<div id="labs">
 <div class="page-wrapper">
     <div class="main">
         <div class="main-inner">
@@ -108,30 +109,34 @@
 
 <div class="cards-row" id="hr">
   <script id="hr-template" type="text/x-handlebars-template">
+    <ul class="list">
+      <li id='database'>
         <div class="card-row">
             <div class="card-row-inner">
                 <div class="card-row-body">
-                    <h2 class="card-row-title"><a href="listing-detail.html">{{cells.name}}</a></h2>
-                    <div class="card-row-content"><p>{{truncate cells.description}}</p></div><!-- /.card-row-content -->
+                    <h2 class="card-row-title"><a href="listing-detail.html" class="name">{{cells.name}}</a></h2>
+                    <div class="card-row-content"><p class="description">{{truncate cells.description}}</p></div><!-- /.card-row-content -->
                 </div><!-- /.card-row-body -->
 
                 <div class="card-row-properties">
                     <dl>
 
-                            <dd>Department</dd><dt>{{cells.departments}}</dt>
+                            <dd>Dept:</dd><dt class="departments">{{cells.departments}}</dt>
 
 
 
-                            <dd>Email</dd><dt><a href="#">{{cells.email}}</a></dt>
+                            <dd></dd><dt class="email"><a href="#">{{cells.email}}</a></dt>
 
 
 
-                            <dd>Website</dd><dt><a href="#">{{cells.website }}</a></dt>
+                            <dd></dd><dt class="website"><a href="#">{{cells.website}}</a></dt>
 
                     </dl>
                 </div><!-- /.card-row-properties -->
             </div><!-- /.card-row-inner -->
         </div><!-- /.card-row -->
+      </li>
+    </ul>
       </script>
     </div>
   </div>
@@ -151,7 +156,7 @@
         </div><!-- /.main-inner -->
     </div><!-- /.main -->
 </div><!-- /.page-wrapper -->
-
+</div> <!-- db end -->
 <script src="assets/js/jquery.js" type="text/javascript"></script>
 <script src="assets/js/map.js" type="text/javascript"></script>
 
@@ -185,6 +190,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sheetrock/1.0.1/dist/sheetrock.min.js"></script>
 
 <script src="assets/js/handlebars.js"></script>
+<script src="assets/js/list.js"></script>
 
 <script src="assets/js/listscript.js"></script>
 <script src="assets/js/departments.js"></script>
