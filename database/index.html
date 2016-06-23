@@ -13,6 +13,7 @@
     <link href="assets/libraries/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" type="text/css">
     <link href="assets/libraries/bootstrap-fileinput/fileinput.min.css" rel="stylesheet" type="text/css">
     <link href="assets/css/superlist.css" rel="stylesheet" type="text/css" >
+    <link href="assets/css/custom.css" rel="stylesheet" type="text/css" >
     <link rel="shortcut icon" type="image/x-icon" href="assets/favicon.png">
 
     <title>YURA Research Database</title>
@@ -20,142 +21,142 @@
 
 
 <body>
-
+<!-- db start -->
+<div id="labs">
 <div class="page-wrapper">
-
     <div class="main">
         <div class="main-inner">
-            <div class="content">
-                <div class="mt-150">
-    <div class="hero-image">
-    <div class="hero-image-inner" style="background-image: url('assets/img/tmp/slider-large-3.jpg');">
-        <div class="hero-image-content">
             <div class="container">
-                <h1>YURA Research Database</h1>
+                <div class="content">
+                  <!--
+    <div class="document-title">
+        <h1>Research Listings</h1>
 
-                <p>Find research labs and groups at Yale quickly and easily<br> Get Started Today!</p>
+        <ul class="breadcrumb">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">Listings</a></li>
+        </ul>
+    </div> /.document-title -->
 
-                <a href="listing-row.html" class="btn btn-primary btn-lg">View Listings</a>
-                <!--<a href="listing-submit.html" class="btn btn-secondary btn-lg">Submit</a> -->
+
+
+  <form class="filter" method="post" action="?">
+    <div class="row">
+        <div class="col-sm-12 col-md-4">
+            <div class="form-group">
+                <input type="text" placeholder="Keyword" class="form-control">
+            </div><!-- /.form-group -->
+        </div><!-- /.col-* -->
+
+        <div class="col-sm-12 col-md-4">
+            <div class="form-group">
+              <select class="form-control" id="categories" name="Selecting Category">
+                <option selected="selected" value="">Select category...</option>
+                <option value="Biological Sciences">Biological Sciences</option>
+                <option value="Engineering">Engineering</option>
+                <option value="Health and Medicine">Health and Medicine</option>
+                <option value="Humanities">Humanities</option>
+                <option value="Physical Sciences">Physical Sciences</option>
+                <option value="Social Sciences">Social Sciences</option>
+              </select>
+            </div><!-- /.form-group -->
+        </div><!-- /.col-* -->
+
+        <div class="col-sm-12 col-md-4">
+            <div class="form-group">
+                <select class="form-control" id="subcats" title="Select Category">
+                </select>
+            </div><!-- /.form-group -->
+        </div><!-- /.col-* -->
+    </div><!-- /.row -->
+
+    <hr>
+
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="filter-actions">
+                <a href="#"><i class="fa fa-close"></i> Reset Filter</a>
+                <!-- a href="#"><i class="fa fa-save"></i> Save Search</a> -->
+            </div><!-- /.filter-actions -->
+        </div><!-- /.col-* -->
+
+        <div class="col-sm-4">
+            <button type="submit" class="btn btn-primary">Update Search Result</button>
+        </div><!-- /.col-* -->
+    </div><!-- /.row -->
+</form>
+
+
+<h2 class="page-title">
+    <span id="numberofresults"> </span> results matching your query
+
+    <form method="get" action="?" class="filter-sort">
+        <div class="form-group">
+            <select class="form-control" title="Sort by">
+                <option name="name">Name</option>
+                <option name="department">Department</option>
+            </select>
+        </div><!-- /.form-group -->
+
+        <div class="form-group">
+            <select class="form-control" title="Order">
+                <option name="ASC">Asc</option>
+                <option name="DESC">Desc</option>
+            </select>
+        </div><!-- /.form-group -->
+    </form>
+</h2><!-- /.page-title -->
+
+<div class="cards-row" id="hr">
+  <script id="hr-template" type="text/x-handlebars-template">
+    <ul class="list">
+      <li id='database'>
+        <div class="card-row">
+            <div class="card-row-inner">
+                <div class="card-row-body">
+                    <h2 class="card-row-title"><a href="listing-detail.html" class="name">{{cells.name}}</a></h2>
+                    <div class="card-row-content"><p class="description">{{truncate cells.description}}</p></div><!-- /.card-row-content -->
+                </div><!-- /.card-row-body -->
+
+                <div class="card-row-properties">
+                    <dl>
+
+                            <dd>Department</dd><dt class="departments">{{cells.departments}}</dt>
+
+
+
+                            <dd>Email</dd><dt class="email"><a href="#">{{cells.email}}</a></dt>
+
+
+
+                            <dd>Website</dd><dt class="website"><a href="#">{{cells.website}}</a></dt>
+
+                    </dl>
+                </div><!-- /.card-row-properties -->
+            </div><!-- /.card-row-inner -->
+        </div><!-- /.card-row -->
+      </li>
+    </ul>
+      </script>
+    </div>
+  </div>
+<div class="pager">
+    <ul>
+        <li><a href="#">Prev</a></li>
+        <li><a href="#">5</a></li>
+        <li class="active"><a>6</a></li>
+        <li><a href="#">7</a></li>
+        <li><a href="#">Next</a></li>
+    </ul>
+</div><!-- /.pagination -->
+
+
+                </div><!-- /.content -->
             </div><!-- /.container -->
-        </div><!-- /.hero-image-content -->
-
-        <div class="hero-image-form-wrapper">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-4 col-sm-offset-8 col-lg-4 col-lg-offset-7">
-                        <form method="get" action="?">
-                            <h2>Start Searching</h2>
-
-                            <div class="hero-image-keyword form-group">
-                                <input type="text" class="form-control" placeholder="Keyword">
-                            </div><!-- /.form-group -->
-
-                            <div class="hero-image-location form-group">
-                                <select class="form-control" title="Location">
-                                    <option>Bronx</option>
-                                    <option>Brooklyn</option>
-                                    <option>Manhattan</option>
-                                    <option>Staten Island</option>
-                                    <option>Queens</option>
-                                </select>
-                            </div><!-- /.form-group -->
-
-                            <div class="hero-image-category form-group">
-                                <select class="form-control" title="Category">
-                                    <option value="">Automotive</option>
-                                    <option value="">Jobs</option>
-                                    <option value="">Nightlife</option>
-                                    <option value="">Services</option>
-                                </select>
-                            </div><!-- /.form-group -->
-
-                            <div class="hero-image-price form-group">
-                                <input type="text" class="form-control" placeholder="Min. Price">
-                            </div><!-- /.form-group -->
-
-                            <button type="submit" class="btn btn-primary btn-block">Search</button>
-                        </form>
-                    </div><!-- /.col-* -->
-                </div><!-- /.row -->
-            </div><!-- /.container -->
-        </div><!-- /.hero-image-form-wrapper -->
-    </div><!-- /.hero-image-inner -->
-</div><!-- /.hero-image -->
-
-</div>
-
-<div class="container">
-    <div class="block background-black-light fullwidth">
-        <div class="row">
-    <div class="col-sm-4">
-        <div class="box">
-            <div class="box-icon">
-                <i class="fa fa-life-ring"></i>
-            </div><!-- /.box-icon -->
-
-            <div class="box-content">
-                <h2>E-mail Support</h2>
-                <p>We are always here to answer all your questions. Feel free to contact us.</p>
-
-                <a href="#">Read More <i class="fa fa-chevron-right"></i></a>
-            </div><!-- /.box-content -->
-        </div>
-    </div><!-- /.col-sm-4 -->
-
-    <div class="col-sm-4">
-        <div class="box">
-            <div class="box-icon">
-                <i class="fa fa-flask"></i>
-            </div><!-- /.box-icon -->
-
-            <div class="box-content">
-                <h2>Always Improving</h2>
-                <p>Our dedicated team of developers are implementing awesome features.</p>
-
-                <a href="#">Read More <i class="fa fa-chevron-right"></i></a>
-            </div><!-- /.box-content -->
-        </div>
-    </div><!-- /.col-sm-4 -->
-
-    <div class="col-sm-4">
-        <div class="box">
-            <div class="box-icon">
-                <i class="fa fa-thumbs-o-up"></i>
-            </div><!-- /.box-icon -->
-
-            <div class="box-content">
-                <h2>Best Quality</h2>
-                <p>We list only verifiend places and events to provide best content.</p>
-
-                <a href="#">Read More <i class="fa fa-chevron-right"></i></a>
-            </div><!-- /.box-content -->
-        </div>
-    </div><!-- /.col-sm-4 -->
-</div><!-- /.row -->
-    <div class="block background-secondary fullwidth mt80 mb-80 pt60 pb60">
-        <div class="row">
-    <div class="col-sm-12">
-        <div class="contact-info-wrapper">
-            <h2>Do You Have Any Questions?</h2>
-
-            <div class="contact-info">
-                <span class="contact-info-item">
-                    <a href="mailto:yura@yale.edu"><i class="fa fa-at"></i></a>
-                    <span> yura@yale.edu</span>
-                </span><!-- /.contact-info-item -->
-
-                <span class="contact-info-item">
-                    <i class="fa fa-link"></i>
-                    <span>yura.yale.edu</span>
-                </span><!-- /.contact-info-item -->
-            </div><!-- /.contact-info-->
-        </div><!-- /.contact-info-wrapper -->
-    </div><!-- /.col-* -->
-</div><!-- /.row -->
-
-</div>
-
+        </div><!-- /.main-inner -->
+    </div><!-- /.main -->
+</div><!-- /.page-wrapper -->
+</div> <!-- db end -->
 <script src="assets/js/jquery.js" type="text/javascript"></script>
 <script src="assets/js/map.js" type="text/javascript"></script>
 
@@ -185,11 +186,15 @@
 
 <script src="assets/js/superlist.js" type="text/javascript"></script>
 
-<script src="assets/js/sheetrock.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sheetrock/1.0.1/dist/sheetrock.min.js"></script>
 
 <script src="assets/js/handlebars.js"></script>
+<script src="assets/js/list.js"></script>
+
+<script src="assets/js/listscript.js"></script>
+<script src="assets/js/departments.js"></script>
 
 <script src="assets/js/bootstrap.min.js"></script>
-
 </body>
 </html>
