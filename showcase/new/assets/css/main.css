@@ -1581,7 +1581,6 @@
 		transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out, background-color 0.2s ease-in-out;
 		color: #3fb1a3;
 		text-decoration: none;
-		border-bottom: dotted 1px;
 	}
 
 		a:hover {
@@ -2461,6 +2460,10 @@
 					text-decoration: none;
 				}
 
+				#banner .inner p a:hover {
+					color: #2980B9;
+				}
+
 			#banner .inner footer {
 				margin: 2em 0 0 0;
 			}
@@ -2513,12 +2516,24 @@
 			margin-bottom: 2em;
 		}
 
+		#cta .button.special {
+			background: #fff;
+			border-color: #fff;
+			color: #703030 !important;
+		}
+
+		#cta .button.special:hover {
+				border-color: inherit !important;
+				color: #fff !important;
+			}
+
+
 /* Footer */
 
 	#footer {
 		background: #E8EEF4;
 		color: #7c8081;
-		padding: 5em 5em 10em 5em;
+		padding: 5em 5em 5em 5em;
 		text-align: center;
 	}
 
