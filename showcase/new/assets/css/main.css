@@ -2106,11 +2106,19 @@
 		}
 
 		.wrapper.style2 {
-			background-color: #0f4d92;
+			color: #fff;
+		}
+
+		#presenter {
 			background-image: url("../../images/presenter.jpg");
 			background-position: bottom left, bottom right;
 			background-repeat: no-repeat, no-repeat;
-			color: #fff;
+		}
+
+		#keynote {
+			background-color: #7E827A;
+			background-position: bottom left, bottom right;
+			background-repeat: no-repeat, no-repeat;
 		}
 
 			.wrapper.style2 .button:hover {
