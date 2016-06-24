@@ -1579,7 +1579,7 @@
 		-webkit-transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out, background-color 0.2s ease-in-out;
 		-ms-transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out, background-color 0.2s ease-in-out;
 		transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out, background-color 0.2s ease-in-out;
-		color: #3fb1a3;
+		color: #0f4d92;
 		text-decoration: none;
 	}
 
@@ -2115,7 +2115,7 @@
 		}
 
 		#keynote {
-			background-color: #7E827A;
+			background-image: url("../../images/ls.jpg");
 			background-position: bottom left, bottom right;
 			background-repeat: no-repeat, no-repeat;
 		}
@@ -2441,7 +2441,7 @@
 					border-top: solid 2px;
 					font-size: 2.5em;
 					font-weight: 900;
-					letter-spacing: 0.2em;
+					letter-spacing: 0.05em;
 					margin: 0;
 					padding-left: 0.05em;
 					position: relative;
@@ -2537,6 +2537,10 @@
 		padding: 5em 5em 5em 5em;
 		text-align: center;
 	}
+
+		#footer .media {
+     color: #0f4d92 !important;
+		}
 
 		#footer .copyright {
 			font-size: 0.8em;
