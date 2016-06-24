@@ -2073,7 +2073,7 @@
 			input[type="submit"].special:hover,
 			input[type="reset"].special:hover,
 			.button.special:hover {
-				background: #96dad1 !important;
+				background: #96dad1;
 				border-color: #96dad1 !important;
 			}
 
@@ -2523,6 +2523,7 @@
 		}
 
 		#cta .button.special:hover {
+				background: #b55757;
 				border-color: inherit !important;
 				color: #fff !important;
 			}
