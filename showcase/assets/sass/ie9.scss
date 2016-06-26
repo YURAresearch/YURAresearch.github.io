@@ -4,16 +4,15 @@
 @import 'libs/skel';
 
 /*
-	Eventually by HTML5 UP
-	html5up.net | @n33co
+	Twenty by HTML5 UP
+	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
-/* Signup Form */
+/* Banner */
 
-	#signup-form {
-		> * {
-			display: inline-block;
-			vertical-align: top;
+	#banner {
+		.inner {
+			opacity: 1.0;
 		}
 	}

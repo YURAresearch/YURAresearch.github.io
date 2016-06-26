@@ -1,27 +1,37 @@
 /*
-	Eventually by HTML5 UP
-	html5up.net | @n33co
+	Twenty by HTML5 UP
+	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
-/* BG */
+/* Section/Article */
 
-	#bg {
-		-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=25)";
+	section > .last-child, section.last-child,
+	article > .last-child,
+	article.last-child {
+		margin-bottom: 0;
 	}
 
-/* Type */
+/* Banner */
 
-	body, input, select, textarea {
-		color: #fff;
+	#banner {
+		background-image: url("../../images/banner.jpg");
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: auto;
+		-ms-behavior: url("assets/js/ie/backgroundsize.min.htc");
 	}
 
-/* Form */
+		#banner .inner {
+			background: #341b2b;
+		}
 
-	input[type="text"],
-	input[type="password"],
-	input[type="email"],
-	select,
-	textarea {
-		border: solid 2px #fff;
+/* CTA */
+
+	#cta {
+		background-image: url("../../images/banner.jpg");
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: auto;
+		-ms-behavior: url("assets/js/ie/backgroundsize.min.htc");
 	}
