@@ -31,9 +31,6 @@ var updateResults = function(error, options, response) {
       $( this ).attr("href", $( this ).text());
     });
 
-
-    // hide loading spinner
-    $("#loading_spinner").hide();
 }
 
 var params = {

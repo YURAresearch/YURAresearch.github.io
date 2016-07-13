@@ -40,11 +40,13 @@
 
 
 
-  <form class="filter" method="post" action="?">
+  <div class="filter">
     <div class="row">
         <div class="col-sm-12 col-md-4">
             <div class="form-group">
-                <input type="text" placeholder="Keyword" class="form-control">
+              <div class="form-control">
+                <input placeholder="Keyword" class="search" id="searchbox">
+              </div>
             </div><!-- /.form-group -->
         </div><!-- /.col-* -->
 
@@ -75,61 +77,48 @@
     <div class="row">
         <div class="col-sm-8">
             <div class="filter-actions">
-                <a href="#"><i class="fa fa-close"></i> Reset Filter</a>
+                <a id="reset-button-id"><i class="fa fa-close"></i> Reset Filter</a>
                 <!-- a href="#"><i class="fa fa-save"></i> Save Search</a> -->
             </div><!-- /.filter-actions -->
         </div><!-- /.col-* -->
 
         <div class="col-sm-4">
-            <button type="submit" class="btn btn-primary">Update Search Result</button>
+          <button class="sort" data-sort="name">Sort by Name</button>
+          <button class="sort" data-sort="departments">Sort by Dept</button>
         </div><!-- /.col-* -->
     </div><!-- /.row -->
-</form>
+</div>
 
-
+<!--
 <h2 class="page-title">
     <span id="numberofresults"> </span> results matching your query
+-->
 
-    <form method="get" action="?" class="filter-sort">
-        <div class="form-group">
-            <select class="form-control" title="Sort by">
-                <option name="name">Name</option>
-                <option name="department">Department</option>
-            </select>
-        </div><!-- /.form-group -->
 
-        <div class="form-group">
-            <select class="form-control" title="Order">
-                <option name="ASC">Asc</option>
-                <option name="DESC">Desc</option>
-            </select>
-        </div><!-- /.form-group -->
-    </form>
 </h2><!-- /.page-title -->
 
 <div class="cards-row" id="hr">
-  <script id="hr-template" type="text/x-handlebars-template">
-    <ul class="list">
+    <ul class="list" id="list">
       <li id='database'>
         <div class="card-row">
             <div class="card-row-inner">
                 <div class="card-row-body">
-                    <h2 class="card-row-title"><a href="listing-detail.html" class="name">{{cells.name}}</a></h2>
-                    <div class="card-row-content"><p class="description">{{truncate cells.description}}</p></div><!-- /.card-row-content -->
+                    <h2 class="card-row-title"><a href="listing-detail.html" class="name"></a></h2>
+                    <div class="card-row-content"><p class="description"></p></div><!-- /.card-row-content -->
                 </div><!-- /.card-row-body -->
 
                 <div class="card-row-properties">
                     <dl>
 
-                            <dd>Department</dd><dt class="departments">{{cells.departments}}</dt>
+                            <dd>Department</dd><dt class="departments"></dt>
 
 
 
-                            <dd>Email</dd><dt class="email"><a href="#">{{cells.email}}</a></dt>
+                            <dd>Email</dd><dt class="email"><a href="#"></a></dt>
 
 
 
-                            <dd>Website</dd><dt class="website"><a href="#">{{cells.website}}</a></dt>
+                            <dd>Website</dd><dt  a href="#" class="website"><a href="#"></a></dt>
 
                     </dl>
                 </div><!-- /.card-row-properties -->
@@ -137,16 +126,10 @@
         </div><!-- /.card-row -->
       </li>
     </ul>
-      </script>
     </div>
   </div>
 <div class="pager">
-    <ul>
-        <li><a href="#">Prev</a></li>
-        <li><a href="#">5</a></li>
-        <li class="active"><a>6</a></li>
-        <li><a href="#">7</a></li>
-        <li><a href="#">Next</a></li>
+    <ul class="pagination">
     </ul>
 </div><!-- /.pagination -->
 
@@ -191,8 +174,9 @@
 
 <script src="assets/js/handlebars.js"></script>
 <script src="assets/js/list.js"></script>
+<script src="http://listjs.com/no-cdn/list.pagination.js"></script>
 
-<script src="assets/js/listscript.js"></script>
+<script src="assets/js/test.js"></script>
 <script src="assets/js/departments.js"></script>
 
 <script src="assets/js/bootstrap.min.js"></script>

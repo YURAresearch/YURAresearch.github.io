@@ -2,12 +2,11 @@
 var mySpreadsheet = 'https://docs.google.com/spreadsheets/d/1OQNHBcDIUSI8Scz_WdXAuRk8ikWJ9trtBt3-cuvid2E/edit#gid=0';
 
 var options = {
-  valueNames: [ 'name', 'description', 'departments', 'email','website' ],
+  valueNames: [ 'name', 'description', 'departments', 'email', 'website' ],
   page: 1000,
   item:'database'
 };
 
-var labsList = new List('list', options);
 
 var updateResults = function(error, options, response) {
     console.log("Errors:", error);
