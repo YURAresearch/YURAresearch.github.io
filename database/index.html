@@ -44,8 +44,8 @@
     <div class="row">
         <div class="col-sm-12 col-md-4">
             <div class="form-group">
-              <div class="form-control">
-                <input placeholder="Keyword" class="search" id="searchbox">
+              <div class="search">
+                <input placeholder="Keyword" class="form-control" id="searchbox">
               </div>
             </div><!-- /.form-group -->
         </div><!-- /.col-* -->
@@ -97,8 +97,9 @@
 
 </h2><!-- /.page-title -->
 
-<div class="cards-row" id="hr">
-    <ul class="list" id="list">
+<div id="hr">
+  <ul class="list" id="list">
+    <div class="cards-row" id="test">
       <li id='database'>
         <div class="card-row">
             <div class="card-row-inner">
@@ -112,22 +113,18 @@
 
                             <dd>Department</dd><dt class="departments"></dt>
 
+                            <dd>Email</dd><dt class="email"></dt>
 
-
-                            <dd>Email</dd><dt class="email"><a href="#"></a></dt>
-
-
-
-                            <dd>Website</dd><dt  a href="#" class="website"><a href="#"></a></dt>
+                            <dd>Website</dd><dt><span id="urls" class="website"></span></dt>
 
                     </dl>
                 </div><!-- /.card-row-properties -->
             </div><!-- /.card-row-inner -->
         </div><!-- /.card-row -->
       </li>
-    </ul>
     </div>
-  </div>
+  </ul>
+    </div>
 <div class="pager">
     <ul class="pagination">
     </ul>
@@ -176,6 +173,8 @@
 <script src="assets/js/list.js"></script>
 <script src="http://listjs.com/no-cdn/list.pagination.js"></script>
 
+<script src="assets/js/linkify-jquery.min.js"></script>
+<script src="assets/js/linkify.min.js"></script>
 <script src="assets/js/test.js"></script>
 <script src="assets/js/departments.js"></script>
 

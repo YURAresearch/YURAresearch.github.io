@@ -27,15 +27,7 @@ var updateResults = function(error, options, response) {
     console.log("Total number of labs:", data.length);
     labsList.add(data);
 
-    // hide loading spinner
-    $("#loading_spinner").hide();
 }
-
-
-$('#reset-button-id').click(function() {
-   $('#searchbox').val('');
-   labsList.search();
-});
 
 var params = {
   url: 'https://docs.google.com/spreadsheets/d/1OQNHBcDIUSI8Scz_WdXAuRk8ikWJ9trtBt3-cuvid2E/edit#gid=0',
@@ -45,8 +37,6 @@ var params = {
 };
 
 sheetrock(params);
-
-
 
 /***********
  * Filtering
@@ -68,4 +58,13 @@ $('#categories').change(function () {
   } else {
   labsList.filter();
   }
+});
+
+$('#reset-button-id').click(function() {
+   $('#searchbox').val('');
+   $('#categories').val('');
+   $('#subcats').val('');
+   $("#subcats").html('');
+   labsList.search();
+   labsList.filter();
 });

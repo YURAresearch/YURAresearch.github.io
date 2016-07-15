@@ -27,9 +27,7 @@ var updateResults = function(error, options, response) {
     labsList.add(data);
 
     // make website links clickable
-    $("a.website").each( function() {
-      $( this ).attr("href", $( this ).text());
-    });
+
 
 }
 
