@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>YURS 2015</title>
+	<link rel="stylesheet" href="jquery.mobile-1.4.5.min.css">
+	<script src="jquery.js"></script>
+	<script src="jquery.mobile-1.4.5.min.js"></script>
+  <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+	<script src="AppLogic.js"></script>
+
+	<style>
+		tr {
+    	border-bottom: 1px solid #d6d6d6;
+		}
+	</style>
+
+	<style>
+		table, td {
+    		border: 1px solid black;
+		}
+	</style>
+
+	<style type="text/css" media="print">
+  		@page { size: landscape; }
+	</style>
+
+</head>
+
+<body>
+
+<!-- Start of first page: #one -->
+<div data-role="page" id="one">
+
+	<div data-role="header">
+		<h1><img src="images/logo.png" style="width: 100%;"></h1>
+  </div><!-- /header -->
+
+	<div role="main" class="ui-content">
+
+			<div class="ui-grid-a ui-responsive">
+				<div class="ui-block-a"><a href="#two" class="ui-btn ui-shadow ui-corner-all" data-transition="slide">Project Abstracts</a></div>
+				<div class="ui-block-b"><a href="#three" class="ui-btn ui-shadow ui-corner-all" data-transition="slide">Plenary Speakers</a></div>
+		</div>
+		<div class="ui-grid-a ui-responsive">
+				<div class="ui-block-a"><a href="#four" class="ui-btn ui-shadow ui-corner-all" data-transition="slide">Schedule of Events</a></div>
+				<div class="ui-block-b"><a href="#five" class="ui-btn ui-shadow ui-corner-all" data-transition="slide">About Us</a></div>
+		</div>
+	</div><!-- /content -->
+
+	<div data-role="footer" data-theme="a">
+		<h4>&copy; Yale Undergraduate Research Association 2015</h4>
+	</div><!-- /footer -->
+</div><!-- /page one -->
+
+<!-- Start of second page: #two -->
+<div data-role="page" id="two" data-theme="a">
+
+	<div data-role="header">
+		<a href="#one" data-direction="reverse" data-transition="slide"  data-icon="home">Main Menu</a>
+		<h1>Project Abstracts</h1>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content">
+		<h2>Project Abstracts</h2>
+
+
+		<!-- Nishant DataBase Code-->
+		<code></code>
+		<legend>Scroll down to view projects or use the search functionality to filter. Landscape orientation may be more suitable for some devices.</legend><br>
+
+		Search Query: <input id="textField" type="text" name="fname" onkeydown="if (event.which == 13 || event.keyCode == 13) document.getElementById('search').click()">
+
+		<br>
+
+			<fieldset data-role="controlgroup">
+			<legend>Choose a search option:</legend>
+
+				<input type="radio" name="radio-choice" id="radio-choice-2" value="choice-2"  checked="checked"/>
+     			<label for="radio-choice-2">Field</label>
+
+     			<input type="radio" name="radio-choice" id="radio-choice-1" value="choice-1"/>
+     			<label for="radio-choice-1">Name</label>
+
+     			<input type="radio" name="radio-choice" id="radio-choice-3" value="choice-3"  />
+     			<label for="radio-choice-3">Project Title</label>
+
+     			
+			</fieldset><br>
+
+
+  			<!-- Last name: <input type="text" name="lname"><br> -->
+  			<!-- <input type="submit" value="Submit"> -->
+
+		<button id="search" onclick="SearchPageLogic()">Filter</button>
+		<button id="clear" onclick="ClearFilter()">Clear</button>
+
+		<br>
+
+
+		<table id="myTable" align="center" width="100%">
+  			<tr>
+    			<td>Field</td>
+    			<td>Name</td>
+    			<td>Project Title</td>
+  			</tr>
+		</table>
+
+
+
+	</div><!-- /content -->
+
+	<div data-role="footer">
+		<h4>&copy; Yale Undergraduate Research Association 2015</h4>
+	</div><!-- /footer -->
+</div><!-- /page two -->
+
+
+
+
+<!-- Start of second page: #three -->
+<div data-role="page" id="three" data-theme="a">
+
+	<div data-role="header">
+		<a href="#one" data-direction="reverse" data-transition="slide"  data-icon="home">Main Menu</a>
+		<h1>Plenary Speakers</h1>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content">
+		<h2>Plenary Speakers</h2>
+		<table id="plenaryTable" align="center" width="100%">
+  			<tr>
+    			<td>Field</td>
+    			<td>Name</td>
+    			<td>Project Title</td>
+  			</tr>
+		</table>
+
+	</div><!-- /content -->
+
+	<div data-role="footer">
+		<h4>&copy; Yale Undergraduate Research Association 2015</h4>
+	</div><!-- /footer -->
+</div><!-- /page three -->
+
+<!-- Start of second page: #four -->
+<div data-role="page" id="four" data-theme="a">
+
+	<div data-role="header">
+		<a href="#one" data-direction="reverse" data-transition="slide"  data-icon="home">Main Menu</a>
+		<h1>Schedule of Events</h1>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content">
+		<ul data-role="listview" data-inset="true">
+		<h2> Schedule of Events </h2>
+    <li><h2>Registration</h2><p><strong>9:00 AM to 10:00 AM</strong></p><p><strong>LC Foyer</strong></p></li>
+    <li><h2>Opening Keynote</h2><p><strong>10:00 AM to 11:00 AM</strong></p><p><strong>LC 102</strong></p></li>
+	  <li><h2>Poster Session I</h2><p><strong>11:00 AM – 12:00 PM</strong></p></li>
+	  <li><h2>Lunch</h2><p><strong>12:00 PM to 1:00 PM</strong></p></li>
+	  <li><h2>Poster Session II</h2><p><strong>1:00 PM to 2:00 PM</strong></p></li>
+	  <li><h2>Plenary Speakers</h2><p><strong>2:00 PM to 2:45</strong></p><p><strong>LC 101 and 102</strong></p></li>
+		<li><h2>Awards and Closing Remarks</h2><p><strong>2:45 PM to 3:30 PM</strong></p><p><strong>LC 102</strong></p></li>
+	</ul>
+	</div><!-- /content -->
+
+	<div data-role="footer">
+		<h4>&copy; Yale Undergraduate Research Association 2015</h4>
+	</div><!-- /footer -->
+</div><!-- /page four -->
+
+<!-- Start of second page: #five -->
+<div data-role="page" id="five" data-theme="a">
+
+	<div data-role="header">
+		<a href="#one" data-direction="reverse" data-transition="slide"  data-icon="home">Main Menu</a>
+		<h1>About Us</h1>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content">
+		<h2> Organizing Committee </h2>
+		<p>This conference was organized by Juli Coraor, Suryabrata Dutta, Nishant Jain, Daniel Lee, and Jingjing Xiao, who are all members of the founding board of the Yale Undergraduate Research Association (YURA). Visit our website to learn more at <a href="http://yura.yale.edu">yura.yale.edu</a>.</p>
+		<h2> About YURS 2015 </h2>
+		<p>The <strong> Yale Undergraduate Research Symposium (YURS) </strong> is more than just a research conference. It is a discourse between and among the undergraduates of Yale and the rest of the Yale community, encouraging students to pursue their passions for research and facilitate the communication of ideas across all disciplines.</p>
+		<p>The <strong> Yale Undergraduate Research Association (YURA)</strong>, as one of our founding missions, believes that a strong research community is paramount to enable the undergraduates at Yale to positively influence the world of research, both in the present and in their future careers. The skills and passions they learn now in the lab and in their studies will translate to the rest of their lives as they leave Yale and continue onto graduate school, medical school, industry, and beyond, culminating in the pursuit of their own research interests independently as principal investigators. It is our hope that by fostering such a strong research community among the Yale undergraduates, YURA will promote the inspiration and connections necessary to strengthen these ties to research, and ultimately influence students to continue in research and contribute to the pursuit of knowledge.</p>
+		<p>YURS furthers this goal by giving a voice to the undergraduates who conduct research at Yale. We promote the growth of our community uniquely through interdisciplinary communication. Our symposium exposes students to all methods of problem solving each discipline has to offer, from anthropology to political science to mathematics. Yale prides itself on its liberal arts, and YURS highlights this strength by illustrating that sharing concepts between the sciences, humanities, and social sciences fosters more impactful communication of ideas than connections solely within one discipline, broadening the minds of each researcher and inspiring creativity and innovation.</p>
+		<p>Through a day-long conference, students are able to present their research through posters and presentations. Their participation in inspiring each other’s research through questioning and active discussions will be critical to the advancement of our community, sparking conversations to give rise to new ideas - ideas which may in turn inspire the research of others. As we grow, we will empower our abilities, and our identity as pursuers of knowledge and truth. Together, as part of this conference and as a community, our possibilities are limitless.</p>
+		<p>Conference web application developed by Nishant Jain and Suryabrata Dutta.</p>
+	</div><!-- /content -->
+
+	<div data-role="footer">
+		<h4>&copy; Yale Undergraduate Research Association 2015</h4>
+	</div><!-- /footer -->
+</div><!-- /page four -->
+
+
+<!-- Start of sixth page (view abstracts): #six -->
+<div data-role="page" id="six" data-theme="a">
+
+	<div data-role="header">
+		<a href="#two" data-direction="reverse" data-transition="slide"  data-icon="back">Back</a>
+		<h1>Project Abstracts</h1>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content">
+
+		<h2 id="ABSTitle">Project Title</h2>
+		<p id="ABSName">Name</p>
+		<p id="ABSMentor">Mentor</p>
+		<p id="ABSField"></p>
+		<!--<p id="ABSLab"></p>-->
+		<p id="ABSInst"></p>
+		<br>
+		<p id="ABSAbstract"></p>
+
+
+
+		 <!-- <p id="demo" onclick="myFunction()">Click me to change my text color.</p> -->
+
+
+
+
+
+	</div><!-- /content -->
+
+	<div data-role="footer">
+		<h4>&copy; Yale Undergraduate Research Association 2015</h4>
+	</div><!-- /footer -->
+</div><!-- /page six -->
+
+
+
+<!-- Start of seven page (view plenary speaker abstracts): #seven -->
+<div data-role="page" id="seven" data-theme="a">
+
+	<div data-role="header">
+		<a href="#three" data-direction="reverse" data-transition="slide"  data-icon="back">Back</a>
+		<h1>Plenary Speaker Abstracts</h1>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content">
+
+		<h2 id="ABSTitleP">Project Title</h2>
+		<p id="ABSNameP">Name</p>
+		<p id="ABSMentorP">Mentor</p>
+		<p id="ABSFieldP"></p>
+		<!--<p id="ABSLabP"></p>-->
+		<p id="ABSInstP"></p>
+		<br>
+		<p id="ABSAbstractP"></p>
+
+	</div><!-- /content -->
+
+	<div data-role="footer">
+		<h4>&copy; Yale Undergraduate Research Association 2015</h4>
+	</div><!-- /footer -->
+</div><!-- /page six -->
+
+
+
+</body>
+</html>
