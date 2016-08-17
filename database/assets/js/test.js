@@ -27,6 +27,9 @@ var updateResults = function(error, options, response) {
     console.log("Total number of labs:", data.length);
     labsList.add(data);
 
+    $('#truncate_me').each(function(){
+      $(this).truncate({lines: 2});
+    });
 }
 
 var params = {
@@ -64,7 +67,6 @@ $('#reset-button-id').click(function() {
    $('#searchbox').val('');
    $('#categories').val('');
    $('#subcats').val('');
-   $("#subcats").html('');
    labsList.search();
    labsList.filter();
 });
