@@ -7,6 +7,8 @@ var rowsP;
             //sets up the plenary speakers table
             $(document).ready(loadPlenarySpeakers);
 
+            $(document).ready(myAlert);
+
             /*
             $("#textField")
             function (event) {
@@ -22,8 +24,13 @@ var rowsP;
                     $("#id_of_button").click();
                 }
             });
+
             */
 
+            function myAlert()
+            {
+                alert("Please use this app in landscape mode for the best experience if you are on your mobile device.");
+            }
 
             //actually populates the table
             function loadPlenarySpeakers()
