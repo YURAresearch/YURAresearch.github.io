@@ -129,17 +129,21 @@ var rowsP;
                     var title = document.getElementById("ABSTitle");
                     var name = document.getElementById("ABSName");
                     var field = document.getElementById("ABSField");
-                    var mentor = document.getElementById("ABSMentor");
+                    var email = document.getElementById("ABSEmail");
+                    //var year = document.getElementById("ABSYear");
+
+
+                    //var mentor = document.getElementById("ABSMentor");
                     //var lab = document.getElementById("ABSLab");
-                    var inst = document.getElementById("ABSInst");
+                    //var inst = document.getElementById("ABSInst");
                     var abstract = document.getElementById("ABSAbstract");
 
-                    name.innerHTML = rows[i].Name;
+                    name.innerHTML = rows[i].Name + ", "+ rows[i].Year;
                     title.innerHTML = rows[i]['Project Title']; 
                     field.innerHTML = "Field: " + rows[i].Field;
-                    mentor.innerHTML = "Mentor: " + rows[i].Mentor;
+                    email.innerHTML = rows[i].Email;
                     //lab.innerHTML = rows[i].Laboratory;
-                    inst.innerHTML = rows[i]["Research Institution"];
+                    //year.innerHTML = "Year: " + rows[i].Year;
                     abstract.innerHTML = "Abstract:\n" + rows[i].Abstract;                     
                     console.log(i);
                 }
@@ -181,8 +185,12 @@ var rowsP;
                 newTableHeader("myTable");
 				var searchText = document.getElementById('textField').value;
     			//document.getElementById("demo").style.color = "red";
-    			var TableKey = "1p4tH2Y2FbFx5HbAp-20M4F6h-6Mjoi6V6GHVlEZc";
-    			var ApiKey = "AIzaSyARQKyU_0bhbxyqmiKVOzPXgXMKcIzOB5U";
+    			var TableKey ="1AYCsD0y3WahXYxs89ujeJyqfh6LFsfWB-jpzECVv";// "1p4tH2Y2FbFx5HbAp-20M4F6h-6Mjoi6V6GHVlEZc";
+
+    			var ApiKey = "AIzaSyB7Rs6aCgwbT9mfxtRar-hBbL3wI-IJgpY";//"AIzaSyARQKyU_0bhbxyqmiKVOzPXgXMKcIzOB5U";
+
+
+                 
                 var searchCategory = "Name";
 
                 //dealing with radio buttons
@@ -207,7 +215,7 @@ var rowsP;
 
                 //Code to process JSON results from xmlHttp
     			var obj = JSON.parse(xmlHttp.responseText);
-                console.log(obj);
+                //console.log(obj);
                 
                 //var obj = temp1;
                 var columns = obj.columns;
