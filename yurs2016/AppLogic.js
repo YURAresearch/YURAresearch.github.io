@@ -29,7 +29,7 @@ var rowsP;
             function loadPlenarySpeakers()
             {
                 clearTable("myTableMap");
-                newTableHeader("myTableMap");
+                newMapTableHeader("myTableMap");
                 var searchText = "";
                 //document.getElementById("demo").style.color = "red";
                 var TableKey ="1AYCsD0y3WahXYxs89ujeJyqfh6LFsfWB-jpzECVv";// "1p4tH2Y2FbFx5HbAp-20M4F6h-6Mjoi6V6GHVlEZc";
@@ -55,15 +55,15 @@ var rowsP;
                 
                 //var obj = temp1;
                 var columns = obj.columns;
-                rows = obj.rows;
-                if(rows == undefined)
+                rowsP = obj.rows;
+                if(rowsP == undefined)
                 {
                     return false;
                 }
-                for (var i = 0; i < rows.length; i++) {
-                    var row = rows[i];
+                for (var i = 0; i < rowsP.length; i++) {
+                    var row = rowsP[i];
                 }
-                rows = rows.map(function(row) {
+                rowsP = rowsP.map(function(row) {
                     var i = 0;
                     for (i = 0; i< columns.length; i++) {
                         key = columns[i];
@@ -76,7 +76,7 @@ var rowsP;
                 var table = document.getElementById("myTableMap");
 
                 i = 0;
-                for(i = 0; i < rows.length; i++) {
+                for(i = 0; i < rowsP.length; i++) {
 
                     // Create an empty <tr> element and add it to the 1st position of the table:
                     var newRow = table.insertRow();
@@ -88,15 +88,15 @@ var rowsP;
                     var cell3 = newRow.insertCell(3);
 
                     // Add some text to the new cells:
-                    cell0.innerHTML = rows[i].Num;
-                    cell1.innerHTML = rows[i].Field;
-                    cell2.innerHTML = rows[i].Name;
+                    cell0.innerHTML = rowsP[i].Num;
+                    cell1.innerHTML = rowsP[i].Field;
+                    cell2.innerHTML = rowsP[i].Name;
 
                     //creates a link which opens the next page
                     var link = document.createElement("a");
                     link.setAttribute("href", "#seven")
                     //link.className = "someCSSclass";
-                    var linkText = document.createTextNode(rows[i]['Project Title']);
+                    var linkText = document.createTextNode(rowsP[i]['Project Title']);
                     link.addEventListener("click", ViewPageLogicMap(i));
                     link.appendChild(linkText);
                     cell3.appendChild(link);
@@ -134,13 +134,13 @@ var rowsP;
                     //var inst = document.getElementById("ABSInst");
                     var abstract = document.getElementById("ABSAbstractM");
 
-                    name.innerHTML = rows[i].Name + ", "+ rows[i].Year;
-                    title.innerHTML = rows[i]['Project Title']; 
-                    field.innerHTML = "Field: " + rows[i].Field;
-                    email.innerHTML = rows[i].Email;
+                    name.innerHTML = rowsP[i].Name + ", "+ rowsP[i].Year;
+                    title.innerHTML = rowsP[i]['Project Title']; 
+                    field.innerHTML = "Field: " + rowsP[i].Field;
+                    email.innerHTML = rowsP[i].Email;
                     //lab.innerHTML = rows[i].Laboratory;
                     //year.innerHTML = "Year: " + rows[i].Year;
-                    abstract.innerHTML = "Abstract:\n" + rows[i].Abstract;                     
+                    abstract.innerHTML = "Abstract:\n" + rowsP[i].Abstract;                     
                     console.log(i);
                 }
             }
@@ -186,11 +186,9 @@ var rowsP;
             {
                 var table = document.getElementById(tableName);
                 var newRow = table.insertRow();
-                var cell0 = newRow.insertCell(0);
-                var cell1 = newRow.insertCell(1);
-                var cell2 = newRow.insertCell(2);
-                var cell3 = newRow.insertCell(3);
-                cell0.innerHTML = "#";
+                var cell1 = newRow.insertCell(0);
+                var cell2 = newRow.insertCell(1);
+                var cell3 = newRow.insertCell(2);
                 cell1.innerHTML = "Field";
                 cell2.innerHTML = "Name";
                 cell3.innerHTML = "Project Title";
@@ -206,7 +204,7 @@ var rowsP;
                 var cell1 = newRow.insertCell(1);
                 var cell2 = newRow.insertCell(2);
                 var cell3 = newRow.insertCell(3);
-                cell0.innerHTML = "Number";
+                cell0.innerHTML = "#";
                 cell1.innerHTML = "Field";
                 cell2.innerHTML = "Name";
                 cell3.innerHTML = "Project Title";
