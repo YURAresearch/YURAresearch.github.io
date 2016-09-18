@@ -94,6 +94,16 @@
     <div class="clear"><input type="submit" value="submit" name="subscribe" id="mc-embedded-subscribe" class="button btn btn-sm btn-outline-clr"></div>
     </div>
 	</fieldset>
+	<script type="text/javascript">
+$(function() {
+  $('mc-embedded-subscribe-form').submit(function(){
+    $.post('http://example.com/upload', function() {
+      window.location = 'http://google.com';
+    });
+    return false;
+  });
+});
+</script>
 </form>
 </div>
 
