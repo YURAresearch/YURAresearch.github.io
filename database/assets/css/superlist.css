@@ -1,4 +1,5 @@
 @charset "UTF-8";
+text-size-adjust: auto;
 /*------------------------------------------------------------------
 
 [Table of contents]
@@ -6390,7 +6391,7 @@ button.close {
   background-position: center center; }
 
 .background-black-light {
-  background-color: #444;
+  background-color: #314954;
   color: #fff; }
 
 .fullwidth {
@@ -7537,7 +7538,7 @@ ul.dropdown-menu li a {
     color: #fff; }
 
 .footer-top {
-  background-color: #444;
+  background-color: #415E6B;
   color: #fff;
   font-size: 13px;
   padding: 40px 0px; }
@@ -7554,7 +7555,7 @@ ul.dropdown-menu li a {
       margin: 50px 0px; } }
 
 .footer-bottom {
-  background-color: #363636;
+  background-color: #314954;
   color: #fff;
   font-size: 13px;
   padding: 35px 0px; }
@@ -8027,7 +8028,7 @@ h2.widgettitle {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  height: 550px;
+  height: 100vh;
   position: relative; }
   .hero-image-inner:after {
     background-color: rgba(0, 0, 0, 0.4);
