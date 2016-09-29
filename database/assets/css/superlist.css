@@ -8064,9 +8064,9 @@ h2.widgettitle {
       right: 0px !important;
       transform: none;
       top: 120px; } }
-  @media (max-width: 767px) {
-    .hero-image-content {
-      display: none; } }
+  @media (max-width: 572px) {
+        .hero-image-inner {
+          height:120vh; } }
 
 .hero-image-form-wrapper {
   bottom: 0px;
