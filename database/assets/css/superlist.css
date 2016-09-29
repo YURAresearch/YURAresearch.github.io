@@ -6761,8 +6761,8 @@ blockquote {
 
 .document-title {
   background-repeat: no-repeat;
-  background-image: url("../img/tmp/slider-large-3.jpg");
-  background-position: center center;
+  background-image: url("../img/background.jpg");
+  background-position: 50% calc(50% + 110px);
   margin: -80px -750px 80px -750px;
   padding: 70px 750px;
   position: relative; }
