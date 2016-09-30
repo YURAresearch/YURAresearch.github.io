@@ -33,7 +33,7 @@ var updateResults = function(error, options, response) {
 }
 
 var params = {
-  url: 'https://docs.google.com/spreadsheets/d/1OQNHBcDIUSI8Scz_WdXAuRk8ikWJ9trtBt3-cuvid2E/edit#gid=0',
+  url: 'https://docs.google.com/spreadsheets/d/1hJSYPwbuKZiVFaqV2a1yIEkjrjbZ_Mz9XM4xSK0j-WQ/edit#gid=806509658',
   query: "select *",
   callback: updateResults,
   reset: true
