@@ -1,16 +1,42 @@
-<html>
-<body>
-<p id="test"> www.google.com </p>
-<p id="linkify"> linkify </p>
-<script>
+<!DOCTYPE html>
+	<head>
+		<title>Selectize.js Demo</title>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/selectize.js"></script>
+    <script src="assets/js/index.js"></script>
+	</head>
+    <body>
+		<div>
+			<h1>Selectize.js</h1>
 
-// http://stackoverflow.com/questions/37684/how-to-replace-plain-urls-with-links
-$('#linkify').click(function() {
-   $('#test').linkify;
-});
+			<div>
+				<h2>Optgroups (basic)</h2>
+				<div>
+					<label for="select-gear">Gear:</label>
+					<select id="select-gear">
+						<option value="">Select gear...</option>
+						<optgroup label="Climbing">
+							<option value="pitons">Pitons</option>
+							<option value="cams">Cams</option>
+							<option value="nuts">Nuts</option>
+							<option value="bolts">Bolts</option>
+							<option value="stoppers">Stoppers</option>
+							<option value="sling">Sling</option>
+						</optgroup>
+						<optgroup label="Skiing">
+							<option value="skis">Skis</option>
+							<option value="skins">Skins</option>
+							<option value="poles">Poles</option>
+						</optgroup>
+					</select>
+				</div>
+				<script>
+				$('#select-gear').selectize({
+					sortField: 'text'
+				});
+				</script>
+			</div>
 
-</script>
-<script src="assets/js/linkify-jquery.min.js"></script>
-<script src="assets/js/linkify.min.js"></script>
-</body>
+		</div>
+	</body>
 </html>
