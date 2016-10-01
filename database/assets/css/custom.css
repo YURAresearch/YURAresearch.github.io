@@ -11,6 +11,11 @@ text-decoration: none;
 {
 	font-weight: 600;
 }
+#database
+{
+	/* Hide template*/
+	display:none;
+}
 /*.description
 {
 	overflow: hidden;

@@ -34,22 +34,25 @@ var labsList = new List('labs', options);
  ***************************************/
 
 var updateResults = function(error, options, response) {
-    console.log("Errors:", error);
+    if(error){
+      console.log("Errors:", error);
+    }
     var data = [];
-    for (var i=1; i<response["rows"].length; i++) {
+    var i;
+    for (i=1; i<response["rows"].length; i++) {
         response["rows"][i]["cells"]["web1"] = response["rows"][i]["cells"]["website"];
         response["rows"][i]["cells"]["web2"] = response["rows"][i]["cells"]["website"];
         response["rows"][i]["cells"]["email2"] = "mailto:" + response["rows"][i]["cells"]["email"];
         response["rows"][i]["cells"]["departments"] = breakItUp(response["rows"][i]["cells"]["departments"]);
         data.push(response["rows"][i]["cells"]);
     }
-    console.log("Total number of labs:", data.length);
+    console.log("Total number of entries:", i-1);
     labsList.add(data);
 }
 
 var params = {
   url: 'https://docs.google.com/spreadsheets/d/1hJSYPwbuKZiVFaqV2a1yIEkjrjbZ_Mz9XM4xSK0j-WQ/edit#gid=806509658',
-  query: "select *",
+  query: "select A,B,C,D,E",
   callback: updateResults,
   reset: true
 };
