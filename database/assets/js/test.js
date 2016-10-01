@@ -2,6 +2,12 @@
  * Initialize List
  *****************/
 
+// Break up multiple departments into separate lines for easier reading
+function breakItUp(depts) {
+  depts = depts.replace(/; /g, "<br/>");
+  return depts;
+}
+
 // valueNames: class names for the different values of each list item
 // page: how many items that should be visible at the same time. Default 200
 // item: ID of item template element
@@ -34,6 +40,7 @@ var updateResults = function(error, options, response) {
         response["rows"][i]["cells"]["web1"] = response["rows"][i]["cells"]["website"];
         response["rows"][i]["cells"]["web2"] = response["rows"][i]["cells"]["website"];
         response["rows"][i]["cells"]["email2"] = "mailto:" + response["rows"][i]["cells"]["email"];
+        response["rows"][i]["cells"]["departments"] = breakItUp(response["rows"][i]["cells"]["departments"]);
         data.push(response["rows"][i]["cells"]);
     }
     console.log("Total number of labs:", data.length);

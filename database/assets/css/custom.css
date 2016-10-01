@@ -3,3 +3,16 @@
     padding: 0;
     list-style-type: none;
 }
+a:focus
+{
+text-decoration: none;
+}
+.card-row-title
+{
+	font-weight: 600;
+}
+/*.description
+{
+	overflow: hidden;
+    text-overflow: ellipsis;
+}*/
