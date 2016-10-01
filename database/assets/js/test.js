@@ -6,8 +6,17 @@
 // page: how many items that should be visible at the same time. Default 200
 // item: ID of item template element
 var options = {
-  valueNames: ['name','departments', 'email', 'website', 'description'],
-  page: 5,
+  valueNames: [
+    'name',
+    'departments',
+    'website',
+    'email',
+    'description',
+    {name: 'web1', attr: 'href'},
+    {name: 'web2', attr: 'href'},
+    {name: 'email2', attr: 'href'}
+  ],
+  page: 20,
   item: 'database',
   plugins: [ ListPagination({}) ]
 };
@@ -22,6 +31,9 @@ var updateResults = function(error, options, response) {
     console.log("Errors:", error);
     var data = [];
     for (var i=1; i<response["rows"].length; i++) {
+        response["rows"][i]["cells"]["web1"] = response["rows"][i]["cells"]["website"];
+        response["rows"][i]["cells"]["web2"] = response["rows"][i]["cells"]["website"];
+        response["rows"][i]["cells"]["email2"] = "mailto:" + response["rows"][i]["cells"]["email"];
         data.push(response["rows"][i]["cells"]);
     }
     console.log("Total number of labs:", data.length);
