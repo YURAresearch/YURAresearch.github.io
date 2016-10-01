@@ -7,7 +7,7 @@
 // item: ID of item template element
 var options = {
   valueNames: ['name','departments', 'email', 'website', 'description'],
-  page: 5,
+  page: 20,
   item: 'database',
   plugins: [ ListPagination({}) ]
 };
@@ -26,10 +26,6 @@ var updateResults = function(error, options, response) {
     }
     console.log("Total number of labs:", data.length);
     labsList.add(data);
-
-    $('#truncate_me').each(function(){
-      $(this).truncate({lines: 2});
-    });
 }
 
 var params = {
@@ -44,29 +40,11 @@ sheetrock(params);
 /***********
  * Filtering
  ***********/
-$('#categories').change(function () {
-  var selection = this.value;
-  if (selection != "") {
-
-    $('#subcats').change(function () {
-          var selection2 = this.value;
-          if (selection2) {
-              labsList.filter(function(item) {
-                return (item.values().departments.indexOf(selection2) != -1);
-              });
-            } else {
-            labsList.filter();
-          }
-      });
-  } else {
-  labsList.filter();
-  }
-});
 
 $('#reset-button-id').click(function() {
    $('#searchbox').val('');
-   $('#categories').val('');
-   $('#subcats').val('');
+   var selectize1 = $("#categories")[0].selectize;
+   selectize1.clear();
    labsList.search();
    labsList.filter();
 });

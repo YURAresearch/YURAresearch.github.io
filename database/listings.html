@@ -28,6 +28,9 @@
     <link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon/favicon-16x16.png">
     <link rel="manifest" href="assets/img/favicon/manifest.json">
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/selectize.js"></script>
+    <script src="assets/js/index.js"></script>
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="assets/img/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
@@ -67,33 +70,107 @@
 
   <div class="filter">
     <div class="row">
-        <div class="col-sm-12 col-md-4">
+        <div class="col-sm-12 col-md-6">
             <div class="form-group">
               <div class="search">
-                <input placeholder="Keyword" class="form-control" id="searchbox">
+                <input placeholder="Search" class="form-control" id="searchbox">
               </div>
             </div><!-- /.form-group -->
         </div><!-- /.col-* -->
 
-        <div class="col-sm-12 col-md-4">
-            <div class="form-group">
-              <select class="form-control" id="categories" name="Selecting Category">
-                <option selected="selected" value="">Select category...</option>
-                <option value="Biological Sciences">Biological Sciences</option>
-                <option value="Engineering">Engineering</option>
-                <option value="Health and Medicine">Health and Medicine</option>
+        <div class="col-sm-12 col-md-6">
+          <div class="control-group">
+  					<select id="categories">
+  						<option value="">Departments and Programs</option>
+  						<optgroup label="Sciences">
+                <option value="Applied Physics">Applied Physics</option>
+                <option value="Astronomy">Astronomy</option>
+                <option value="Chemistry">Chemistry</option>
+                <option value="Ecology and Evolutionary Biology">Ecology and Evolutionary Biology</option>
+                <option value="Geology and Geophysics">Geology and Geophysics</option>
+                <option value="Molecular Biophysics and Biochemistry">Molecular Biophysics and Biochemistry</option>
+                <option value="Molecular, Cellular and Developmental Biology">Molecular, Cellular and Developmental Biology</option>
+                <option value="Physics">Physics</option>
+                <option value="School of Medicine (Biological and Biomedical Sciences)">School of Medicine (Biological and Biomedical Sciences)</option>
+                <option value="School of Public Health (Environmental Health Studies)">School of Public Health (Environmental Health Studies)</option>
+  						</optgroup>
+  						<optgroup label="Mathematics and Engineering">
+                <option value="Applied Mathematics">Applied Mathematics</option>
+                <option value="Biomedical Engineering">Biomedical Engineering</option>
+                <option value="Chemical and Environmental Engineering">Chemical and Environmental Engineering</option>
+                <option value="Computer Science">Computer Science</option>
+                <option value="Electrical Engineering">Electrical Engineering</option>
+                <option value="Mathematics">Mathematics</option>
+                <option value="Mechanical Engineering and Materials Science">Mechanical Engineering and Materials Science</option>
+                <option value="Statistics">Statistics</option>
+  						</optgroup>
+              <optgroup label="Social Sciences">
+                <option value="Anthropology">Anthropology</option>
+                <option value="Cognitive Science">Cognitive Science</option>
+                <option value="Economics">Economics</option>
+                <option value="Environmental Studies">Environmental Studies</option>
+                <option value="Ethics, Politics and Economics">Ethics, Politics and Economics</option>
+                <option value="Global Affairs">Global Affairs</option>
+                <option value="Linguistics">Linguistics</option>
+                <option value="Political Science">Political Science</option>
+                <option value="Psychology">Psychology</option>
+                <option value="School of Forestry and Environmental Studies">School of Forestry and Environmental Studies</option>
+                <option value="Sociology">Sociology</option>
+                <option value="Women’s, Gender, and Sexuality Studies">Women’s, Gender, and Sexuality Studies</option>
+              </optgroup>
+              <optgroup label="Humanities">
+                <option value="African American Studies">African American Studies</option>
+                <option value="American Studies">American Studies</option>
+                <option value="Archaeological Studies">Archaeological Studies</option>
+                <option value="Classics">Classics</option>
+                <option value="Ethnicity, Race and Migration">Ethnicity, Race and Migration</option>
+                <option value="History">History</option>
                 <option value="Humanities">Humanities</option>
-                <option value="Physical Sciences">Physical Sciences</option>
-                <option value="Social Sciences">Social Sciences</option>
-              </select>
-            </div><!-- /.form-group -->
-        </div><!-- /.col-* -->
-
-        <div class="col-sm-12 col-md-4">
-            <div class="form-group">
-                <select class="form-control" id="subcats" title="Select Category">
-                </select>
-            </div><!-- /.form-group -->
+                <option value="Philosophy">Philosophy</option>
+                <option value="Religious Studies">Religious Studies</option>
+  						</optgroup>
+              <optgroup label="Languages and Cultures">
+                <option value="African Studies">African Studies</option>
+                <option value="Comparative Literature">Comparative Literature</option>
+                <option value="East Asian Languages and Literatures">East Asian Languages and Literatures</option>
+                <option value="English">English</option>
+                <option value="French">French</option>
+                <option value="Germanic Languages and Literature">Germanic Languages and Literature</option>
+                <option value="Hellenic Studies">Hellenic Studies</option>
+                <option value="Italian">Italian</option>
+                <option value="Judaic Studies">Judaic Studies</option>
+                <option value="Latin American Studies">Latin American Studies</option>
+                <option value="Modern Middle East Studies">Modern Middle East Studies</option>
+                <option value="Near Eastern Langauges and Civilizations">Near Eastern Langauges and Civilizations</option>
+                <option value="Slavic Languages and Literatures">Slavic Languages and Literatures</option>
+                <option value="South Asian Studies">South Asian Studies</option>
+                <option value="Spanish and Portuguese">Spanish and Portuguese</option>
+  						</optgroup>
+              <optgroup label="Arts and Design">
+                <option value="Architecture">Architecture</option>
+                <option value="Art">Art</option>
+                <option value="Film and Media Studies">Film and Media Studies</option>
+                <option value="History of Art">History of Art</option>
+                <option value="Music">Music</option>
+                <option value="Theater Studies">Theater Studies</option>
+  						</optgroup>
+  					</select>
+  				</div>
+  				<script>
+  				$('#categories').selectize({
+  					sortField: 'text'
+  				});
+          $('#categories').change(function () {
+                 var selection = this.value;
+                 if (selection) {
+                     labsList.filter(function(item) {
+                       return (item.values().departments.indexOf(selection) != -1);
+                     });
+                   } else {
+                   labsList.filter();
+                 }
+             });
+  				</script>
         </div><!-- /.col-* -->
     </div><!-- /.row -->
 
