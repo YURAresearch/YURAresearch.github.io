@@ -1,56 +1,116 @@
-// Define spreadsheet URL.
-var mySpreadsheet = 'https://docs.google.com/spreadsheets/d/1hJSYPwbuKZiVFaqV2a1yIEkjrjbZ_Mz9XM4xSK0j-WQ/edit#gid=806509658';
+/*****************
+ * Initialize List
+ *****************/
 
-var options = {
-  valueNames: [ 'name', 'description', 'departments', 'email', 'website' ],
-  page: 1000,
-  item:'database'
-};
-
-
-var updateResults = function(error, options, response) {
-    console.log("Errors:", error);
-    var data = [];
-    for (var i=1; i<response["rows"].length; i++) {
-        data.push(response["rows"][i]["cells"]);
-    }
-    var resultsnum = data.length;
-    document.getElementById("numberofresults").innerHTML = resultsnum;
-    console.log("Total number of labs:", data.length);
-    labsList.add(data);
-
-    // make website links clickable
-    $("a.website").each( function() {
-      $( this ).attr("href", $( this ).text());
-    });
-
+// Break up multiple departments into separate lines for easier reading
+function breakItUp(depts) {
+  depts = depts.replace(/; /g, "<br/>");
+  return depts;
 }
 
-//compile the Handlebars template
-var HRTemplate = Handlebars.compile($('#hr-template').html());
+// valueNames: class names for the different values of each list item
+// page: how many items that should be visible at the same time. Default 200
+// item: ID of item template element
+var options = {
+  valueNames: [
+    'name',
+    'departments',
+    'website',
+    'email',
+    'description',
+    {name: 'web1', attr: 'href'},
+    {name: 'web2', attr: 'href'},
+    {name: 'email2', attr: 'href'}
+  ],
+  page: 20,
+  item: 'database',
+  plugins: [ ListPagination({}) ]
+};
 
+var labsList = new List('labs', options);
 
-//truncate description length
-var maxdescriplength=300
+/***************************************
+ * Retrieve Data from Google Spreadsheet
+ ***************************************/
 
-Handlebars.registerHelper ('truncate', function (str, len) {
-    if (str.length > maxdescriplength && str.length > 0) {
-        var new_str = str + " ";
-        new_str = str.substr (0, maxdescriplength);
-        new_str = str.substr (0, new_str.lastIndexOf(" "));
-        new_str = (new_str.length > 0) ? new_str : str.substr (0, len);
-
-        return new Handlebars.SafeString ( new_str +'...' );
+var updateResults = function(error, options, response) {
+    if(error){
+      console.log("Errors:", error);
     }
-    return str;
-});
+    var data = [];
+    var i;
+    for (i=1; i<response["rows"].length; i++) {
+        response["rows"][i]["cells"]["web1"] = response["rows"][i]["cells"]["website"];
+        response["rows"][i]["cells"]["web2"] = response["rows"][i]["cells"]["website"];
+        response["rows"][i]["cells"]["email2"] = "mailto:" + response["rows"][i]["cells"]["email"];
+        response["rows"][i]["cells"]["departments"] = breakItUp(response["rows"][i]["cells"]["departments"]);
+        data.push(response["rows"][i]["cells"]);
+    }
+    console.log("Total number of entries:", i-1);
+    labsList.add(data);
 
+    //truncate text with expand functionality
+    $(function() {
+      var $truncateme = $('.truncateme');
+      $truncateme.append( ' <a class="toggle" href="#"><span class="openericon">[ + ]</span><span class="closericon">[ - ]</span></a>' );
+      $('.truncateme').children().children('.closericon').hide();
 
-// Load Sheetrock.
-$('#hr').sheetrock({
-  url: mySpreadsheet,
-  query: "select *",
+      function createDots(element)
+      {
+        element.dotdotdot({
+          after: 'a.toggle'
+        });
+        element.children().children('.closericon').hide();
+        element.children().children('.openericon').show();
+      }
+      function destroyDots(element) {
+        element.trigger( 'destroy' );
+        element.children().children('.openericon').hide();
+        element.children().children('.closericon').show();
+      }
+
+      $truncateme.dotdotdot({
+        after: 'a.toggle'
+      });
+
+      $truncateme.on(
+        'click',
+        'a.toggle',
+        function() {
+          $(this).parent().toggleClass( 'opened' );
+
+          if ( $(this).parent().hasClass( 'opened' ) ) {
+            destroyDots($(this).parent());
+
+          } else {
+            createDots($(this).parent());
+          }
+          return false;
+        }
+      );
+
+    });
+}
+
+var params = {
+  url: 'https://docs.google.com/spreadsheets/d/1hJSYPwbuKZiVFaqV2a1yIEkjrjbZ_Mz9XM4xSK0j-WQ/edit#gid=806509658',
+  query: "select A,B,C,D,E",
   callback: updateResults,
-  rowTemplate: HRTemplate,
-  reset:true
+  reset: true
+};
+
+sheetrock(params);
+
+
+
+/***********
+ * Filtering
+ ***********/
+
+$('#reset-button-id').click(function() {
+   $('#searchbox').val('');
+   var selectize1 = $("#categories")[0].selectize;
+   selectize1.clear();
+   labsList.search();
+   labsList.filter();
 });
