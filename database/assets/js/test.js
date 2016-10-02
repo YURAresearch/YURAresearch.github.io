@@ -53,15 +53,20 @@ var updateResults = function(error, options, response) {
     $(function() {
       var $truncateme = $('.truncateme');
       $truncateme.append( ' <a class="toggle" href="#"><span class="openericon">[ + ]</span><span class="closericon">[ - ]</span></a>' );
+      $('.truncateme').children().children('.closericon').hide();
 
       function createDots(element)
       {
         element.dotdotdot({
           after: 'a.toggle'
         });
+        element.children().children('.closericon').hide();
+        element.children().children('.openericon').show();
       }
       function destroyDots(element) {
         element.trigger( 'destroy' );
+        element.children().children('.openericon').hide();
+        element.children().children('.closericon').show();
       }
 
       $truncateme.dotdotdot({
@@ -76,6 +81,7 @@ var updateResults = function(error, options, response) {
 
           if ( $(this).parent().hasClass( 'opened' ) ) {
             destroyDots($(this).parent());
+
           } else {
             createDots($(this).parent());
           }
@@ -84,7 +90,6 @@ var updateResults = function(error, options, response) {
       );
 
     });
-
 }
 
 var params = {
@@ -95,6 +100,8 @@ var params = {
 };
 
 sheetrock(params);
+
+
 
 /***********
  * Filtering

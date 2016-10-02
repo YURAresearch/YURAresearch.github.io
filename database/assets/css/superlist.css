@@ -8660,20 +8660,6 @@ h2.widgettitle {
   height: auto;
     }
 
-
-.card-row-content .opener,
-.opened .closer
-{
-display: inline;
-}
-
-.card-row-content .closer ,
-.opened .opener
-{
-display: none;
-
-}
-
 .card-row-properties dl {
   margin: 0px;
   padding: 0px; }
