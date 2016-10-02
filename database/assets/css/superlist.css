@@ -8651,6 +8651,29 @@ h2.widgettitle {
   .card-row-title a {
     color: #363636; }
 
+  .card-row-content {
+    width: 700px;
+    height: 100px;
+   }
+   .opened
+   {
+  height: auto;
+    }
+
+
+.card-row-content .opener,
+.opened .closer
+{
+display: inline;
+}
+
+.card-row-content .closer ,
+.opened .opener
+{
+display: none;
+
+}
+
 .card-row-properties dl {
   margin: 0px;
   padding: 0px; }

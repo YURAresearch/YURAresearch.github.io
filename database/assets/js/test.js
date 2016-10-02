@@ -48,6 +48,43 @@ var updateResults = function(error, options, response) {
     }
     console.log("Total number of entries:", i-1);
     labsList.add(data);
+
+    //truncate text with expand functionality
+    $(function() {
+      var $truncateme = $('.truncateme');
+      $truncateme.append( ' <a class="toggle" href="#"><span class="openericon">[ + ]</span><span class="closericon">[ - ]</span></a>' );
+
+      function createDots(element)
+      {
+        element.dotdotdot({
+          after: 'a.toggle'
+        });
+      }
+      function destroyDots(element) {
+        element.trigger( 'destroy' );
+      }
+
+      $truncateme.dotdotdot({
+        after: 'a.toggle'
+      });
+
+      $truncateme.on(
+        'click',
+        'a.toggle',
+        function() {
+          $(this).parent().toggleClass( 'opened' );
+
+          if ( $(this).parent().hasClass( 'opened' ) ) {
+            destroyDots($(this).parent());
+          } else {
+            createDots($(this).parent());
+          }
+          return false;
+        }
+      );
+
+    });
+
 }
 
 var params = {
