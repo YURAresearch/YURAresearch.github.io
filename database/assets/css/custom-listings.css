@@ -1,0 +1,21 @@
+.list{
+    padding: 0;
+    list-style-type: none;
+}
+a:focus{
+	text-decoration: none;
+}
+.card-row-title{
+	font-weight: 600;
+}
+#database{
+	/* Hide template*/
+	display:none;
+}
+.btn{
+	margin-left: 3px;
+}
+.document-title .breadcrumb a{
+	font-size: 24px;
+	color:#43b3ef;
+}

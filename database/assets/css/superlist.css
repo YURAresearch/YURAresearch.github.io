@@ -6319,13 +6319,13 @@ button.close {
     text-decoration: none; }
 
 .btn-secondary {
-  background-color: #c6af5c;
+  background-color: #1080bc;
   color: #fff;
   display: inline-block;
   padding: 9px 15px;
   transition: background-color 0.15s linear; }
   .btn-secondary:active, .btn-secondary:focus, .btn-secondary:hover {
-    background-color: #bfa649 !important;
+    background-color: #0f74aa !important;
     box-shadow: none !important;
     color: #fff;
     outline: 0px !important;
