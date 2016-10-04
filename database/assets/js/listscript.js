@@ -2,12 +2,6 @@
  * Initialize List
  *****************/
 
-// Break up multiple departments into separate lines for easier reading
-function breakItUp(depts) {
-  depts = depts.replace(/; /g, "<br/>");
-  return depts;
-}
-
 // valueNames: class names for the different values of each list item
 // page: how many items that should be visible at the same time. Default 200
 // item: ID of item template element
@@ -22,9 +16,8 @@ var options = {
     {name: 'web2', attr: 'href'},
     {name: 'email2', attr: 'href'}
   ],
-  page: 20,
-  item: 'database',
-  plugins: [ ListPagination({}) ]
+  page: 2000,
+  item: 'databaseitem'
 };
 
 var labsList = new List('labs', options);
@@ -39,17 +32,22 @@ var updateResults = function(error, options, response) {
     }
     var data = [];
     var i;
-    for (i=1; i<response["rows"].length; i++) {
+    for (i = 1; i < response["rows"].length; i++) {
         response["rows"][i]["cells"]["web1"] = response["rows"][i]["cells"]["website"];
         response["rows"][i]["cells"]["web2"] = response["rows"][i]["cells"]["website"];
         response["rows"][i]["cells"]["email2"] = "mailto:" + response["rows"][i]["cells"]["email"];
-        response["rows"][i]["cells"]["departments"] = breakItUp(response["rows"][i]["cells"]["departments"]);
+        response["rows"][i]["cells"]["departments"] = response["rows"][i]["cells"]["departments"].replace(/; /g, "<br/>");
         data.push(response["rows"][i]["cells"]);
     }
     console.log("Total number of entries:", i-1);
+    $("#numberofresults").text(i-1 + " results matching your query");
     labsList.add(data);
 
-    //truncate text with expand functionality
+    $("#loader").hide();
+    $("#hr").show();
+    $("#list li").slice(10).hide();
+
+    // truncate text with expand functionality
     $(function() {
       var $truncateme = $('.truncateme');
       $truncateme.append( ' <a class="toggle" href="#"><span class="openericon">[ + ]</span><span class="closericon">[ - ]</span></a>' );
@@ -99,9 +97,8 @@ var params = {
   reset: true
 };
 
+$("#hr").hide();
 sheetrock(params);
-
-
 
 /***********
  * Filtering
@@ -114,3 +111,15 @@ $('#reset-button-id').click(function() {
    labsList.search();
    labsList.filter();
 });
+
+// // Lazy scroll
+var mincount = 10;
+var maxcount = 20;
+$(window).scroll(function()
+  {if($(window).scrollTop() + $(window).height() >= $(document).height() - 500)
+    {
+      $("#list li").slice(mincount,maxcount).fadeIn(1500);
+      mincount = mincount+10;
+      maxcount = maxcount+10;
+    }
+  });
