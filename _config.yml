@@ -1,0 +1,32 @@
+name: YURA
+markdown: kramdown
+highlighter: pygments
+
+# Permalinks
+#
+permalink:           pretty
+
+# Setup
+title:               YURA
+tagline:             Yale Undergraduate Research Association
+url:                 http://yura.undergradresearch.org
+baseurl:             ""
+home:                /home-page
+
+# Assets
+#
+# We specify the directory for Jekyll so we can use @imports.
+sass:
+  sass_dir:          _sass
+  style:            :compressed
+
+# About/contact
+author:
+  name:              Surya Dutta
+  url:               https://github.com/yuraresearch
+  email:             suryabrata.dutta@yale.edu
+
+# Custom vars
+version:             1.0.0
+github:
+repo: https://github.com/yuraresearch/yuraresearch.github.io
