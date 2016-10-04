@@ -61,7 +61,7 @@ if(tech != undefined)
 else
 {
 	myElement.innerHTML = "Log In";
-	myElement.setAttribute("href", "https://secure.its.yale.edu/cas/login?service=http%3A%2F%2Fyuraresearch.github.io/database/index.html");
+	myElement.setAttribute("href", "https://secure.its.yale.edu/cas/login?service=http%3A%2F%2Fyuraresearch.github.io/database/listings.html");
 
 	//myElement.setAttribute()
 	//window.alert("No parameters");
