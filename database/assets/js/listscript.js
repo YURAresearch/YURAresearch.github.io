@@ -33,6 +33,58 @@ var labsList = new List('labs', options);
 
 /// *** Retrieve Data from Google Spreadsheet *** (using sheetrock.js)
 
+// truncate text with expand functionality (using dotdotdot)
+function createDots(element)
+{
+  element.dotdotdot({after:'a.toggle'});
+  element.children().children('.closericon').hide();
+  element.children().children('.openericon').show();
+}
+function destroyDots(element)
+{
+  element.trigger('destroy');
+  element.children().children('.openericon').hide();
+  element.children().children('.closericon').show();
+}
+function dotdotdotSetup()
+{
+  // dotdotdot setup
+  var $truncateme = $('.truncateme');
+  $truncateme.children().children('.openericon').show();
+  $truncateme.children().children('.closericon').hide();
+  $truncateme.dotdotdot({
+    after:'a.toggle',
+    watch:true,
+    callback:function(isTruncated,orgContent){
+      if (!isTruncated){
+        $(this).children('.toggle').hide();
+      }
+    },
+  });
+
+  // $(".truncateme").trigger("isTruncated",function(isTruncated){
+  //   if (!isTruncated){
+  //     $(this).children('.toggle').hide();
+  //   }
+  // });
+
+  // dotdotdot events
+  $truncateme.on('click','a.toggle',
+    function() {
+      $(this).parent().toggleClass('opened');
+
+      if ($(this).parent().hasClass('opened')) {
+        destroyDots($(this).parent());
+      }
+      else {
+        createDots($(this).parent());
+      }
+
+      return false;
+    }
+  );
+}
+
 // Update entries (sheetrock call)
 var updateResults = function(error, options, response) {
   // Report error
@@ -43,11 +95,13 @@ var updateResults = function(error, options, response) {
   // Parse response from sheet, curate, and load
   var data = [];
   var i;
+  var dotdotdotButton = "<a class='toggle' href='#''><span class='openericon'>[ + ]</span><span class='closericon'>[ - ]</span></a>";
   for (i = 1; i < response["rows"].length; i++) {
     response["rows"][i]["cells"]["web1"] = response["rows"][i]["cells"]["website"];
     response["rows"][i]["cells"]["web2"] = response["rows"][i]["cells"]["website"];
     response["rows"][i]["cells"]["email2"] = "mailto:" + response["rows"][i]["cells"]["email"];
     response["rows"][i]["cells"]["departments"] = response["rows"][i]["cells"]["departments"].replace(/; /g, "<br/>");
+    response["rows"][i]["cells"]["description"] += dotdotdotButton;
     data.push(response["rows"][i]["cells"]);
   }
   console.log("Total number of entries:", i-1);
@@ -58,47 +112,7 @@ var updateResults = function(error, options, response) {
   $("#loader").hide();
   $("#hr, .pager").show();
 
-  // truncate text with expand functionality
-  $(function() {
-    var $truncateme = $('.truncateme');
-    $truncateme.append( ' <a class="toggle" href="#"><span class="openericon">[ + ]</span><span class="closericon">[ - ]</span></a>' );
-    $('.truncateme').children().children('.closericon').hide();
-
-    function createDots(element)
-    {
-      element.dotdotdot({
-        after: 'a.toggle'
-      });
-      element.children().children('.closericon').hide();
-      element.children().children('.openericon').show();
-    }
-    function destroyDots(element) {
-      element.trigger( 'destroy' );
-      element.children().children('.openericon').hide();
-      element.children().children('.closericon').show();
-    }
-
-    $truncateme.dotdotdot({
-      after: 'a.toggle'
-    });
-
-    $truncateme.on(
-      'click',
-      'a.toggle',
-      function() {
-        $(this).parent().toggleClass( 'opened' );
-
-        if ( $(this).parent().hasClass( 'opened' ) ) {
-          destroyDots($(this).parent());
-
-        } else {
-          createDots($(this).parent());
-        }
-        return false;
-      }
-    );
-
-  });
+  dotdotdotSetup()
 }
 
 // Parameters for sheetrock.js
