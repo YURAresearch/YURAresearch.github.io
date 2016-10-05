@@ -1,7 +1,6 @@
-/*****************
- * Initialize List
- *****************/
+/// *** Initialize List *** (using List.js)
 
+// Pagination parameters (List.js plugin)
 var paginationParams = {
   name: "listPages",
   paginationClass: "pagination",
@@ -9,10 +8,11 @@ var paginationParams = {
   outerWindow: 1
 }
 
-// valueNames: class names for the different values of each list item
-// page: how many items that should be visible at the same time. Default 200
-// item: ID of item template element
+// Entries list parameters (List.js)
 var options = {
+  // valueNames: class names for the different values of each list item
+  // page: how many items that should be visible at the same time. Default 200
+  // item: ID of item template element
   valueNames: [
     'name',
     'departments',
@@ -28,12 +28,12 @@ var options = {
   plugins:[ListPagination(paginationParams)]
 };
 
+// Make list (List.js)
 var labsList = new List('labs', options);
 
-/***************************************
- * Retrieve Data from Google Spreadsheet
- ***************************************/
+/// *** Retrieve Data from Google Spreadsheet *** (using sheetrock.js)
 
+// Update entries (sheetrock call)
 var updateResults = function(error, options, response) {
     if(error){
       console.log("Errors:", error);
@@ -97,6 +97,7 @@ var updateResults = function(error, options, response) {
     });
 }
 
+// Parameters for sheetrock.js
 var params = {
   url: 'https://docs.google.com/spreadsheets/d/1hJSYPwbuKZiVFaqV2a1yIEkjrjbZ_Mz9XM4xSK0j-WQ/edit#gid=806509658',
   query: "select A,B,C,D,E,F",
@@ -104,13 +105,12 @@ var params = {
   reset: true
 };
 
+// Hide entries while load (sheetrock)
 $("#hr, .pager").hide();
 sheetrock(params);
 
-/***********
- * Filtering
- ***********/
-
+/// *** Filtering *** (using selective.js)
+// Filter event set
 $('#reset-button-id').click(function() {
    $('#searchbox').val('');
    var selectize1 = $("#categories")[0].selectize;
