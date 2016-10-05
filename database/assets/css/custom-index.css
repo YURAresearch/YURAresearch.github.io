@@ -1,34 +1,40 @@
 .btn-secondary{
-	background-color: #1080bc;
+    background-color: #1080bc;
 }
 .btn-secondary:active, .btn-secondary:focus, .btn-secondary:hover{
- 	background-color: #0f74aa !important;
+    background-color: #0f74aa !important;
+}
+.background-secondary,.faq-item:before{
+    background-color: #0f74aa;
+}
+.faq-item:after{
+    border-bottom-color: #0f74aa;
 }
 body{
-	font-size: 18px;
+    font-size: 18px;
 }
 p{
-  	line-height: 30px;
+    line-height: 30px;
 }
 h1{
-  	font-size: 34px;
+    font-size: 34px;
 }
 h2{
-  	font-size: 28px;
+    font-size: 28px;
 }
 h3{
-  	font-size: 24px;
-  	font-weight: 500;
+    font-size: 24px;
+    font-weight: 500;
 }
 h4{
- 	font-size: 22px;
+    font-size: 22px;
 }
 h5{
-  	font-size: 21px;
+    font-size: 21px;
 }
 h6{
-  	font-size: 20px;
+    font-size: 20px;
 }
 .page-header p{
-	font-size: 18px;
+    font-size: 18px;
 }
