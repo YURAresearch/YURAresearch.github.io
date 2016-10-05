@@ -29,3 +29,11 @@ a:focus{
 .pager .disabled, .pager .disabled > a{
 	cursor: default !important;
 }
+#home:hover,#home:active{
+	color:#b6dce9;
+}
+#home{
+	-webkit-transition: color 0.1s linear;
+	-o-transition: color 0.1s linear;
+	transition: color 0.1s linear;
+}
