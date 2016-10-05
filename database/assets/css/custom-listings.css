@@ -26,3 +26,6 @@ a:focus{
 	text-align: center;
 	line-height: 60px;
 }
+.pager .disabled, .pager .disabled > a{
+	cursor: default !important;
+}

@@ -2,6 +2,13 @@
  * Initialize List
  *****************/
 
+var paginationParams = {
+  name: "listPages",
+  paginationClass: "pagination",
+  innerWindow: 2,
+  outerWindow: 1
+}
+
 // valueNames: class names for the different values of each list item
 // page: how many items that should be visible at the same time. Default 200
 // item: ID of item template element
@@ -16,8 +23,9 @@ var options = {
     {name: 'web2', attr: 'href'},
     {name: 'email2', attr: 'href'}
   ],
-  page: 2000,
-  item: 'databaseitem'
+  page: 20,
+  item: 'databaseitem',
+  plugins:[ListPagination(paginationParams)]
 };
 
 var labsList = new List('labs', options);
@@ -44,8 +52,7 @@ var updateResults = function(error, options, response) {
     labsList.add(data);
 
     $("#loader").hide();
-    $("#hr").show();
-    $("#list li").slice(10).hide();
+    $("#hr, .pager").show();
 
     // truncate text with expand functionality
     $(function() {
@@ -92,12 +99,12 @@ var updateResults = function(error, options, response) {
 
 var params = {
   url: 'https://docs.google.com/spreadsheets/d/1hJSYPwbuKZiVFaqV2a1yIEkjrjbZ_Mz9XM4xSK0j-WQ/edit#gid=806509658',
-  query: "select A,B,C,D,E",
+  query: "select A,B,C,D,E,F",
   callback: updateResults,
   reset: true
 };
 
-$("#hr").hide();
+$("#hr, .pager").hide();
 sheetrock(params);
 
 /***********
@@ -112,14 +119,3 @@ $('#reset-button-id').click(function() {
    labsList.filter();
 });
 
-// // Lazy scroll
-var mincount = 10;
-var maxcount = 20;
-$(window).scroll(function()
-  {if($(window).scrollTop() + $(window).height() >= $(document).height() - 500)
-    {
-      $("#list li").slice(mincount,maxcount).fadeIn(1500);
-      mincount = mincount+10;
-      maxcount = maxcount+10;
-    }
-  });
