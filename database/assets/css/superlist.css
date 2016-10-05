@@ -8612,7 +8612,7 @@ h2.widgettitle {
     margin-bottom: 0px; }
 
 .card-row-inner {
-  display: table;
+  display: block;
   width: 100%; }
 
 .card-row-image, .card-row-body, .card-row-properties {
@@ -8652,7 +8652,7 @@ h2.widgettitle {
     color: #363636; }
 
   .card-row-content {
-    width: 700px;
+    /*width: 700px;*/
     height: 100px;
    }
    .opened
