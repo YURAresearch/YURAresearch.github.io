@@ -105,7 +105,7 @@ var params = {
   reset: true
 };
 
-// Hide entries while load (sheetrock)
+// Hide entries while load entries (sheetrock)
 $("#hr, .pager").hide();
 sheetrock(params);
 
@@ -118,4 +118,3 @@ $('#reset-button-id').click(function() {
    labsList.search();
    labsList.filter();
 });
-
