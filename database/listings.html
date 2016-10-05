@@ -53,14 +53,6 @@
                             <div class="document-title">
                                 <span>
                                     <a href="index.html"><h1 id="home">YURA Research Database</h1></a>
-
-                                    <!-- <ul class="breadcrumb">
-                                            <li><a href="index.html">Return to Home</a></li>
-                                    </ul> -->
-                                    <!-- <ul class="breadcrumb">
-                                            <li><a href="index.html">Home</a></li>
-                                            <li><a href="#">Listings</a></li>
-                                    </ul> -->
                                 </span>
                             </div><!-- /.document-title -->
 
@@ -160,16 +152,16 @@
                                         $('#categories').selectize({
                                             sortField: 'text'
                                         });
-                                        $('#categories').change(function () {
-                                                     var selection = this.value;
-                                                     if (selection) {
-                                                             labsList.filter(function(item) {
-                                                                 return (item.values().departments.indexOf(selection) != -1);
-                                                             });
-                                                         } else {
-                                                         labsList.filter();
-                                                     }
-                                             });
+                                        $('#categories').change(function(){
+                                            var selection = this.value;
+                                            if (selection) {
+                                                labsList.filter(function(item) {
+                                                    return (item.values().departments.indexOf(selection) != -1);
+                                                });
+                                                } else {
+                                                    labsList.filter();
+                                                }
+                                            });
                                         </script>
 
                                     </div><!-- /.col-* -->

@@ -38,3 +38,18 @@ h6{
 .page-header p{
     font-size: 18px;
 }
+#feedback{
+    margin:0 auto;
+    display:block;
+    width:300px;
+}
+#feedback-wrapper{
+    margin-top:30px;
+}
+#feedback>h3{
+    margin:0;
+    padding:20px;
+    background-color:#1080bc;
+    text-align: center;
+    color:#FFF;
+}
