@@ -29,9 +29,10 @@
     <link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon/favicon-16x16.png">
     <link rel="manifest" href="assets/img/favicon/manifest.json">
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/selectize.js"></script>
-    <script src="assets/js/index.js"></script>
+
+    <script type="text/javascript" language="javascript" src="assets/js/jquery.min.js"></script>
+    <script type="text/javascript" language="javascript" src="assets/js/selectize.js"></script>
+    <script type="text/javascript" language="javascript" src="assets/js/index.js"></script>
     <script type="text/javascript" language="javascript" src="assets/js/jquery.dotdotdot.min.js"></script>
 
     <meta name="msapplication-TileColor" content="#ffffff">
@@ -149,19 +150,19 @@
                                         </div> <!-- /.deptDropdown -->
 
                                         <script>
-                                        $('#categories').selectize({
-                                            sortField: 'text'
-                                        });
-                                        $('#categories').change(function(){
-                                            var selection = this.value;
-                                            if (selection) {
-                                                labsList.filter(function(item) {
-                                                    return (item.values().departments.indexOf(selection) != -1);
-                                                });
-                                                } else {
-                                                    labsList.filter();
-                                                }
+                                            $('#categories').selectize({
+                                                sortField: 'text'
                                             });
+                                            $('#categories').change(function(){
+                                                var selection = this.value;
+                                                if (selection) {
+                                                    labsList.filter(function(item) {
+                                                        return (item.values().departments.indexOf(selection) != -1);
+                                                    });
+                                                    } else {
+                                                        labsList.filter();
+                                                    }
+                                                });
                                         </script>
 
                                     </div><!-- /.col-* -->
