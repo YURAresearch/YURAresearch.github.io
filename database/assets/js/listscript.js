@@ -36,7 +36,15 @@ var labsList = new List('labs', options);
 // truncate text with expand functionality (using dotdotdot)
 function createDots(element)
 {
-  element.dotdotdot({after:'a.toggle'});
+  element.dotdotdot({
+    after:'a.toggle',
+    watch:true,
+    callback:function(isTruncated,orgContent){
+      if (!isTruncated){
+        $(this).children('.toggle').hide();
+      }
+    },
+  });
   element.children().children('.closericon').hide();
   element.children().children('.openericon').show();
 }
@@ -50,6 +58,9 @@ function dotdotdotSetup()
 {
   // dotdotdot setup
   var $truncateme = $('.truncateme');
+
+  // show the right button
+  $truncateme.trigger('destroy');
   $truncateme.children().children('.openericon').show();
   $truncateme.children().children('.closericon').hide();
   $truncateme.dotdotdot({
@@ -62,13 +73,7 @@ function dotdotdotSetup()
     },
   });
 
-  // $(".truncateme").trigger("isTruncated",function(isTruncated){
-  //   if (!isTruncated){
-  //     $(this).children('.toggle').hide();
-  //   }
-  // });
-
-  // dotdotdot events
+  // dotdotdot events for expand and contract
   $truncateme.on('click','a.toggle',
     function() {
       $(this).parent().toggleClass('opened');
@@ -112,6 +117,7 @@ var updateResults = function(error, options, response) {
   $("#loader").hide();
   $("#hr, .pager").show();
 
+  // Setup dotdotdot
   dotdotdotSetup()
 }
 
@@ -127,12 +133,12 @@ var params = {
 $("#hr, .pager").hide();
 sheetrock(params);
 
-/// *** Filtering *** (using selective.js)
-// Filter event set
+/// *** Filtering *** (using List.js)
+// Reset filters
 $('#reset-button-id').click(function() {
   $('#searchbox').val('');
-  var selectize1 = $("#categories")[0].selectize;
-  selectize1.clear();
+  $("#categories")[0].selectize.clear();
   labsList.search();
   labsList.filter();
+  dotdotdotSetup();
 });
