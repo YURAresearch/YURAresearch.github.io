@@ -6496,7 +6496,7 @@ button.close {
 .contact-info-item {
   margin-left: 40px; }
   .contact-info-item span {
-    margin: 0px 0px 0px 20px; }
+    margin: 0px 0px 0px 10px; }
   .contact-info-item:first-child {
     margin-left: 0px; }
   @media (max-width: 767px) {
@@ -6659,7 +6659,7 @@ blockquote {
   background-color: #fff;
   border-left: none;
   color: #444;
-  font-size: 24px;
+  font-size: 19px;
   font-style: italic;
   font-weight: 300;
   margin: 40px auto;
@@ -9027,7 +9027,7 @@ h2.widgettitle {
       .post-content h2 a:hover {
         color: #009f8b; }
   .post-content p {
-    color: rgba(54, 54, 54, 0.6);
+    color: rgba(54, 54, 54, 0.8);
     margin: 0px; }
 
 .post-label {
@@ -9327,7 +9327,7 @@ h2.widgettitle {
   .faq-item:before {
     background-color: #0b5983;
     color: #fff;
-    content: 'Q';
+    content: '?';
     display: block;
     font-size: 20px;
     font-weight: 300;

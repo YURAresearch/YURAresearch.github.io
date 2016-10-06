@@ -38,18 +38,19 @@ h6{
 .page-header p{
     font-size: 18px;
 }
-#feedback{
-    margin:0 auto;
-    display:block;
-    width:300px;
+.contact-info-item a:hover i{
+    background-color:rgba(255,255,255,0.2);
 }
-#feedback-wrapper{
-    margin-top:30px;
+.contact-info-item a i{
+    -webkit-transition: background-color 0.1s linear;
+    -o-transition: background-color 0.1s linear;
+    transition: background-color 0.1s linear;
 }
-#feedback>h3{
-    margin:0;
-    padding:20px;
-    background-color:#1080bc;
-    text-align: center;
-    color:#FFF;
+.faq-item-question h3{
+    font-size:25px;
+    margin: 0px;
+    padding: 0px;
+}
+#testimonial-page{
+    padding-top:0;
 }
