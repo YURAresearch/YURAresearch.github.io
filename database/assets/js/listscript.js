@@ -132,6 +132,8 @@ var updateResults = function(error, options, response) {
 
   // Setup dotdotdot
   dotdotdotSetup(true)
+
+  console.log(labsList.size());
 }
 
 // Parameters for sheetrock.js
@@ -159,3 +161,32 @@ $('#reset-button-id').click(function() {
 // $truncateme.on('searchComplete',updateDot);
 // $truncateme.on('filterComplete',updateDot);
 // $truncateme.on('sortComplete',updateDot);
+
+// Scroll to top button
+$(document).ready(function(){
+  $('#back-top').hide();
+  $(window).scroll(function(){
+    if($(this).scrollTop() > 400){
+      $('#back-top').fadeIn(300);
+    }
+    else{
+      $('#back-top').fadeOut(300);
+    }
+  });
+
+  $('#back-top').click(function(){
+    $('body,html').animate({
+      scrollTop:0
+    }, 400);
+  });
+});
+
+// results count (TODO)
+labsList.on('sortComplete',updateCount);
+labsList.on('searchComplete',updateCount);
+labsList.on('filterComplete',updateCount);
+function updateCount(){
+  console.log(labsList);
+  labsList.update();
+  console.log(labsList.size());
+}

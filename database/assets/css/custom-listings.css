@@ -44,3 +44,45 @@ a:focus{
 .filter-actions{
 	height:37px;
 }
+#back-top{
+	height:60px;
+	width:60px;
+	position:fixed;
+	bottom:20px;
+	right:20px;
+	background-color:rgba(16, 128, 188, 0.6);
+	display:block;
+	z-index:999;
+	text-align:center;
+	border-radius:30px;
+	-webkit-transition: background-color 0.2s ease;
+	-o-transition: background-color 0.2s ease;
+	transition: background-color 0.2s ease;
+}
+#back-top i{
+	color:#fff;
+	margin:0;
+	position: relative;
+	top:20px;
+	font-size:15px;
+	-webkit-transition: all 0.2s ease;
+	-o-transition: all 0.2s ease;
+	transition: all 0.2s ease;
+}
+#back-top:hover i{
+	top:8px;
+}
+#back-top:hover{
+	background-color:rgba(16, 128, 188, 0.9);
+}
+#back-top:active{
+	background-color:rgba(14, 110, 170, 0.9);
+}
+.list div:hover{
+	background-color:#FAFDFE;
+}
+.list div{
+	-webkit-transition: background-color 0.3s ease;
+	-o-transition: background-color 0.3s ease;
+	transition: background-color 0.3s ease;
+}
