@@ -100,3 +100,30 @@ dt span.departments > span{
 	padding-top:9.5px;
 	padding-bottom:9.5px;
 }
+
+/* Pure CSS truncation */
+.truncateme{
+	overflow:hidden;
+	position:relative;
+	line-height:1.6em;
+	max-height:6.4em;
+	text-align:justify;
+	margin-right:-1em;
+	padding-right:1em;
+}
+.truncateme:before{
+	content:'...';
+	position:absolute;
+	right:0;
+	bottom:0;
+	font-weight:bold;
+}
+.truncateme:after{
+	content:'';
+	position:absolute;
+	right:0;
+	width:1em;
+	height:1em;
+	margin-top:0.5em;
+	background:white;
+}

@@ -33,74 +33,74 @@ var labsList = new List('labs', options);
 
 /// *** Retrieve Data from Google Spreadsheet *** (using sheetrock.js)
 
-// truncate text with expand functionality (using dotdotdot)
-function createDots(element)
-{
-  element.dotdotdot({
-    after:'a.toggle',
-    watch:true,
-    callback:function(isTruncated,orgContent){
-      if (!isTruncated){
-        $(this).children('.toggle').hide();
-      }
-    },
-  });
-  element.children().children('.closericon').hide();
-  element.children().children('.openericon').show();
-}
-function destroyDots(element)
-{
-  element.trigger('destroy');
-  element.children().children('.openericon').hide();
-  element.children().children('.closericon').show();
-}
-function dotdotdotSetup(ini)
-{
-  // dotdotdot setup
-  var $truncateme = $('.truncateme');
-  if(ini){
-    $truncateme.dotdotdot({
-      after:'a.toggle',
-      watch:true,
-      callback:function(isTruncated,orgContent){
-        if (!isTruncated){
-          $(this).children('.toggle').hide();
-        }
-      },
-    });
-    $truncateme.children().children('.openericon').show();
-    $truncateme.children().children('.closericon').hide();
+// // truncate text with expand functionality (using dotdotdot)
+// function createDots(element)
+// {
+//   element.dotdotdot({
+//     after:'a.toggle',
+//     watch:true,
+//     callback:function(isTruncated,orgContent){
+//       if (!isTruncated){
+//         $(this).children('.toggle').hide();
+//       }
+//     },
+//   });
+//   element.children().children('.closericon').hide();
+//   element.children().children('.openericon').show();
+// }
+// function destroyDots(element)
+// {
+//   element.trigger('destroy');
+//   element.children().children('.openericon').hide();
+//   element.children().children('.closericon').show();
+// }
+// function dotdotdotSetup(ini)
+// {
+//   // dotdotdot setup
+//   var $truncateme = $('.truncateme');
+//   if(ini){
+//     $truncateme.dotdotdot({
+//       after:'a.toggle',
+//       watch:true,
+//       callback:function(isTruncated,orgContent){
+//         if (!isTruncated){
+//           $(this).children('.toggle').hide();
+//         }
+//       },
+//     });
+//     $truncateme.children().children('.openericon').show();
+//     $truncateme.children().children('.closericon').hide();
 
-    // dotdotdot events for expand and contract
-    $truncateme.on('click','a.toggle',
-      function() {
-        $(this).parent().toggleClass('opened');
+//     // dotdotdot events for expand and contract
+//     $truncateme.on('click','a.toggle',
+//       function() {
+//         $(this).parent().toggleClass('opened');
 
-        if ($(this).parent().hasClass('opened')) {
-          destroyDots($(this).parent());
-        }
-        else {
-          createDots($(this).parent());
-        }
+//         if ($(this).parent().hasClass('opened')) {
+//           destroyDots($(this).parent());
+//         }
+//         else {
+//           createDots($(this).parent());
+//         }
 
-        return false;
-      }
-    );
-  }
-  else{
-    // show the right button
-    for(var ele in $truncateme){
-      if(ele.parent().hasClass('opened')){
-        ele.children().children('.closericon').hide();
-        ele.children().children('.openericon').show();
-      }
-      else{
-        ele.children().children('.closericon').show();
-        ele.children().children('.openericon').hide();
-      }
-    }
-  }
-}
+//         return false;
+//       }
+//     );
+//   }
+//   else{
+//     // show the right button
+//     for(var ele in $truncateme){
+//       if(ele.parent().hasClass('opened')){
+//         ele.children().children('.closericon').hide();
+//         ele.children().children('.openericon').show();
+//       }
+//       else{
+//         ele.children().children('.closericon').show();
+//         ele.children().children('.openericon').hide();
+//       }
+//     }
+//   }
+// }
 // var updateDot = dotdotdotSetup(false);
 
 // Update entries (sheetrock call)
@@ -119,7 +119,7 @@ var updateResults = function(error, options, response) {
     response["rows"][i]["cells"]["web2"] = response["rows"][i]["cells"]["website"];
     response["rows"][i]["cells"]["email2"] = "mailto:" + response["rows"][i]["cells"]["email"];
     response["rows"][i]["cells"]["departments"] = "<span>" + response["rows"][i]["cells"]["departments"].replace(/; /g, "</span><span>") + "</span>";
-    response["rows"][i]["cells"]["description"] += dotdotdotButton;
+    // response["rows"][i]["cells"]["description"] += dotdotdotButton;
     data.push(response["rows"][i]["cells"]);
   }
   console.log("Total number of entries:", i-1);
@@ -131,7 +131,7 @@ var updateResults = function(error, options, response) {
   $("#hr, .pager").show();
 
   // Setup dotdotdot
-  dotdotdotSetup(true)
+  // dotdotdotSetup(true)
 
   console.log(labsList.size());
 }
@@ -155,7 +155,7 @@ $('#reset-button-id').click(function() {
   $("#categories")[0].selectize.clear();
   labsList.search();
   labsList.filter();
-  dotdotdotSetup(false);
+  // dotdotdotSetup(false);
 });
 
 // $truncateme.on('searchComplete',updateDot);
@@ -190,3 +190,20 @@ function updateCount(){
   labsList.update();
   console.log(labsList.size());
 }
+
+// var dafuq = document.querySelectorAll(".toggle");
+// for(var i = 0, len = dafuq.length; i < len ; i++){
+//   dafuq[i].addEventListener('click',function(){
+//     console.log('ah');
+//     $(this).attr('max-height','999');
+//     // $(this).attr('height')
+//   });
+// }
+
+
+// // }
+// $('.toggle *').click(function(){
+//   console.log('ah');
+//   // $(this).attr('max-height','999');
+//   // $(this).attr('height')
+// });

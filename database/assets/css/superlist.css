@@ -8653,7 +8653,7 @@ h2.widgettitle {
 
   .card-row-content {
     width: 700px;
-    height: 100px;
+    /*height: 100px;*/
    }
    .opened
    {
