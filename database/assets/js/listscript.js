@@ -54,47 +54,60 @@ function destroyDots(element)
   element.children().children('.openericon').hide();
   element.children().children('.closericon').show();
 }
-function dotdotdotSetup()
+function dotdotdotSetup(ini)
 {
   // dotdotdot setup
   var $truncateme = $('.truncateme');
+  if(ini){
+    $truncateme.dotdotdot({
+      after:'a.toggle',
+      watch:true,
+      callback:function(isTruncated,orgContent){
+        if (!isTruncated){
+          $(this).children('.toggle').hide();
+        }
+      },
+    });
+    $truncateme.children().children('.openericon').show();
+    $truncateme.children().children('.closericon').hide();
 
-  // show the right button
-  $truncateme.trigger('destroy');
-  $truncateme.children().children('.openericon').show();
-  $truncateme.children().children('.closericon').hide();
-  $truncateme.dotdotdot({
-    after:'a.toggle',
-    watch:true,
-    callback:function(isTruncated,orgContent){
-      if (!isTruncated){
-        $(this).children('.toggle').hide();
+    // dotdotdot events for expand and contract
+    $truncateme.on('click','a.toggle',
+      function() {
+        $(this).parent().toggleClass('opened');
+
+        if ($(this).parent().hasClass('opened')) {
+          destroyDots($(this).parent());
+        }
+        else {
+          createDots($(this).parent());
+        }
+
+        return false;
       }
-    },
-  });
-
-  // dotdotdot events for expand and contract
-  $truncateme.on('click','a.toggle',
-    function() {
-      $(this).parent().toggleClass('opened');
-
-      if ($(this).parent().hasClass('opened')) {
-        destroyDots($(this).parent());
+    );
+  }
+  else{
+    // show the right button
+    for(var ele in $truncateme){
+      if(ele.parent().hasClass('opened')){
+        ele.children().children('.closericon').hide();
+        ele.children().children('.openericon').show();
       }
-      else {
-        createDots($(this).parent());
+      else{
+        ele.children().children('.closericon').show();
+        ele.children().children('.openericon').hide();
       }
-
-      return false;
     }
-  );
+  }
 }
+// var updateDot = dotdotdotSetup(false);
 
 // Update entries (sheetrock call)
 var updateResults = function(error, options, response) {
   // Report error
   if(error){
-    console.log("Errors:", error);
+    console.log("Errors: ", error);
   }
 
   // Parse response from sheet, curate, and load
@@ -118,7 +131,7 @@ var updateResults = function(error, options, response) {
   $("#hr, .pager").show();
 
   // Setup dotdotdot
-  dotdotdotSetup()
+  dotdotdotSetup(true)
 }
 
 // Parameters for sheetrock.js
@@ -140,5 +153,9 @@ $('#reset-button-id').click(function() {
   $("#categories")[0].selectize.clear();
   labsList.search();
   labsList.filter();
-  dotdotdotSetup();
+  dotdotdotSetup(false);
 });
+
+// $truncateme.on('searchComplete',updateDot);
+// $truncateme.on('filterComplete',updateDot);
+// $truncateme.on('sortComplete',updateDot);

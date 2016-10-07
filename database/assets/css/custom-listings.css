@@ -37,3 +37,10 @@ a:focus{
 	-o-transition: color 0.1s linear;
 	transition: color 0.1s linear;
 }
+#reset-button-id::selection{
+	background-color:transparent;
+	color:rgba(0,0,0,0.7);
+}
+.filter-actions{
+	height:37px;
+}
