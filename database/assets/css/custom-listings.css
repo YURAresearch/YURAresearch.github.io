@@ -91,6 +91,7 @@ a:focus{
 }
 .website, .email{
 	word-wrap: break-word;
+	word-break: break-all;
 }
 dt span.departments{
 	line-height: 1.42857;
@@ -102,21 +103,30 @@ dt span.departments > span{
 }
 
 /* Pure CSS truncation */
+/* kudos to Natlia Onischuk */
+/* http://hackingui.com/front-end/a-pure-css-solution-for-multiline-text-truncation/ */
 .truncateme{
 	overflow:hidden;
 	position:relative;
 	line-height:1.6em;
-	max-height:6.4em;
+	/*max-height:6.4em;*/
 	text-align:justify;
 	margin-right:-1em;
 	padding-right:1em;
+}
+.truncateme-active{
+	max-height:6.4em;
 }
 .truncateme:before{
 	content:'...';
 	position:absolute;
 	right:0;
 	bottom:0;
-	font-weight:bold;
+	font-weight:600;
+}
+.truncateme:hover:before{
+	font-weight:900;
+	color:#009f8b;
 }
 .truncateme:after{
 	content:'';

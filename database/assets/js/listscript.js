@@ -6,7 +6,7 @@ var paginationParams = {
   paginationClass: "pagination",
   innerWindow: 2,
   outerWindow: 1
-}
+};
 
 // Entries list parameters (List.js)
 var options = {
@@ -33,75 +33,11 @@ var labsList = new List('labs', options);
 
 /// *** Retrieve Data from Google Spreadsheet *** (using sheetrock.js)
 
-// // truncate text with expand functionality (using dotdotdot)
-// function createDots(element)
-// {
-//   element.dotdotdot({
-//     after:'a.toggle',
-//     watch:true,
-//     callback:function(isTruncated,orgContent){
-//       if (!isTruncated){
-//         $(this).children('.toggle').hide();
-//       }
-//     },
-//   });
-//   element.children().children('.closericon').hide();
-//   element.children().children('.openericon').show();
-// }
-// function destroyDots(element)
-// {
-//   element.trigger('destroy');
-//   element.children().children('.openericon').hide();
-//   element.children().children('.closericon').show();
-// }
-// function dotdotdotSetup(ini)
-// {
-//   // dotdotdot setup
-//   var $truncateme = $('.truncateme');
-//   if(ini){
-//     $truncateme.dotdotdot({
-//       after:'a.toggle',
-//       watch:true,
-//       callback:function(isTruncated,orgContent){
-//         if (!isTruncated){
-//           $(this).children('.toggle').hide();
-//         }
-//       },
-//     });
-//     $truncateme.children().children('.openericon').show();
-//     $truncateme.children().children('.closericon').hide();
-
-//     // dotdotdot events for expand and contract
-//     $truncateme.on('click','a.toggle',
-//       function() {
-//         $(this).parent().toggleClass('opened');
-
-//         if ($(this).parent().hasClass('opened')) {
-//           destroyDots($(this).parent());
-//         }
-//         else {
-//           createDots($(this).parent());
-//         }
-
-//         return false;
-//       }
-//     );
-//   }
-//   else{
-//     // show the right button
-//     for(var ele in $truncateme){
-//       if(ele.parent().hasClass('opened')){
-//         ele.children().children('.closericon').hide();
-//         ele.children().children('.openericon').show();
-//       }
-//       else{
-//         ele.children().children('.closericon').show();
-//         ele.children().children('.openericon').hide();
-//       }
-//     }
-//   }
-// }
-// var updateDot = dotdotdotSetup(false);
+function toggleTruncationEvent(){
+  $('.truncateme').dblclick(function(){
+    $(this).toggleClass("truncateme-active");
+  });
+}
 
 // Update entries (sheetrock call)
 var updateResults = function(error, options, response) {
@@ -113,13 +49,12 @@ var updateResults = function(error, options, response) {
   // Parse response from sheet, curate, and load
   var data = [];
   var i;
-  var dotdotdotButton = "<a class='toggle' href='#''><span class='openericon'>[ + ]</span><span class='closericon'>[ - ]</span></a>";
+  // var dotdotdotButton = "<a class='toggle' href='#''><span class='openericon'>[ + ]</span><span class='closericon'>[ - ]</span></a>";
   for (i = 1; i < response["rows"].length; i++) {
     response["rows"][i]["cells"]["web1"] = response["rows"][i]["cells"]["website"];
     response["rows"][i]["cells"]["web2"] = response["rows"][i]["cells"]["website"];
     response["rows"][i]["cells"]["email2"] = "mailto:" + response["rows"][i]["cells"]["email"];
     response["rows"][i]["cells"]["departments"] = "<span>" + response["rows"][i]["cells"]["departments"].replace(/; /g, "</span><span>") + "</span>";
-    // response["rows"][i]["cells"]["description"] += dotdotdotButton;
     data.push(response["rows"][i]["cells"]);
   }
   console.log("Total number of entries:", i-1);
@@ -130,11 +65,23 @@ var updateResults = function(error, options, response) {
   $("#loader").hide();
   $("#hr, .pager").show();
 
-  // Setup dotdotdot
-  // dotdotdotSetup(true)
-
   console.log(labsList.size());
-}
+
+  // Update entry number count (TODO)
+  // labsList.on('sortComplete',updateCount);
+  // labsList.on('searchComplete',updateCount);
+  // labsList.on('filterComplete',updateCount);
+
+  // Toggle truncation events
+  $(document).ready(toggleTruncationEvent);
+  $('.btn, .pager').click(toggleTruncationEvent);
+  $('#categories, #searchbox').change(toggleTruncationEvent);
+
+  // Page buttons back up
+  $('.pager').click(function() {
+    $('html,body').scrollTop(0);
+  });
+};
 
 // Parameters for sheetrock.js
 var params = {
@@ -153,15 +100,12 @@ sheetrock(params);
 $('#reset-button-id').click(function() {
   $('#searchbox').val('');
   $("#categories")[0].selectize.clear();
-  labsList.search();
+  console.log(labsList.search());
   labsList.filter();
-  // dotdotdotSetup(false);
 });
 
-// $truncateme.on('searchComplete',updateDot);
-// $truncateme.on('filterComplete',updateDot);
-// $truncateme.on('sortComplete',updateDot);
 
+///*** Misc ***
 // Scroll to top button
 $(document).ready(function(){
   $('#back-top').hide();
@@ -175,35 +119,12 @@ $(document).ready(function(){
   });
 
   $('#back-top').click(function(){
-    $('body,html').animate({
-      scrollTop:0
-    }, 400);
+    $('body,html').animate({scrollTop:0}, 400);
   });
 });
 
 // results count (TODO)
-labsList.on('sortComplete',updateCount);
-labsList.on('searchComplete',updateCount);
-labsList.on('filterComplete',updateCount);
-function updateCount(){
-  console.log(labsList);
-  labsList.update();
-  console.log(labsList.size());
-}
-
-// var dafuq = document.querySelectorAll(".toggle");
-// for(var i = 0, len = dafuq.length; i < len ; i++){
-//   dafuq[i].addEventListener('click',function(){
-//     console.log('ah');
-//     $(this).attr('max-height','999');
-//     // $(this).attr('height')
-//   });
+// function updateCount(){
+//   // labsList.update();
+//   console.log(labsList.size());
 // }
-
-
-// // }
-// $('.toggle *').click(function(){
-//   console.log('ah');
-//   // $(this).attr('max-height','999');
-//   // $(this).attr('height')
-// });
