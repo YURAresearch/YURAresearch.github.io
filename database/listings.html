@@ -65,6 +65,11 @@
                                             <div class="form-group">
                                                 <div class="search">
                                                     <input placeholder="Search" class="form-control" id="searchbox">
+                                                    <script>
+                                                    $( "#searchbox" ).change(function() {
+                                                        dotdotdotSetup(true);
+                                                    });
+                                                    </script>
                                                 </div>
                                             </div><!-- /.form-group -->
                                     </div><!-- /.col-* -->
@@ -167,7 +172,6 @@
 
                                     </div><!-- /.col-* -->
                                 </div><!-- /.row -->
-
                                 <hr>
 
                                 <div class="row">
@@ -185,7 +189,6 @@
                                 </div><!-- /.row -->
 
                             </div> <!-- /.filter -->
-
 
                             <h2 class="page-title">
                                     <span id="numberofresults"> <!-- n results matching your query--></span>
@@ -223,6 +226,12 @@
                                     <ul class="pagination">
                                     </ul>
                             </div><!-- /.pager -->
+                            <script>
+                            $( ".pager" ).click(function() {
+                                dotdotdotSetup(true);
+                                $('html,body').scrollTop(0);
+                            });
+                            </script>
 
 
                         </div><!-- /.content -->
