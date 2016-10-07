@@ -86,3 +86,17 @@ a:focus{
 	-o-transition: background-color 0.3s ease;
 	transition: background-color 0.3s ease;
 }
+.card-row-properties dd{
+	margin-right:8px;
+}
+.website, .email{
+	word-wrap: break-word;
+}
+dt span.departments{
+	line-height: 1.42857;
+}
+dt span.departments > span{
+	display:block;
+	padding-top:9.5px;
+	padding-bottom:9.5px;
+}

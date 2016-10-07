@@ -118,7 +118,7 @@ var updateResults = function(error, options, response) {
     response["rows"][i]["cells"]["web1"] = response["rows"][i]["cells"]["website"];
     response["rows"][i]["cells"]["web2"] = response["rows"][i]["cells"]["website"];
     response["rows"][i]["cells"]["email2"] = "mailto:" + response["rows"][i]["cells"]["email"];
-    response["rows"][i]["cells"]["departments"] = response["rows"][i]["cells"]["departments"].replace(/; /g, "<br/>");
+    response["rows"][i]["cells"]["departments"] = "<span>" + response["rows"][i]["cells"]["departments"].replace(/; /g, "</span><span>") + "</span>";
     response["rows"][i]["cells"]["description"] += dotdotdotButton;
     data.push(response["rows"][i]["cells"]);
   }

@@ -8652,13 +8652,19 @@ h2.widgettitle {
     color: #363636; }
 
   .card-row-content {
-    /*width: 700px;*/
+    width: 700px;
     height: 100px;
    }
    .opened
    {
   height: auto;
     }
+  @media (max-width: 1199px){
+    .card-row-content {
+      width:100%;
+    }
+  }
+
 
 .card-row-properties dl {
   margin: 0px;
