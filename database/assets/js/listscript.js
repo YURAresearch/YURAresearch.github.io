@@ -102,7 +102,7 @@ var updateResults = function(error, options, response) {
 
   // Page buttons back up
   $('.pager').click(function() {
-    $('html,body').scrollTop(0);
+    $('html,body').scrollTop(200);
   });
 };
 
