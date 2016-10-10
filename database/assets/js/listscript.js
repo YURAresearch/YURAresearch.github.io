@@ -1,5 +1,4 @@
-/// *** Initialize List *** (using List.js)
-
+// Hiding when not logged in
 var getUrlParameter = function getUrlParameter(sParam) {
     var sPageURL = decodeURIComponent(window.location.search.substring(1)),
         sURLVariables = sPageURL.split('&'),
@@ -16,14 +15,13 @@ var getUrlParameter = function getUrlParameter(sParam) {
 };
 
 var tech = getUrlParameter('ticket');
-if(tech != undefined)
-{
-  
-}
-else
+if(tech == undefined)
 {
   $("#rdbcontent").hide();
+  $("#login-warning").show();
 }
+
+/// *** Initialize List *** (using List.js)
 
 // Pagination parameters (List.js plugin)
 var paginationParams = {
@@ -90,7 +88,7 @@ var updateResults = function(error, options, response) {
   $("#loader").hide();
   $("#hr, .pager").show();
 
-  console.log(labsList.size());
+  // console.log(labsList.size());
 
   // Update entry number count (TODO)
   // labsList.on('sortComplete',updateCount);
@@ -125,7 +123,7 @@ sheetrock(params);
 $('#reset-button-id').click(function() {
   $('#searchbox').val('');
   $("#categories")[0].selectize.clear();
-  console.log(labsList.search());
+  labsList.search();
   labsList.filter();
 });
 
@@ -135,7 +133,7 @@ $('#reset-button-id').click(function() {
 $(document).ready(function(){
   $('#back-top').hide();
   $(window).scroll(function(){
-    if($(this).scrollTop() > 400){
+    if($(this).scrollTop() > 300){
       $('#back-top').fadeIn(300);
     }
     else{

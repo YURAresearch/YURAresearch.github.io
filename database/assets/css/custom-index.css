@@ -10,6 +10,10 @@
 .faq-item:after{
     border-bottom-color: #0f74aa;
 }
+.btn{
+    margin-top:2px;
+    margin-bottom:2px;
+}
 body{
     font-size: 18px;
 }
@@ -97,4 +101,9 @@ h6{
 }
 #back-top:active{
     background-color:rgba(14, 110, 170, 0.9);
+}
+@media (max-width: 330px){
+    .hero-image-content{
+        top:75px !important;
+    }
 }
