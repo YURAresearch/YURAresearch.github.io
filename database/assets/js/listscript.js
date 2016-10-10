@@ -15,7 +15,7 @@ var getUrlParameter = function getUrlParameter(sParam) {
 };
 
 var tech = getUrlParameter('ticket');
-if(tech == undefined)
+if(tech === undefined)
 {
   $("#rdbcontent").hide();
   $("#login-warning").show();
@@ -55,11 +55,11 @@ var options = {
 var labsList = new List('labs', options);
 
 /// *** Retrieve Data from Google Spreadsheet *** (using sheetrock.js)
-
 function toggleTruncationEvent(){
   $('.truncateme').dblclick(function(){
-    $(this).toggleClass("truncateme-active");
+    $(this).removeClass("truncateme-active");
   });
+  console.log("FUCK");
 }
 
 // Update entries (sheetrock call)
@@ -97,8 +97,10 @@ var updateResults = function(error, options, response) {
 
   // Toggle truncation events
   $(document).ready(toggleTruncationEvent);
-  $('.btn, .pager').click(toggleTruncationEvent);
-  $('#categories, #searchbox').change(toggleTruncationEvent);
+  $(document).ready(function(){
+    $('#categories, #searchbox').on("change keyup paste mouseup", toggleTruncationEvent);
+    $('.btn, .pager').click(toggleTruncationEvent);
+  })
 
   // Page buttons back up
   $('.pager').click(function() {
