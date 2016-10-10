@@ -58,7 +58,7 @@ var updateResults = function(error, options, response) {
     data.push(response["rows"][i]["cells"]);
   }
   console.log("Total number of entries:", i-1);
-  $("#numberofresults").text(i-1 + " results matching your query");
+  // $("#numberofresults").text(i-1 + " results matching your query");
   labsList.add(data);
 
   // Ready to present the entries!
