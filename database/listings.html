@@ -157,7 +157,7 @@
                                                     sortField: 'text'
                                                 });
                                                 $('#categories').change(function(){
-                                                    var selection = this.value;
+                                                    var selection = "<span>" + this.value + "</span>";
                                                     if (selection) {
                                                         labsList.filter(function(item) {
                                                             return (item.values().departments.indexOf(selection) != -1);
