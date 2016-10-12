@@ -59,7 +59,6 @@ function toggleTruncationEvent(){
   $('.truncateme').dblclick(function(){
     $(this).removeClass("truncateme-active");
   });
-  console.log("FUCK");
 }
 
 // Update entries (sheetrock call)
@@ -77,7 +76,7 @@ var updateResults = function(error, options, response) {
     response["rows"][i]["cells"]["web1"] = response["rows"][i]["cells"]["website"];
     response["rows"][i]["cells"]["web2"] = response["rows"][i]["cells"]["website"];
     response["rows"][i]["cells"]["email2"] = "mailto:" + response["rows"][i]["cells"]["email"];
-    response["rows"][i]["cells"]["departments"] = "<span>" + response["rows"][i]["cells"]["departments"].replace(/; /g, "</span><span>") + "</span>";
+    response["rows"][i]["cells"]["departments"] = "<span>" + response["rows"][i]["cells"]["departments"].replace(/;\s*/g, "</span><span>") + "</span>";
     data.push(response["rows"][i]["cells"]);
   }
   console.log("Total number of entries:", i-1);
