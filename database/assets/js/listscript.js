@@ -57,7 +57,7 @@ var labsList = new List('labs', options);
 /// *** Retrieve Data from Google Spreadsheet *** (using sheetrock.js)
 function toggleTruncationEvent(){
   $('.truncateme').dblclick(function(){
-    $(this).removeClass("truncateme-active");
+    $(this).toggleClass("truncateme-active");
   });
 }
 

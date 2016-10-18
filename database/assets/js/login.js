@@ -29,13 +29,13 @@ function handler()
 
 var tech = getUrlParameter('ticket');
 
-var myElement = document.getElementById("listings"); 
+var myElement = document.getElementById("listings");
 
 if(tech != undefined)
 {
 	myElement.innerHTML = "View Listings";
 	myElement.setAttribute("href", "listings.html");
-	
+
 	//Temporarily disabled.
 	/*
 	window.alert(tech);
@@ -48,11 +48,11 @@ if(tech != undefined)
 	var invocation = new XMLHttpRequest();
 	var url = 'https://secure.its.yale.edu/cas/serviceValidate';
 
-	if(invocation) 
-    {    
+	if(invocation)
+    {
 		invocation.open('GET', url, true);
 		invocation.onreadystatechange = handler;
-		invocation.send(); 
+		invocation.send();
 	}
 	*/
 
@@ -61,7 +61,7 @@ if(tech != undefined)
 else
 {
 	myElement.innerHTML = "Log In";
-	myElement.setAttribute("href", "https://secure.its.yale.edu/cas/login?service=http%3A%2F%2Fyuraresearch.github.io/database/listings.html");
+	myElement.setAttribute("href", "https://secure.its.yale.edu/cas/login?service=http%3A%2F%2Fyura.undergradresearch.org/database/listings.html");
 
 	//myElement.setAttribute()
 	//window.alert("No parameters");
