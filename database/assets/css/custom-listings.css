@@ -16,10 +16,6 @@ a:focus{
 	margin-left: 3px;
 	background-color:#CCCCCC;
 }
-.document-title .breadcrumb a{
-	font-size: 24px;
-	color:#43b3ef;
-}
 #loader p {
 	font-size:26px;
 	font-weight:400;
