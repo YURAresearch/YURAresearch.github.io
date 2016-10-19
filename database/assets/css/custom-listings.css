@@ -167,3 +167,6 @@ dt span.departments > span{
 	margin-top:0.5em;
 	background:white;
 }
+.nav>li>a:focus{
+	background-color:transparent;
+}

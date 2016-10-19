@@ -8,3 +8,6 @@
 .document-title .breadcrumb a:hover{
 	color:#72c6f3;
 }
+.nav>li>a:focus{
+	background-color:transparent;
+}

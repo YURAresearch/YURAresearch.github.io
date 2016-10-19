@@ -107,3 +107,6 @@ h6{
         top:75px !important;
     }
 }
+.nav>li>a:focus{
+    background-color:transparent;
+}
