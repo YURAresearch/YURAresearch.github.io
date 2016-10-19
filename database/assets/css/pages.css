@@ -1,10 +1,10 @@
 .document-title .breadcrumb a{
 	font-size: 24px;
-	color:#43b3ef;
+	color:#aaa;
 	-webkit-transition: color 0.1s linear;
 	-o-transition: color 0.1s linear;
 	transition: color 0.1s linear;
 }
 .document-title .breadcrumb a:hover{
-	color:#b6dce9;
+	color:#72c6f3;
 }

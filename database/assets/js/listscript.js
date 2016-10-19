@@ -46,7 +46,7 @@ var options = {
     {name: 'web2', attr: 'href'},
     {name: 'email2', attr: 'href'}
   ],
-  page: 20,
+  page: 15,
   item: 'databaseitem',
   plugins:[ListPagination(paginationParams)]
 };

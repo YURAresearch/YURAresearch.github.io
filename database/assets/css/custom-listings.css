@@ -14,7 +14,40 @@ a:focus{
 }
 .btn{
 	margin-left: 3px;
-	background-color:#CCCCCC;
+	background-color:#494949;
+	margin-top: 3px;
+	color:#fff;
+}
+#reset-button-id{
+	background-color:#205699;
+	color:#fff;
+	padding: 9px 15px;
+	border-radius:18.6px;
+	text-align:center;
+	margin-top: 3px;
+	margin-bottom: 3px;
+    white-space: nowrap;
+    overflow: visible;
+    -webkit-transition: all 0.15s linear;
+	-o-transition: all 0.15s linear;
+	transition: all 0.15s linear;
+}
+#reset-button-id .fa{
+	color: #fff;
+}
+#reset-button-id:hover{
+	background-color:#3068ad;
+	color: #fff;
+}
+#reset-button-id::selection{
+	color: #fff !important;
+}
+.btn:hover{
+	background-color:#5b5b5b;
+	color:#fff;
+}
+.form-control,.selectize-input{
+	border-color:#999 !important;
 }
 #loader p {
 	font-size:26px;
