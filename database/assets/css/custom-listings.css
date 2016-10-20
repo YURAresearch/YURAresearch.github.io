@@ -85,6 +85,7 @@ a:focus{
 }
 .pager .pagination li > a{
 	padding:3px 6px;
+	width:27px;
 }
 #home:hover,#home:active{
 	color:#b6dce9;
