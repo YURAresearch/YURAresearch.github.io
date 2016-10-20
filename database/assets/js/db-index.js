@@ -1,3 +1,5 @@
+// Javascript for index page
+
 // Scroll to top button
 $(document).ready(function(){
   $('#back-top').hide();
