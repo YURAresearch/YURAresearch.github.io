@@ -143,7 +143,14 @@ $(document).ready(function(){
         else{
             $('#back-top').fadeOut(300);
         }
-        // if((window.innerHeight + window.scrollY < $('#response-block').offset().top)){
+        if((window.innerHeight + window.scrollY) < document.body.scrollHeight){
+          $('.pager').show();
+        }
+        else{
+          $('.pager').hide();
+        }
+
+        // if((window.innerHeight + window.scrollY) < $('#response-block').offset().top)){
         //   $('.pager').addClass('floatpager');
         // }
         // else{
