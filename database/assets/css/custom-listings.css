@@ -83,6 +83,9 @@ a:focus{
 	background:transparent !important;
 	color:inherit;
 }
+.pager .pagination li > a{
+	padding:3px 6px;
+}
 #home:hover,#home:active{
 	color:#b6dce9;
 }
