@@ -4,6 +4,9 @@
     padding: 0;
     list-style-type: none;
 }
+.list li {
+    margin-bottom: 5px;
+}
 a:focus{
 	text-decoration: none;
 }
@@ -97,8 +100,15 @@ a:focus{
 .pager .pagination li > a{
 	padding:4px 6px;
 	width:30px;
-	border:solid 1px #ddd;
-	margin:-1px 0 0 -1px;
+	border:none;
+	margin:1.5px 0 0 1.5px;
+}
+@media (min-width: 650px){
+	.pager .pagination li > a{
+		padding:8px 10px;
+		width:45px;
+		font-size:120%;
+	}
 }
 #home:hover,#home:active{
 	color:#b6dce9;
