@@ -104,10 +104,12 @@ var updateResults = function(error, options, response) {
         $('.btn, .pager').click(toggleTruncationEvent);
     });
 
-    // // Page buttons back up
-    // $('.pager li,.page span').click(function() {
-    //     $('html,body').scrollTop(200);
-    // });
+    // Page buttons back up
+    checkPrevNext();
+    $('.pager ul, #prev, #next').click(function() {
+        checkPrevNext();
+        $('html, body').scrollTop(200);
+    });
 };
 
 // Parameters for sheetrock.js
@@ -143,12 +145,12 @@ $(document).ready(function(){
         else{
             $('#back-top').fadeOut(300);
         }
-        if((window.innerHeight + window.scrollY) < document.body.scrollHeight){
-          $('.pager').show();
-        }
-        else{
-          $('.pager').hide();
-        }
+        // if((window.innerHeight + window.scrollY) < document.body.scrollHeight){
+        //   $('.pager').show();
+        // }
+        // else{
+        //   $('.pager').hide();
+        // }
 
         // if((window.innerHeight + window.scrollY) < $('#response-block').offset().top)){
         //   $('.pager').addClass('floatpager');
@@ -162,8 +164,6 @@ $(document).ready(function(){
         $('body,html').animate({scrollTop:0}, 400);
     });
 });
-
-
 
 // results count (TODO)
 // function updateCount(){
@@ -179,17 +179,17 @@ $('#next').click(function(){
     $('.active').next().trigger('click');
 });
 
-// function checkPrevNext(){
-//     if($('.active').next().length==0){
-//         $('#next').css('visibility','hidden');
-//     }
-//     else{
-//         $('#next').css('visibility','visible');
-//     }
-//     if($('.active').prev().length==0){
-//         $('#prev').css('visibility','hidden');
-//     }
-//     else{
-//         $('#prev').css('visibility','visible');
-//     }
-// }
+function checkPrevNext(){
+    if($('.active').next().length==0){
+        $('#next').css('visibility','hidden');
+    }
+    else{
+        $('#next').css('visibility','visible');
+    }
+    if($('.active').prev().length==0){
+        $('#prev').css('visibility','hidden');
+    }
+    else{
+        $('#prev').css('visibility','visible');
+    }
+}
