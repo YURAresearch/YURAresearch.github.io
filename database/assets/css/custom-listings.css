@@ -113,10 +113,13 @@ a:focus{
 		font-size:120%;
 	}
 }
-#home:hover,#home:active{
+#home>a{
+	color:#fff;
+}
+#home>a:hover,#home>a:active{
 	color:#b6dce9;
 }
-#home{
+#home>a{
 	-webkit-transition: color 0.1s linear;
 	-o-transition: color 0.1s linear;
 	transition: color 0.1s linear;

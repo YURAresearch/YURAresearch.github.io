@@ -23,8 +23,8 @@ if(tech === undefined)
     $("#login-warning").show();
 }
 
-/// *** Initialize List *** (using List.js)
 
+/// *** Initialize List *** (using List.js)
 // Pagination parameters (List.js plugin)
 var paginationParams = {
     name: "listPages",
@@ -56,13 +56,67 @@ var options = {
 // Make list (List.js)
 var labsList = new List('labs', options);
 
-/// *** Retrieve Data from Google Spreadsheet *** (using sheetrock.js)
+
+/// *** Functions for various js work after entries have loaded; called after list.js call to add
+function checkPrevNext() {
+    // Take care of hiding prev or next buttons
+    if($('.active').next().length === 0){
+        $('#next').css('visibility','hidden');
+    }
+    else{
+        $('#next').css('visibility','visible');
+    }
+    if($('.active').prev().length === 0){
+        $('#prev').css('visibility','hidden');
+    }
+    else{
+        $('#prev').css('visibility','visible');
+    }
+}
+function postEntryWork() {
+    // Checking page buttons and add events
+    checkPrevNext();
+    $('.pager ul').click(function() {
+        checkPrevNext();
+        $('html, body').scrollTop(200);
+    });
+    $('#prev').click(function(){
+        $('.active').prev().trigger('click');
+        checkPrevNext();
+    });
+    $('#next').click(function(){
+        $('.active').next().trigger('click');
+        checkPrevNext();
+    });
+
+    // Scroll to top button
+    $('#back-top').hide();
+    $(window).scroll(function(){
+        if($(this).scrollTop() > 300){
+            $('#back-top').fadeIn(300);
+        }
+        else{
+            $('#back-top').fadeOut(300);
+        }
+    });
+    $('#back-top').click(function(){
+        $('body,html').animate({scrollTop:0}, 400);
+    });
+
+    // Reset filters
+    $('#reset-button-id').click(function() {
+        $('#searchbox').val('');
+        $("#categories")[0].selectize.clear();
+        labsList.search();
+        labsList.filter();
+    });
+}
+
+/// *** Retrieve and load Data from Google Spreadsheet *** (using sheetrock.js)
 // Update entries (sheetrock call)
 var updateResults = function(error, options, response) {
     // Report error
-    if(error){
-        console.log("Errors: ", error);
-    }
+    if(error){console.log("Errors: ", error);}
 
     // Parse response from sheet, curate, and load
     var data = [];
@@ -82,27 +136,16 @@ var updateResults = function(error, options, response) {
         response["rows"][i]["cells"]["departments"] = deptTemp.slice(0,deptTemp.length-6);
         data.push(response["rows"][i]["cells"]);
     }
-    console.log("Total number of entries:", i-1);
-    // $("#numberofresults").text(i-1 + " results matching your query");
+    // Load entries by relaying to list.js code
     labsList.add(data);
 
     // Ready to present the entries!
     $("#loader").hide();
     $("#hr, .pager").show();
 
-    // console.log(labsList.size());
-
-    // Update entry number count (TODO)
-    // labsList.on('sortComplete',updateCount);
-    // labsList.on('searchComplete',updateCount);
-    // labsList.on('filterComplete',updateCount);
-
-    // Page buttons back up
-    checkPrevNext();
-    $('.pager ul, #prev, #next').click(function() {
-        checkPrevNext();
-        $('html, body').scrollTop(200);
-    });
+    // Note: by this points the entries are all set
+    // Take care of all events and js work etc
+    postEntryWork();
 };
 
 // Parameters for sheetrock.js
@@ -117,72 +160,17 @@ var params = {
 $("#hr, .pager").hide();
 sheetrock(params);
 
-/// *** Filtering *** (using List.js)
-// Reset filters
-$('#reset-button-id').click(function() {
-    $('#searchbox').val('');
-    $("#categories")[0].selectize.clear();
-    labsList.search();
-    labsList.filter();
-});
-
-
-///*** Misc ***
-// Scroll to top button and floating pagination checker
-$(document).ready(function(){
-    $('#back-top').hide();
-    $(window).scroll(function(){
-        if($(this).scrollTop() > 300){
-            $('#back-top').fadeIn(300);
-        }
-        else{
-            $('#back-top').fadeOut(300);
-        }
-        // if((window.innerHeight + window.scrollY) < document.body.scrollHeight){
-        //   $('.pager').show();
-        // }
-        // else{
-        //   $('.pager').hide();
-        // }
-
-        // if((window.innerHeight + window.scrollY) < $('#response-block').offset().top)){
-        //   $('.pager').addClass('floatpager');
-        // }
-        // else{
-        //   $('.pager').removeClass('floatpager');
-        // }
+$('#categories').selectize({
+        sortField: 'text'
     });
-
-    $('#back-top').click(function(){
-        $('body,html').animate({scrollTop:0}, 400);
+    $('#categories').change(function(){
+        var selection = "<span>" + this.value + "</span>";
+        if (selection) {
+            labsList.filter(function(item) {
+                return (item.values().departments.indexOf(selection) != -1);
+            });
+        }
+        else {
+            labsList.filter();
+        }
     });
-});
-
-// results count (TODO)
-// function updateCount(){
-//   // labsList.update();
-//   console.log(labsList.size());
-// }
-
-// Prev or Next buttons for pagination
-$('#prev').click(function(){
-    $('.active').prev().trigger('click');
-});
-$('#next').click(function(){
-    $('.active').next().trigger('click');
-});
-
-function checkPrevNext(){
-    if($('.active').next().length===0){
-        $('#next').css('visibility','hidden');
-    }
-    else{
-        $('#next').css('visibility','visible');
-    }
-    if($('.active').prev().length===0){
-        $('#prev').css('visibility','hidden');
-    }
-    else{
-        $('#prev').css('visibility','visible');
-    }
-}

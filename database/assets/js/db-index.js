@@ -1,10 +1,10 @@
 // Javascript for index page
-$(document).ready(function() {
-     $('#learnmore').localScroll({duration:800});
-});
-
-// Scroll to top button
 $(document).ready(function(){
+
+    // Learn more button
+    $('#learnmore').localScroll({duration:800});
+
+    // Scroll to top button
     $('#back-top').hide();
     $(window).scroll(function(){
         if(($(this).scrollTop() > 900) && ((window.innerHeight + window.scrollY) < document.body.scrollHeight)){
@@ -20,4 +20,5 @@ $(document).ready(function(){
             scrollTop:0
         }, 400);
     });
+
 });
