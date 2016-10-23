@@ -57,12 +57,6 @@ var options = {
 var labsList = new List('labs', options);
 
 /// *** Retrieve Data from Google Spreadsheet *** (using sheetrock.js)
-function toggleTruncationEvent(){
-    $('.truncateme').dblclick(function(){
-        $(this).toggleClass("truncateme-active");
-    });
-}
-
 // Update entries (sheetrock call)
 var updateResults = function(error, options, response) {
     // Report error
@@ -73,10 +67,14 @@ var updateResults = function(error, options, response) {
     // Parse response from sheet, curate, and load
     var data = [];
     var i;
-    // var dotdotdotButton = "<a class='toggle' href='#''><span class='openericon'>[ + ]</span><span class='closericon'>[ - ]</span></a>";
     for (i = 1; i < response["rows"].length; i++) {
         response["rows"][i]["cells"]["web1"] = response["rows"][i]["cells"]["website"];
         response["rows"][i]["cells"]["web2"] = response["rows"][i]["cells"]["website"];
+        id_num = Math.floor((Math.random()*10000)+1);
+        response["rows"][i]["cells"]["description"] =
+            "<input type='checkbox' class='hiddentrig' id='item"+id_num+"'><span class='desc-text'>" +
+            response["rows"][i]["cells"]["description"] +
+            "</span><label class='show-text' for='item"+id_num+"'>";
         response["rows"][i]["cells"]["email2"] = "mailto:" + response["rows"][i]["cells"]["email"];
         deptTemp = "<span>" + response["rows"][i]["cells"]["departments"].replace(/;\s*/g, "</span><span>");
         response["rows"][i]["cells"]["departments"] = deptTemp.slice(0,deptTemp.length-6);
@@ -96,13 +94,6 @@ var updateResults = function(error, options, response) {
     // labsList.on('sortComplete',updateCount);
     // labsList.on('searchComplete',updateCount);
     // labsList.on('filterComplete',updateCount);
-
-    // Toggle truncation events
-    $(document).ready(toggleTruncationEvent);
-    $(document).ready(function(){
-        $('#categories, #searchbox').on("change keyup paste mouseup", toggleTruncationEvent);
-        $('.btn, .pager').click(toggleTruncationEvent);
-    });
 
     // Page buttons back up
     checkPrevNext();
