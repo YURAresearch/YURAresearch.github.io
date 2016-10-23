@@ -67,6 +67,8 @@ var updateResults = function(error, options, response) {
     // Parse response from sheet, curate, and load
     var data = [];
     var i;
+    var id_num = 0;
+    var deptTemp = "";
     for (i = 1; i < response["rows"].length; i++) {
         response["rows"][i]["cells"]["web1"] = response["rows"][i]["cells"]["website"];
         response["rows"][i]["cells"]["web2"] = response["rows"][i]["cells"]["website"];
@@ -171,13 +173,13 @@ $('#next').click(function(){
 });
 
 function checkPrevNext(){
-    if($('.active').next().length==0){
+    if($('.active').next().length===0){
         $('#next').css('visibility','hidden');
     }
     else{
         $('#next').css('visibility','visible');
     }
-    if($('.active').prev().length==0){
+    if($('.active').prev().length===0){
         $('#prev').css('visibility','hidden');
     }
     else{
