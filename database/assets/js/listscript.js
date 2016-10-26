@@ -1,13 +1,13 @@
 // Javascript for listings page
 
 $(window).on('beforeunload', function(){
-  $('#searchbox').val('');
-  $("#categories")[0].selectize.clear();
+    $('#searchbox').val('');
+    $("#categories")[0].selectize.clear();
 });
 
 $(window).on('load', function(){
-  labsList.search();
-  labsList.filter();
+    labsList.search();
+    labsList.filter();
 });
 
 // Hiding when not logged in
@@ -75,11 +75,10 @@ var options = {
     valueNames: [
         'name',
         'departments',
-        'website',
         'email',
         'description',
+        {name: 'website', attr: 'href'},
         {name: 'web1', attr: 'href'},
-        {name: 'web2', attr: 'href'},
         {name: 'email2', attr: 'href'}
     ],
     page: 15,
@@ -94,17 +93,23 @@ var labsList = new List('labs', options);
 /// *** Functions for various js work after entries have loaded; called after list.js call to add
 function checkPrevNext() {
     // Take care of hiding prev or next buttons
-    if($('.active').next().length === 0){
+    if($('.active').length === 0){
         $('#next').css('visibility','hidden');
-    }
-    else{
-        $('#next').css('visibility','visible');
-    }
-    if($('.active').prev().length === 0){
         $('#prev').css('visibility','hidden');
     }
     else{
-        $('#prev').css('visibility','visible');
+        if($('.active').next().length === 0){
+            $('#next').css('visibility','hidden');
+        }
+        else{
+            $('#next').css('visibility','visible');
+        }
+        if($('.active').prev().length === 0){
+            $('#prev').css('visibility','hidden');
+        }
+        else{
+            $('#prev').css('visibility','visible');
+        }
     }
 }
 function postEntryWork() {
@@ -159,7 +164,6 @@ var updateResults = function(error, options, response) {
     var deptTemp = "";
     for (i = 1; i < response["rows"].length; i++) {
         response["rows"][i]["cells"]["web1"] = response["rows"][i]["cells"]["website"];
-        response["rows"][i]["cells"]["web2"] = response["rows"][i]["cells"]["website"];
         id_num = Math.floor((Math.random()*10000)+1);
         response["rows"][i]["cells"]["description"] =
             "<input type='checkbox' class='hiddentrig' id='item"+id_num+"'><span class='desc-text'>" +

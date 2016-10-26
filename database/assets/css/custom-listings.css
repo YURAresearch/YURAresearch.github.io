@@ -169,6 +169,12 @@ dt span.departments > span, .email, .website{
 	padding-top:9.5px;
 	padding-bottom:9.5px;
 }
+.website{
+	color:#1080bc;
+}
+.website:hover{
+	color:#2090cc;
+}
 #prev,#next{
 	width:60px;
 	margin:3px auto;
@@ -263,4 +269,8 @@ span#prev::selection,span#next::selection{
 .pager .pagination li a {
 	/* Fix pagination weird spacing */
     float: none !important;
+}
+#login-warning{
+	font-size:120%;
+	text-align:center;
 }
