@@ -42,7 +42,7 @@ if(tech === undefined)
     $("#login-warning").show();
 }
 else
-{   
+{
     var urlGet = "http://undergradresearch.org:5000/auth/";
     var finalURL = urlGet.concat(tech);
     console.log(finalURL);
@@ -194,33 +194,52 @@ var params = {
 $("#hr, .pager").hide();
 sheetrock(params);
 
+//Formatting categories dropdown
 $('#categories').selectize({
     sortField: 'text'
 });
 
-$('#categories').change(function(){
-    var selection = "<span>" + this.value + "</span>";
-    if (selection) {
-        labsList.filter(function(item) {
-            return (item.values().departments.indexOf(selection) != -1);
-        });
-    }
-    else {
-        labsList.filter();
-    }
-});
-
-$('#searchbox').keyup(function() {
-   var searchString = $(this).val().toLowerCase();
+// Filtering data based on search box and category selection
+var filterData = function() {
+   console.log("filter");
+   var searchString = $('#searchbox').val().toLowerCase();
+   var categorySelection = $('#categories').val();
+   var modCategorySelection = "<span>" + categorySelection + "</span>";
    var searchArray = searchString.split(" ");
-   console.log(searchArray);
-   labsList.filter(function(item) {
-     var isTrue = true;
-     for (i = 0; i < searchArray.length; i++) {
-        if (item.values().description.toLowerCase().indexOf(searchArray[i]) == -1) {
-          isTrue=false;
+   if (searchString && categorySelection){
+     labsList.filter(function(item) {
+       var isTrue = true;
+       for (i = 0; i < searchArray.length; i++) {
+          if (item.values().description.toLowerCase().indexOf(searchArray[i]) == -1 || item.values().departments.indexOf(modCategorySelection) == -1) {
+            isTrue=false;
+          }
         }
-      }
-      return isTrue;
-   });
-});
+        return isTrue;
+     });
+   }
+
+   else if (categorySelection) {
+       labsList.filter(function(item) {
+           return (item.values().departments.indexOf(modCategorySelection) != -1);
+       });
+   }
+
+   else if (searchString) {
+     labsList.filter(function(item) {
+       var isTrue = true;
+       for (i = 0; i < searchArray.length; i++) {
+          if (item.values().description.toLowerCase().indexOf(searchArray[i]) == -1) {
+            isTrue=false;
+          }
+        }
+        return isTrue;
+     });
+   }
+   else {
+     labsList.filter();
+   };
+  };
+
+$('#searchbox').keyup(filterData);
+
+$('#categories').change(filterData);
