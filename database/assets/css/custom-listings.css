@@ -67,12 +67,11 @@ a:focus{
 	margin-top:30px;
 	margin-bottom:60px;
 }
-.pager ul{
-	margin-top: 6px;
-}
 @media (max-width: 470px){
 	.pager ul{
 		display:block;
+		margin-top: 6px;
+		margin-bottom: 6px;
 	}
 }
 .pager .disabled, .pager .disabled > a{
@@ -252,9 +251,6 @@ span#prev::selection,span#next::selection{
 	-o-transition: background-color 0.1s ease;
 	transition: background-color 0.1s ease;
 }
-.show-textcover{
-
-}
 .show-text:hover{
 	background-color:#9fafbf;
 }
@@ -263,4 +259,8 @@ span#prev::selection,span#next::selection{
 }
 .hiddentrig:checked ~ .show-text:hover{
 	background-color:#bfbfbf;
+}
+.pager .pagination li a {
+	/* Fix pagination weird spacing */
+    float: none !important;
 }
