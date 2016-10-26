@@ -1,5 +1,15 @@
 // Javascript for listings page
 
+$(window).on('beforeunload', function(){
+  $('#searchbox').val('');
+  $("#categories")[0].selectize.clear();
+});
+
+$(window).on('load', function(){
+  labsList.search();
+  labsList.filter();
+});
+
 // Hiding when not logged in
 var getUrlParameter = function getUrlParameter(sParam) {
     var sPageURL = decodeURIComponent(window.location.search.substring(1)),
@@ -178,6 +188,22 @@ var params = {
 $("#hr, .pager").hide();
 sheetrock(params);
 
+$('#categories').selectize({
+    sortField: 'text'
+});
+
+$('#categories').change(function(){
+    var selection = "<span>" + this.value + "</span>";
+    if (selection) {
+        labsList.filter(function(item) {
+            return (item.values().departments.indexOf(selection) != -1);
+        });
+    }
+    else {
+        labsList.filter();
+    }
+});
+
 $('#searchbox').keyup(function() {
    var searchString = $(this).val().toLowerCase();
    var searchArray = searchString.split(" ");
@@ -191,20 +217,4 @@ $('#searchbox').keyup(function() {
       }
       return isTrue;
    });
-});
-
-
-$('#categories').selectize({
-    sortField: 'text'
-});
-$('#categories').change(function(){
-    var selection = "<span>" + this.value + "</span>";
-    if (selection) {
-        labsList.filter(function(item) {
-            return (item.values().departments.indexOf(selection) != -1);
-        });
-    }
-    else {
-        labsList.filter();
-    }
 });
