@@ -43,7 +43,7 @@ if(tech === undefined)
 else
 {
     var urlGet = "http://undergradresearch.org:5000/auth/";
-    var validCode = httpGet(urlGet.concat(tech);
+    var validCode = httpGet(urlGet.concat(tech));
     if(validCode == "invalid")
     {
         $("#rdbcontent").hide();
