@@ -161,16 +161,16 @@ $("#hr, .pager").hide();
 sheetrock(params);
 
 $('#categories').selectize({
-        sortField: 'text'
-    });
-    $('#categories').change(function(){
-        var selection = "<span>" + this.value + "</span>";
-        if (selection) {
-            labsList.filter(function(item) {
-                return (item.values().departments.indexOf(selection) != -1);
-            });
-        }
-        else {
-            labsList.filter();
-        }
-    });
+    sortField: 'text'
+});
+$('#categories').change(function(){
+    var selection = "<span>" + this.value + "</span>";
+    if (selection) {
+        labsList.filter(function(item) {
+            return (item.values().departments.indexOf(selection) != -1);
+        });
+    }
+    else {
+        labsList.filter();
+    }
+});
