@@ -160,6 +160,22 @@ var params = {
 $("#hr, .pager").hide();
 sheetrock(params);
 
+$('#searchbox').keyup(function() {
+   var searchString = $(this).val();
+   var searchArray = searchString.split(" ");
+   console.log(searchArray);
+   labsList.filter(function(item) {
+     var isTrue = true;
+     for (i = 0; i < searchArray.length; i++) {
+        if (item.values().description.indexOf(searchArray[i]) == -1) {
+          isTrue=false;
+        }
+      }
+      return isTrue;
+   });
+});
+
+
 $('#categories').selectize({
     sortField: 'text'
 });
