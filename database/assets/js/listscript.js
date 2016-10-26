@@ -16,11 +16,29 @@ var getUrlParameter = function getUrlParameter(sParam) {
     }
 };
 
+var httpGet = function httpGet(theUrl)
+{
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open("GET", theUrl, false); // false for synchronous request
+    xmlHttp.send();
+    return xmlHttp.responseText;
+}
+
 var tech = getUrlParameter('ticket');
 if(tech === undefined)
 {
     $("#rdbcontent").hide();
     $("#login-warning").show();
+}
+else
+{
+    var urlGet = "http://undergradresearch.org:5000/auth/";
+    var validCode = httpGet(urlGet.concat(tech);
+    if(validCode == 'invalid')
+    {
+        $("#rdbcontent").hide();
+        $("#login-warning").show();
+    }
 }
 
 

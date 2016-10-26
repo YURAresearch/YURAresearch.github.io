@@ -31,37 +31,23 @@ var tech = getUrlParameter('ticket');
 
 var myElement = document.getElementById("listings");
 
+var urlGet = "http://undergradresearch.org:5000/auth";
+var x = httpGet(urlGet.concat("Hello Nish"));
+console.log(x);
+
+
 if(tech != undefined)
 {
-	myElement.innerHTML = "View Listings";
-	myElement.setAttribute("href", "listings.html");
-
-	//Temporarily disabled.
-	/*
-	window.alert(tech);
-	var str1 = "https://secure.its.yale.edu/cas/serviceValidate?ticket=";
-	var str2 = str1.concat(tech);
-	var str3 = str2.concat("&service=http%3A%2F%2Fyuraresearch.github.io/database/index.html");
-	window.alert(str3);
-
-	//var data = httpGet("secure.its.yale.edu/cas/serviceValidate");
-	var invocation = new XMLHttpRequest();
-	var url = 'https://secure.its.yale.edu/cas/serviceValidate';
-
-	if(invocation)
-    {
-		invocation.open('GET', url, true);
-		invocation.onreadystatechange = handler;
-		invocation.send();
-	}
-	*/
+	//myElement.innerHTML = "View Listings";
+	//myElement.setAttribute("href", "listings.html");
 
 	//window.alert("End");
 }
 else
 {
-	myElement.innerHTML = "Log In";
-	myElement.setAttribute("href", "https://secure.its.yale.edu/cas/login?service=http%3A%2F%2Fyura.undergradresearch.org/database/listings.html");
+	//myElement.innerHTML = "Log In";
+	//myElement.setAttribute("href", "https://secure.its.yale.edu/cas/login?service=http%3A%2F%2Fyura.undergradresearch.org/database/listings.html");
+
 
 	//myElement.setAttribute()
 	//window.alert("No parameters");
