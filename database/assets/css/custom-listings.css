@@ -1,4 +1,5 @@
 /* Custom additional CSS for listings page */
+
 .background-secondary,.faq-item:before{
     background-color: #0f74aa;
 }
@@ -168,12 +169,6 @@ dt span.departments > span, .email, .website{
 	display:block;
 	padding-top:9.5px;
 	padding-bottom:9.5px;
-}
-.website{
-	color:#008675;
-}
-.website:hover{
-	color:#2090cc;
 }
 #prev,#next{
 	width:60px;

@@ -1,5 +1,6 @@
 // Javascript for listings page
 
+// Starting filters
 $(window).on('beforeunload', function(){
     $('#searchbox').val('');
     $("#categories")[0].selectize.clear();
@@ -10,6 +11,7 @@ $(window).on('load', function(){
     labsList.filter();
 });
 
+/// *** CAS Auth ***
 // Hiding when not logged in
 var getUrlParameter = function getUrlParameter(sParam) {
     var sPageURL = decodeURIComponent(window.location.search.substring(1)),
@@ -34,7 +36,7 @@ var httpGet = function httpGet(theUrl)
     return xmlHttp.responseText;
 };
 
-//Validation of login ticket using our webserver.
+// Validation of login ticket using our webserver.
 var tech = getUrlParameter('ticket');
 if(tech === undefined)
 {
@@ -45,18 +47,15 @@ else
 {
     var urlGet = "http://undergradresearch.org:5000/auth/";
     var finalURL = urlGet.concat(tech);
-    console.log(finalURL);
     var getUrl = window.location;
     var validCode = "invalid";
     validCode = httpGet(finalURL);
-    console.log(validCode);
     if(validCode == "invalid")
     {
         $("#rdbcontent").hide();
         $("#login-warning").show();
     }
 }
-
 
 /// *** Initialize List *** (using List.js)
 // Pagination parameters (List.js plugin)
@@ -203,9 +202,10 @@ $('#categories').selectize({
     sortField: 'text'
 });
 
+
+/// *** Filtering ***
 // Filtering data based on search box and category selection
 var filterData = function() {
-   console.log("filter");
    var searchString = $('#searchbox').val().toLowerCase();
    var categorySelection = $('#categories').val();
    var modCategorySelection = "<span>" + categorySelection + "</span>";
@@ -245,5 +245,4 @@ var filterData = function() {
   };
 
 $('#searchbox').keyup(filterData);
-
 $('#categories').change(filterData);
