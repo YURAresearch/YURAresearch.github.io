@@ -32,7 +32,7 @@ var httpGet = function httpGet(theUrl)
     xmlHttp.open("GET", theUrl, false); // false for synchronous request
     xmlHttp.send();
     return xmlHttp.responseText;
-}
+};
 
 var tech = getUrlParameter('ticket');
 if(tech === undefined)
