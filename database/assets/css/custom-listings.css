@@ -67,7 +67,7 @@ a:focus{
 	margin-top:30px;
 	margin-bottom:60px;
 }
-@media (max-width: 470px){
+@media (max-width: 490px){
 	.pager ul{
 		display:block;
 		margin-top: 6px;
@@ -189,7 +189,7 @@ dt span.departments > span, .email, .website{
 	font-size:15px;
 	padding:10px;
 }
-@media (min-width: 470px){
+@media (min-width: 490px){
 	span#prev{
 		margin-right:3%;
 	}
