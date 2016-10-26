@@ -11,6 +11,7 @@ $(window).on('load', function(){
 });
 
 // Hiding when not logged in
+/**
 var getUrlParameter = function getUrlParameter(sParam) {
     var sPageURL = decodeURIComponent(window.location.search.substring(1)),
         sURLVariables = sPageURL.split('&'),
@@ -57,7 +58,7 @@ else
     }
 }
 
-
+**/
 /// *** Initialize List *** (using List.js)
 // Pagination parameters (List.js plugin)
 var paginationParams = {
@@ -194,33 +195,50 @@ var params = {
 $("#hr, .pager").hide();
 sheetrock(params);
 
+var filterData = function() {
+   console.log("filter");
+   var searchString = $('#searchbox').val().toLowerCase();
+   var categorySelection = $('#categories').val();
+   var modCategorySelection = "<span>" + categorySelection + "</span>";
+   var searchArray = searchString.split(" ");
+   if (searchString && categorySelection){
+     labsList.filter(function(item) {
+       var isTrue = true;
+       for (i = 0; i < searchArray.length; i++) {
+          if (item.values().description.toLowerCase().indexOf(searchArray[i]) == -1 || item.values().departments.indexOf(modCategorySelection) == -1) {
+            isTrue=false;
+          }
+        }
+        return isTrue;
+     });
+   }
+
+   else if (categorySelection) {
+       labsList.filter(function(item) {
+           return (item.values().departments.indexOf(modCategorySelection) != -1);
+       });
+   }
+
+   else if (searchString) {
+     labsList.filter(function(item) {
+       var isTrue = true;
+       for (i = 0; i < searchArray.length; i++) {
+          if (item.values().description.toLowerCase().indexOf(searchArray[i]) == -1) {
+            isTrue=false;
+          }
+        }
+        return isTrue;
+     });
+   }
+   else {
+     labsList.filter();
+   };
+  };
+
 $('#categories').selectize({
     sortField: 'text'
 });
 
-$('#categories').change(function(){
-    var selection = "<span>" + this.value + "</span>";
-    if (selection) {
-        labsList.filter(function(item) {
-            return (item.values().departments.indexOf(selection) != -1);
-        });
-    }
-    else {
-        labsList.filter();
-    }
-});
+$('#searchbox').keyup(filterData);
 
-$('#searchbox').keyup(function() {
-   var searchString = $(this).val().toLowerCase();
-   var searchArray = searchString.split(" ");
-   console.log(searchArray);
-   labsList.filter(function(item) {
-     var isTrue = true;
-     for (i = 0; i < searchArray.length; i++) {
-        if (item.values().description.toLowerCase().indexOf(searchArray[i]) == -1) {
-          isTrue=false;
-        }
-      }
-      return isTrue;
-   });
-});
+$('#categories').change(filterData);
