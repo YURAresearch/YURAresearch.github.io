@@ -34,6 +34,7 @@ var httpGet = function httpGet(theUrl)
     return xmlHttp.responseText;
 };
 
+//Validation of login ticket using our webserver.
 var tech = getUrlParameter('ticket');
 if(tech === undefined)
 {
@@ -41,9 +42,14 @@ if(tech === undefined)
     $("#login-warning").show();
 }
 else
-{
+{   
     var urlGet = "http://undergradresearch.org:5000/auth/";
-    var validCode = httpGet(urlGet.concat(tech));
+    var finalURL = urlGet.concat(tech);
+    console.log(finalURL);
+    var getUrl = window.location;
+    var validCode = "invalid";
+    validCode = httpGet(finalURL);
+    console.log(validCode);
     if(validCode == "invalid")
     {
         $("#rdbcontent").hide();
