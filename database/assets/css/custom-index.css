@@ -119,9 +119,10 @@ h6{
     margin-bottom: 0px;
 }
 #testimonial-page footer p{
-    font-size:17px;
+    font-size:18px;
 }
 #testimonial-page cite{
     margin-top:5px;
-    font-size:16px;
+    font-size:15px;
+    color:#bbb;
 }
