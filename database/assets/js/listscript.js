@@ -161,13 +161,13 @@ $("#hr, .pager").hide();
 sheetrock(params);
 
 $('#searchbox').keyup(function() {
-   var searchString = $(this).val();
+   var searchString = $(this).val().toLowerCase();
    var searchArray = searchString.split(" ");
    console.log(searchArray);
    labsList.filter(function(item) {
      var isTrue = true;
      for (i = 0; i < searchArray.length; i++) {
-        if (item.values().description.indexOf(searchArray[i]) == -1) {
+        if (item.values().description.toLowerCase().indexOf(searchArray[i]) == -1) {
           isTrue=false;
         }
       }
