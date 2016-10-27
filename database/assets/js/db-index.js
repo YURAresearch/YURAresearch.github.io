@@ -7,7 +7,8 @@ var TESTIMONIALS = [
     ["I like it! Been looking for something like this.","Brent (Student)"],
     ["The website seems very friendly and easy to use.","Student"],
     ["Great to have this all in one place!","Student"],
-    ["Great program, well designed, aesthetically pleasing.","Student"]
+    ["Great program, well designed, aesthetically pleasing.","Student"],
+    ["[A] great place to start one's search for a faculty research advisor.","Dean Hashimoto"]
 ];
 
 var testimonialNum = TESTIMONIALS.length;
