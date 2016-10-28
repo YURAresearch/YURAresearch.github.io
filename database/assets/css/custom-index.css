@@ -1,21 +1,13 @@
 /* Custom additional CSS for homepage */
 
-.btn-secondary{
-    background-color: #1080bc;
+/* General layout */
+@media (max-width: 330px){
+    .hero-image-content{
+        top:75px !important;
+    }
 }
-.btn-secondary:active, .btn-secondary:focus, .btn-secondary:hover{
-    background-color: #0f74aa !important;
-}
-.background-secondary,.faq-item:before{
-    background-color: #0f74aa;
-}
-.faq-item:after{
-    border-bottom-color: #0f74aa;
-}
-.btn{
-    margin-top:2px;
-    margin-bottom:2px;
-}
+
+/* General text */
 body{
     font-size: 18px;
 }
@@ -44,6 +36,42 @@ h6{
 .page-header p{
     font-size: 18px;
 }
+
+/* Buttons */
+.btn{
+    margin-top:2px;
+    margin-bottom:2px;
+}
+.btn-secondary{
+    background-color: #1080bc;
+}
+.btn-secondary:active, .btn-secondary:focus, .btn-secondary:hover{
+    background-color: #0f74aa !important;
+}
+.background-secondary,.faq-item:before{
+    background-color: #0f74aa;
+}
+
+/* Testimonials block */
+#testimonial-page{
+    padding-top:30px;
+}
+#testimonials-item footer>p{
+    color:#1080bc;
+}
+#testimonial-page>.page-header{
+    margin-bottom: 0px;
+}
+#testimonial-page footer p{
+    font-size:18px;
+}
+#testimonial-page cite{
+    margin-top:5px;
+    font-size:15px;
+    color:#bbb;
+}
+
+/* Feedback block */
 .contact-info-item a:hover i{
     background-color:rgba(255,255,255,0.2);
 }
@@ -52,14 +80,18 @@ h6{
     -o-transition: background-color 0.1s linear;
     transition: background-color 0.1s linear;
 }
+
+/* FAQs block */
+.faq-item:after{
+    border-bottom-color: #0f74aa;
+}
 .faq-item-question h3{
     font-size:25px;
     margin: 0px;
     padding: 0px;
 }
-#testimonial-page{
-    padding-top:30px;
-}
+
+/* Back-to-top button */
 #back-top{
     height:60px;
     width:175px;
@@ -104,25 +136,8 @@ h6{
 #back-top:active{
     background-color:rgba(14, 110, 170, 0.9);
 }
-@media (max-width: 330px){
-    .hero-image-content{
-        top:75px !important;
-    }
-}
+
+/* Bottom nav */
 .nav>li>a:focus{
     background-color:transparent;
-}
-#testimonials-item footer>p{
-    color:#1080bc;
-}
-#testimonial-page>.page-header{
-    margin-bottom: 0px;
-}
-#testimonial-page footer p{
-    font-size:18px;
-}
-#testimonial-page cite{
-    margin-top:5px;
-    font-size:15px;
-    color:#bbb;
 }

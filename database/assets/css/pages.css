@@ -1,5 +1,6 @@
 /* CSS for all periphery pages e.g. Terms and Conditions, Feeedback */
 
+/* Head */
 .document-title .breadcrumb a{
 	font-size: 24px;
 	color:#aaa;
@@ -10,6 +11,8 @@
 .document-title .breadcrumb a:hover{
 	color:#72c6f3;
 }
+
+/* Bottom nav */
 .nav>li>a:focus{
 	background-color:transparent;
 }

@@ -5,75 +5,74 @@ $(window).on('beforeunload', function(){
     $('#searchbox').val('');
     $("#categories")[0].selectize.clear();
 });
-
 $(window).on('load', function(){
     labsList.search();
     labsList.filter();
 });
 
 // Hiding when not logged in
-var getUrlParameter = function getUrlParameter(sParam) {
-    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
-        sURLVariables = sPageURL.split('&'),
-        sParameterName,
-        i;
+// var getUrlParameter = function getUrlParameter(sParam) {
+//     var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+//         sURLVariables = sPageURL.split('&'),
+//         sParameterName,
+//         i;
 
-    for (i = 0; i < sURLVariables.length; i++) {
-        sParameterName = sURLVariables[i].split('=');
+//     for (i = 0; i < sURLVariables.length; i++) {
+//         sParameterName = sURLVariables[i].split('=');
 
-        if (sParameterName[0] === sParam) {
-            return sParameterName[1] === undefined ? true : sParameterName[1];
-        }
-    }
-};
+//         if (sParameterName[0] === sParam) {
+//             return sParameterName[1] === undefined ? true : sParameterName[1];
+//         }
+//     }
+// };
 
-//Validation of login ticket using our webserver.
-var tech = getUrlParameter('ticket');
-if(tech === undefined)
-{
-    $("#rdbcontent").hide();
-    $("#login-warning").show();
-}
-else
-{   
-    var urlGet = "http://undergradresearch.org:5000/auth/";
-    var finalURL = urlGet.concat(tech);
-    console.log(finalURL);
+// // Validation of login ticket using our webserver.
+// var tech = getUrlParameter('ticket');
+// if(tech === undefined)
+// {
+//     $("#rdbcontent").hide();
+//     $("#login-warning").show();
+// }
+// else
+// {
+//     var urlGet = "http://undergradresearch.org:5000/auth/";
+//     var finalURL = urlGet.concat(tech);
+//     console.log(finalURL);
 
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", finalURL, true);
-    xhr.onload = function (e) 
-    {
-        if (xhr.readyState === 4) 
-        {
-            if (xhr.status === 200) 
-            {
-                if(xhr.responseText == "invalid")
-                {
-                    console.log(xhr.responseText.concat(" is invalid"));
-                    $("#rdbcontent").hide();
-                    $("#login-warning").show();
-                }
-            } 
-            else 
-            {
-                $("#rdbcontent").hide();
-                $("#login-warning").show();
-            }
-        }
-    };
-    xhr.onerror = function (e) 
-    {
-        console.log("Failed");
-        $("#rdbcontent").hide();
-        $("#login-warning").show();
-    };
+//     var xhr = new XMLHttpRequest();
+//     xhr.open("GET", finalURL, true);
+//     xhr.onload = function (e)
+//     {
+//         if (xhr.readyState === 4)
+//         {
+//             if (xhr.status === 200)
+//             {
+//                 if(xhr.responseText == "invalid")
+//                 {
+//                     console.log(xhr.responseText.concat(" is invalid"));
+//                     $("#rdbcontent").hide();
+//                     $("#login-warning").show();
+//                 }
+//             }
+//             else
+//             {
+//                 $("#rdbcontent").hide();
+//                 $("#login-warning").show();
+//             }
+//         }
+//     };
+//     xhr.onerror = function (e)
+//     {
+//         console.log("Failed");
+//         $("#rdbcontent").hide();
+//         $("#login-warning").show();
+//     };
 
-    xhr.send(null);
+//     xhr.send(null);
 
-}
+// }
 
-/// *** Initialize List *** (using List.js)
+// Initialize List (using List.js)
 // Pagination parameters (List.js plugin)
 var paginationParams = {
     name: "listPages",
@@ -105,7 +104,7 @@ var options = {
 var labsList = new List('labs', options);
 
 
-/// *** Functions for various js work after entries have loaded; called after list.js call to add
+// Functions for various js work after entries have loaded; called after list.js call to add
 function checkPrevNext() {
     // Take care of hiding prev or next buttons
     if($('.active').length === 0){
@@ -166,7 +165,7 @@ function postEntryWork() {
     });
 }
 
-/// *** Retrieve and load Data from Google Spreadsheet *** (using sheetrock.js)
+// Retrieve and load Data from Google Spreadsheet (using sheetrock.js)
 // Update entries (sheetrock call)
 var updateResults = function(error, options, response) {
     // Report error
@@ -219,7 +218,7 @@ $('#categories').selectize({
 });
 
 
-/// *** Filtering ***
+// Filtering
 // Filtering data based on search box and category selection
 var filterData = function() {
    var searchString = $('#searchbox').val().toLowerCase();

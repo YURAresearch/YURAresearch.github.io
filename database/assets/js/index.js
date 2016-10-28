@@ -1,7 +1,7 @@
 // Javascript for index page
 
 // Testimonials management
-// Testimonials here!
+// TESTIMONIALS HERE
 var TESTIMONIALS = [
     ["I can see the database being tremendously useful for research hopefuls.","James (Student)"],
     ["I like it! Been looking for something like this.","Brent (Student)"],

@@ -1,29 +1,95 @@
 /* Custom additional CSS for listings page */
 
+/* General layout and appearance */
 .background-secondary,.faq-item:before{
     background-color: #0f74aa;
-}
-.list{
-    padding: 0;
-    list-style-type: none;
-}
-.list li {
-    margin-bottom: 5px;
 }
 a:focus{
 	text-decoration: none;
 }
-.card-row-title{
-	font-weight: 600;
+
+/* Loading and warning */
+#loader p {
+	font-size:26px;
+	font-weight:400;
+	color:#009f8b;
+	text-align: center;
+	line-height: 60px;
+}
+#login-warning{
+	font-size:120%;
+	text-align:center;
+}
+
+/* Head */
+#home>a{
+	color:#fff;
+}
+#home>a:hover,#home>a:active{
+	color:#b6dce9;
+}
+#home>a{
+	-webkit-transition: color 0.1s linear;
+	-o-transition: color 0.1s linear;
+	transition: color 0.1s linear;
+}
+
+/* Listings (general) */
+.list{
+    padding: 0;
+    list-style-type: none;
+}
+.list li{
+    margin-bottom: 5px;
+}
+.list div:hover{
+	background-color:#FAFDFE;
+}
+.list div{
+	-webkit-transition: background-color 0.3s ease;
+	-o-transition: background-color 0.3s ease;
+	transition: background-color 0.3s ease;
 }
 #databaseitem{
 	/* Hide template*/
 	display:none;
 }
+.card-row-title{
+	font-weight: 600;
+}
+
+/* Listing items */
+.card-row-properties dd{
+	margin-right:8px;
+}
+.website, .email{
+	word-wrap: break-word;
+	word-break: break-all;
+}
+dt span.departments, .email, .website{
+	line-height: 1.42857;
+}
+dt span.departments > span, .email, .website{
+	display:block;
+	padding-top:9.5px;
+	padding-bottom:9.5px;
+}
+
+/* Buttons and filters */
+.form-control,.selectize-input{
+	border-color:#ccc !important;
+}
+.filter-actions{
+	height:37px;
+}
 .sort.btn{
 	margin-left: 3px;
 	background-color:#606060;
 	margin-top: 3px;
+	color:#fff;
+}
+.sort.btn:hover{
+	background-color:#757575;
 	color:#fff;
 }
 #reset-button-id{
@@ -40,185 +106,17 @@ a:focus{
 	-o-transition: all 0.15s linear;
 	transition: all 0.15s linear;
 }
-#reset-button-id .fa{
-	color: #fff;
+#reset-button-id .fa, #reset-button-id:hover, #reset-button-id::selection{
+	color: #fff !important;
 }
 #reset-button-id:hover{
 	background-color:#3068ad;
-	color: #fff;
-}
-#reset-button-id::selection{
-	color: #fff !important;
-}
-.sort.btn:hover{
-	background-color:#757575;
-	color:#fff;
-}
-.form-control,.selectize-input{
-	border-color:#ccc !important;
-}
-#loader p {
-	font-size:26px;
-	font-weight:400;
-	color:#009f8b;
-	text-align: center;
-	line-height: 60px;
-}
-.pager{
-	margin-top:30px;
-	margin-bottom:60px;
-}
-@media (max-width: 490px){
-	.pager ul{
-		display:block;
-		margin-top: 6px;
-		margin-bottom: 6px;
-	}
-}
-.pager .disabled, .pager .disabled > a{
-	cursor: default !important;
-}
-.pager a::selection, .pager span::selection, #prev::selection, #next::selection, .pager::selection{
-	background:transparent !important;
-	color:inherit;
-}
-.pager .pagination li > a{
-	padding:4px 6px;
-	width:30px;
-	border:1px solid #eaeaea;
-	margin:1.5px 0 0 1.5px;
-}
-@media (min-width: 650px){
-	.pager .pagination li > a{
-		padding:8px 10px;
-		width:45px;
-		font-size:120%;
-	}
-}
-#home>a{
-	color:#fff;
-}
-#home>a:hover,#home>a:active{
-	color:#b6dce9;
-}
-#home>a{
-	-webkit-transition: color 0.1s linear;
-	-o-transition: color 0.1s linear;
-	transition: color 0.1s linear;
 }
 #reset-button-id::selection{
 	background-color:transparent;
-	color:rgba(0,0,0,0.7);
 }
-.filter-actions{
-	height:37px;
-}
-#back-top{
-	height:60px;
-	width:60px;
-	position:fixed;
-	bottom:20px;
-	right:20px;
-	background-color:rgba(16, 128, 188, 0.6);
-	display:block;
-	z-index:999;
-	text-align:center;
-	border-radius:30px;
-	-webkit-transition: background-color 0.2s ease;
-	-o-transition: background-color 0.2s ease;
-	transition: background-color 0.2s ease;
-}
-#back-top i{
-	color:#fff;
-	margin:0;
-	position: relative;
-	top:20px;
-	font-size:15px;
-	-webkit-transition: all 0.2s ease;
-	-o-transition: all 0.2s ease;
-	transition: all 0.2s ease;
-}
-#back-top:hover i{
-	top:8px;
-}
-#back-top:hover{
-	background-color:rgba(16, 128, 188, 0.9);
-}
-#back-top:active{
-	background-color:rgba(14, 110, 170, 0.9);
-}
-.list div:hover{
-	background-color:#FAFDFE;
-}
-.list div{
-	-webkit-transition: background-color 0.3s ease;
-	-o-transition: background-color 0.3s ease;
-	transition: background-color 0.3s ease;
-}
-.card-row-properties dd{
-	margin-right:8px;
-}
-.website, .email{
-	word-wrap: break-word;
-	word-break: break-all;
-}
-dt span.departments, .email, .website{
-	line-height: 1.42857;
-}
-dt span.departments > span, .email, .website{
-	display:block;
-	padding-top:9.5px;
-	padding-bottom:9.5px;
-}
-#prev,#next{
-	width:60px;
-	margin:3px auto;
-	height:35px;
-	background-color:#008675;
-	border-radius:17.5px;
-	cursor:pointer;
-	color:#fff;
-	display:inline-block;
-	-webkit-transition: background-color 0.15s ease;
-	-o-transition: background-color 0.15s ease;
-	transition: background-color 0.15s ease;
-	text-align:center;
-	white-space:nowrap;
-}
-#prev .fa,#next .fa{
-	color:#fff;
-	font-size:15px;
-	padding:10px;
-}
-@media (min-width: 490px){
-	span#prev{
-		margin-right:3%;
-	}
-	span#next{
-		margin-left:3%;
-	}
-}
-span#prev:hover,span#next:hover{
-	background-color:#009f8b;
-}
-span#prev::selection,span#next::selection{
-	background-color:transparent;
-}
-.pager li > a{
-	border-radius:0px !important;
-	border:none;
-}
-.pager li{
-	margin:0;
-	display:inline-block;
-}
-.pager .disabled a,.pager .disabled a:hover{
-	background:#fff;
-}
-.nav>li>a:focus{
-	background-color:transparent;
-}
-/* Pure CSS truncation with toggle*/
+
+/* Pure CSS truncation with toggle */
 .truncateme .desc-text{
 	line-height:1.6em;
 	display:block;
@@ -261,11 +159,115 @@ span#prev::selection,span#next::selection{
 .hiddentrig:checked ~ .show-text:hover{
 	background-color:#bfbfbf;
 }
-.pager .pagination li a {
-	/* Fix pagination weird spacing */
-    float: none !important;
+
+/* Pagination nav bar */
+.pager{
+	margin-top:30px;
+	margin-bottom:60px;
 }
-#login-warning{
-	font-size:120%;
+@media (max-width: 490px){
+	.pager ul{
+		display:block;
+		margin-top: 6px;
+		margin-bottom: 6px;
+	}
+}
+.pager li{
+	margin:0;
+	display:inline-block;
+}
+.pager .pagination li a{
+	padding:4px 6px;
+	width:30px;
+	border:1px solid #eaeaea;
+	border-radius:0px !important;
+	margin:1.5px 0 0 1.5px;
+    float: none !important; /* Fix pagination weird spacing */
+}
+@media (min-width: 650px){
+	.pager .pagination li > a{
+		padding:8px 10px;
+		width:45px;
+		font-size:120%;
+	}
+}
+.pager .disabled, .pager .disabled a, .pager .disabled a:hover{
+	cursor: default !important;
+	background:#fff;
+}
+.pager a::selection, .pager span::selection, #prev::selection, #next::selection, .pager::selection{
+	background:transparent !important;
+	color:inherit;
+}
+#prev,#next{
+	width:60px;
+	margin:3px auto;
+	height:35px;
+	background-color:#008675;
+	border-radius:17.5px;
+	cursor:pointer;
+	color:#fff;
+	display:inline-block;
+	-webkit-transition: background-color 0.15s ease;
+	-o-transition: background-color 0.15s ease;
+	transition: background-color 0.15s ease;
 	text-align:center;
+	white-space:nowrap;
+}
+#prev .fa,#next .fa{
+	color:#fff;
+	font-size:15px;
+	padding:10px;
+}
+@media (min-width: 490px){
+	span#prev{
+		margin-right:3%;
+	}
+	span#next{
+		margin-left:3%;
+	}
+}
+span#prev:hover,span#next:hover{
+	background-color:#009f8b;
+}
+
+/* Back-to-top button */
+#back-top{
+	height:60px;
+	width:60px;
+	position:fixed;
+	bottom:20px;
+	right:20px;
+	background-color:rgba(16, 128, 188, 0.6);
+	display:block;
+	z-index:999;
+	text-align:center;
+	border-radius:30px;
+	-webkit-transition: background-color 0.2s ease;
+	-o-transition: background-color 0.2s ease;
+	transition: background-color 0.2s ease;
+}
+#back-top i{
+	color:#fff;
+	margin:0;
+	position: relative;
+	top:20px;
+	font-size:15px;
+	-webkit-transition: all 0.2s ease;
+	-o-transition: all 0.2s ease;
+	transition: all 0.2s ease;
+}
+#back-top:hover i{
+	top:8px;
+}
+#back-top:hover{
+	background-color:rgba(16, 128, 188, 0.9);
+}
+#back-top:active{
+	background-color:rgba(14, 110, 170, 0.9);
+}
+
+/* Bottom nav */
+.nav>li>a:focus{
+	background-color:transparent;
 }
