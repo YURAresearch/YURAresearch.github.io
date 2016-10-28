@@ -227,7 +227,7 @@ var filterData = function() {
    if (searchString && categorySelection){
      labsList.filter(function(item) {
        var isTrue = true;
-       for (i = 0; i < searchArray.length; i++) {
+       for (var i = 0; i < searchArray.length; i++) {
           if ((item.values().description.toLowerCase().indexOf(searchArray[i]) == -1 && item.values().name.toLowerCase().indexOf(searchArray[i]) == -1) || item.values().departments.indexOf(modCategorySelection) == -1) {
             isTrue=false;
           }
@@ -245,7 +245,7 @@ var filterData = function() {
    else if (searchString) {
      labsList.filter(function(item) {
        var isTrue = true;
-       for (i = 0; i < searchArray.length; i++) {
+       for (var i = 0; i < searchArray.length; i++) {
           if (item.values().description.toLowerCase().indexOf(searchArray[i]) == -1 && item.values().name.toLowerCase().indexOf(searchArray[i]) == -1) {
             isTrue=false;
           }
@@ -255,7 +255,7 @@ var filterData = function() {
    }
    else {
      labsList.filter();
-   };
+   }
   };
 
 $('#searchbox').keyup(filterData);
