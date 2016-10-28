@@ -50,6 +50,9 @@ a:focus{
 	-o-transition: background-color 0.3s ease;
 	transition: background-color 0.3s ease;
 }
+.list a:active{
+	color:#008675 !important;
+}
 #databaseitem{
 	/* Hide template*/
 	display:none;
@@ -229,6 +232,16 @@ dt span.departments > span, .email, .website{
 }
 span#prev:hover,span#next:hover{
 	background-color:#009f8b;
+}
+
+/* Feedback block */
+.contact-info-item a:hover i{
+    background-color:rgba(255,255,255,0.2);
+}
+.contact-info-item a i{
+    -webkit-transition: background-color 0.1s linear;
+    -o-transition: background-color 0.1s linear;
+    transition: background-color 0.1s linear;
 }
 
 /* Back-to-top button */

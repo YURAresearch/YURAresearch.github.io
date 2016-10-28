@@ -11,66 +11,66 @@ $(window).on('load', function(){
 });
 
 // Hiding when not logged in
-// var getUrlParameter = function getUrlParameter(sParam) {
-//     var sPageURL = decodeURIComponent(window.location.search.substring(1)),
-//         sURLVariables = sPageURL.split('&'),
-//         sParameterName,
-//         i;
+var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
 
-//     for (i = 0; i < sURLVariables.length; i++) {
-//         sParameterName = sURLVariables[i].split('=');
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
 
-//         if (sParameterName[0] === sParam) {
-//             return sParameterName[1] === undefined ? true : sParameterName[1];
-//         }
-//     }
-// };
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : sParameterName[1];
+        }
+    }
+};
 
-// // Validation of login ticket using our webserver.
-// var tech = getUrlParameter('ticket');
-// if(tech === undefined)
-// {
-//     $("#rdbcontent").hide();
-//     $("#login-warning").show();
-// }
-// else
-// {
-//     var urlGet = "http://undergradresearch.org:5000/auth/";
-//     var finalURL = urlGet.concat(tech);
-//     console.log(finalURL);
+// Validation of login ticket using our webserver.
+var tech = getUrlParameter('ticket');
+if(tech === undefined)
+{
+    $("#rdbcontent").hide();
+    $("#login-warning").show();
+}
+else
+{
+    var urlGet = "http://undergradresearch.org:5000/auth/";
+    var finalURL = urlGet.concat(tech);
+    console.log(finalURL);
 
-//     var xhr = new XMLHttpRequest();
-//     xhr.open("GET", finalURL, true);
-//     xhr.onload = function (e)
-//     {
-//         if (xhr.readyState === 4)
-//         {
-//             if (xhr.status === 200)
-//             {
-//                 if(xhr.responseText == "invalid")
-//                 {
-//                     console.log(xhr.responseText.concat(" is invalid"));
-//                     $("#rdbcontent").hide();
-//                     $("#login-warning").show();
-//                 }
-//             }
-//             else
-//             {
-//                 $("#rdbcontent").hide();
-//                 $("#login-warning").show();
-//             }
-//         }
-//     };
-//     xhr.onerror = function (e)
-//     {
-//         console.log("Failed");
-//         $("#rdbcontent").hide();
-//         $("#login-warning").show();
-//     };
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", finalURL, true);
+    xhr.onload = function (e)
+    {
+        if (xhr.readyState === 4)
+        {
+            if (xhr.status === 200)
+            {
+                if(xhr.responseText == "invalid")
+                {
+                    console.log(xhr.responseText.concat(" is invalid"));
+                    $("#rdbcontent").hide();
+                    $("#login-warning").show();
+                }
+            }
+            else
+            {
+                $("#rdbcontent").hide();
+                $("#login-warning").show();
+            }
+        }
+    };
+    xhr.onerror = function (e)
+    {
+        console.log("Failed");
+        $("#rdbcontent").hide();
+        $("#login-warning").show();
+    };
 
-//     xhr.send(null);
+    xhr.send(null);
 
-// }
+}
 
 // Initialize List (using List.js)
 // Pagination parameters (List.js plugin)
