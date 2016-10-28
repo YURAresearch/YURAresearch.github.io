@@ -11,7 +11,6 @@ $(window).on('load', function(){
     labsList.filter();
 });
 
-/// *** CAS Auth ***
 // Hiding when not logged in
 var getUrlParameter = function getUrlParameter(sParam) {
     var sPageURL = decodeURIComponent(window.location.search.substring(1)),
@@ -28,15 +27,7 @@ var getUrlParameter = function getUrlParameter(sParam) {
     }
 };
 
-var httpGet = function httpGet(theUrl)
-{
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open("GET", theUrl, false); // false for synchronous request
-    xmlHttp.send();
-    return xmlHttp.responseText;
-};
-
-// Validation of login ticket using our webserver.
+//Validation of login ticket using our webserver.
 var tech = getUrlParameter('ticket');
 if(tech === undefined)
 {
@@ -44,17 +35,42 @@ if(tech === undefined)
     $("#login-warning").show();
 }
 else
-{
+{   
     var urlGet = "http://undergradresearch.org:5000/auth/";
     var finalURL = urlGet.concat(tech);
-    var getUrl = window.location;
-    var validCode = "invalid";
-    validCode = httpGet(finalURL);
-    if(validCode == "invalid")
+    console.log(finalURL);
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", finalURL, true);
+    xhr.onload = function (e) 
     {
+        if (xhr.readyState === 4) 
+        {
+            if (xhr.status === 200) 
+            {
+                if(xhr.responseText == "invalid")
+                {
+                    console.log(xhr.responseText.concat(" is invalid"));
+                    $("#rdbcontent").hide();
+                    $("#login-warning").show();
+                }
+            } 
+            else 
+            {
+                $("#rdbcontent").hide();
+                $("#login-warning").show();
+            }
+        }
+    };
+    xhr.onerror = function (e) 
+    {
+        console.log("Failed");
         $("#rdbcontent").hide();
         $("#login-warning").show();
-    }
+    };
+
+    xhr.send(null);
+
 }
 
 /// *** Initialize List *** (using List.js)
