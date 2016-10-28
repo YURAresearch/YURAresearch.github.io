@@ -270,10 +270,10 @@ span#prev:hover,span#next:hover{
 	-o-transition: all 0.2s ease;
 	transition: all 0.2s ease;
 }
-#back-top:hover i{
+#back-top:hover i,#back-top:focus i{
 	top:8px;
 }
-#back-top:hover{
+#back-top:hover,#back-top:focus{
 	background-color:rgba(16, 128, 188, 0.9);
 }
 #back-top:active{

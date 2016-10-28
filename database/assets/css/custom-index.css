@@ -56,19 +56,36 @@ h6{
 #testimonial-page{
     padding-top:30px;
 }
-#testimonials-item footer>p{
-    color:#1080bc;
+#testimonials blockquote{
+    height:150px;
 }
 #testimonial-page>.page-header{
     margin-bottom: 0px;
 }
+#testimonial-page footer{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
 #testimonial-page footer p{
+    color:#1080bc;
     font-size:18px;
 }
 #testimonial-page cite{
     margin-top:5px;
     font-size:15px;
     color:#bbb;
+}
+@media (max-width: 500px){
+    #testimonials blockquote{
+        height:260px;
+    }
+    #testimonials footer p{
+        font-size:16px !important;
+    }
+    #testimonials footer cite{
+        font-size:13.5px !important;
+    }
 }
 
 /* Feedback block */
@@ -127,10 +144,10 @@ h6{
     -o-transition: all 0.2s ease;
     transition: all 0.2s ease;
 }
-#back-top:hover i{
+#back-top:hover i,#back-top:focus i{
     top:-12px;
 }
-#back-top:hover{
+#back-top:hover,#back-top:focus{
     background-color:rgba(16, 128, 188, 0.9);
 }
 #back-top:active{
