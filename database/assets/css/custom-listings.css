@@ -50,7 +50,7 @@ a:focus{
 	-o-transition: background-color 0.3s ease;
 	transition: background-color 0.3s ease;
 }
-.list a:active{
+.list a:active;.list a:focus;.list a:visited{
 	color:#008675 !important;
 }
 #databaseitem{
@@ -270,10 +270,10 @@ span#prev:hover,span#next:hover{
 	-o-transition: all 0.2s ease;
 	transition: all 0.2s ease;
 }
-#back-top:hover i,#back-top:focus i{
+#back-top:hover i{
 	top:8px;
 }
-#back-top:hover,#back-top:focus{
+#back-top:hover{
 	background-color:rgba(16, 128, 188, 0.9);
 }
 #back-top:active{
