@@ -103,7 +103,6 @@ var options = {
 // Make list (List.js)
 var labsList = new List('labs', options);
 
-
 // Functions for various js work after entries have loaded; called after list.js call to add
 function checkPrevNext() {
     // Take care of hiding prev or next buttons
