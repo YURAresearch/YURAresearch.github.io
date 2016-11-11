@@ -35,40 +35,42 @@ if(tech === undefined)
 }
 else
 {
-    // var urlGet = "http://undergradresearch.org:5000/auth/";
-    // var finalURL = urlGet.concat(tech);
-    // console.log(finalURL);
+    /*
+    var urlGet = "http://undergradresearch.org:5000/auth/";
+    var finalURL = urlGet.concat(tech);
+    console.log(finalURL);
 
-    // var xhr = new XMLHttpRequest();
-    // xhr.open("GET", finalURL, true);
-    // xhr.onload = function (e)
-    // {
-    //     if (xhr.readyState === 4)
-    //     {
-    //         if (xhr.status === 200)
-    //         {
-    //             if(xhr.responseText == "invalid")
-    //             {
-    //                 console.log(xhr.responseText.concat(" is invalid"));
-    //                 $("#rdbcontent").hide();
-    //                 $("#login-warning").show();
-    //             }
-    //         }
-    //         else
-    //         {
-    //             $("#rdbcontent").hide();
-    //             $("#login-warning").show();
-    //         }
-    //     }
-    // };
-    // xhr.onerror = function (e)
-    // {
-    //     console.log("Failed");
-    //     $("#rdbcontent").hide();
-    //     $("#login-warning").show();
-    // };
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", finalURL, true);
+    xhr.onload = function (e)
+    {
+        if (xhr.readyState === 4)
+        {
+            if (xhr.status === 200)
+            {
+                if(xhr.responseText == "invalid")
+                {
+                    console.log(xhr.responseText.concat(" is invalid"));
+                    $("#rdbcontent").hide();
+                    $("#login-warning").show();
+                }
+            }
+            else
+            {
+                $("#rdbcontent").hide();
+                $("#login-warning").show();
+            }
+        }
+    };
+    xhr.onerror = function (e)
+    {
+        console.log("Failed");
+        $("#rdbcontent").hide();
+        $("#login-warning").show();
+    };
 
-    // xhr.send(null);
+    xhr.send(null);
+    */
 }
 
 // Initialize List (using List.js)
