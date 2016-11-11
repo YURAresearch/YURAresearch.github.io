@@ -4,12 +4,21 @@
 // TESTIMONIALS HERE
 var TESTIMONIALS = [
     ["I can see the database being tremendously useful for research hopefuls.","James (Student)"],
+
     ["I like it! Been looking for something like this.","Brent (Student)"],
+
     ["The website seems very friendly and easy to use.","Student"],
+
     ["Great to have this all in one place!","Student"],
+
     ["Great program, well designed, aesthetically pleasing.","Student"],
+
     ["[A] great place to start one's search for a faculty research advisor.","Prof. Carl Hashimoto"],
-    ["This is a great resource for both students and faculty. I especially appreciate the ability to do key word searches.","Prof. Steven M. Girvin"]
+
+    ["This is a great resource for both students and faculty. I especially appreciate the ability to do key word searches.","Prof. Steven M. Girvin"],
+
+    ["...the most comprehensive, searchable directory of faculty research listings available to the Yale community to date.","Yale Daily News"]
+
 ];
 
 var testimonialNum = TESTIMONIALS.length;
