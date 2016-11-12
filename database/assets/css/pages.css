@@ -11,8 +11,3 @@
 .document-title .breadcrumb a:hover{
 	color:#72c6f3;
 }
-
-/* Bottom nav */
-.nav>li>a:focus{
-	background-color:transparent;
-}

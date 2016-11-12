@@ -6,6 +6,9 @@
         top:75px !important;
     }
 }
+.hero-image-inner{
+    box-shadow:0 0 20px rgba(0,0,0,0.6);
+}
 
 /* General text */
 body{
@@ -36,6 +39,9 @@ h6{
 .page-header p{
     font-size: 18px;
 }
+#maintext{
+    padding-bottom:50px;
+}
 
 /* Buttons */
 .btn{
@@ -43,21 +49,24 @@ h6{
     margin-bottom:2px;
 }
 .btn-secondary{
-    background-color: #1080bc;
+    background-color: #1080bc !important;
 }
-.btn-secondary:active, .btn-secondary:focus, .btn-secondary:hover{
+/*.btn-secondary:active, .btn-secondary:focus, .btn-secondary:hover{
     background-color: #0f74aa !important;
-}
+}*/
 .background-secondary,.faq-item:before{
     background-color: #0f74aa;
 }
 
 /* Testimonials block */
 #testimonial-page{
-    padding-top:30px;
+    padding:30px 0;
 }
 #testimonials blockquote{
     height:150px;
+    background:none;
+    margin:25px auto;
+    padding:0;
 }
 #testimonial-page>.page-header{
     margin-bottom: 0px;
@@ -69,11 +78,11 @@ h6{
 }
 #testimonial-page footer p{
     color:#1080bc;
-    font-size:18px;
+    font-size:20px;
 }
 #testimonial-page cite{
     margin-top:5px;
-    font-size:15px;
+    font-size:17px;
     color:#bbb;
 }
 @media (max-width: 500px){
@@ -99,13 +108,23 @@ h6{
 }
 
 /* FAQs block */
-.faq-item:after{
-    border-bottom-color: #0f74aa;
+.faq-item{
+    margin:20px 0;
+    padding:5px;
+    /*box-shadow: 0 0 8px rgba(0,0,0,0.08);*/
+    background-color: transparent;
+}
+.faq-item::after,.faq-item::before{
+    content:none;
 }
 .faq-item-question h3{
     font-size:25px;
     margin: 0px;
     padding: 0px;
+    color:#181818;
+}
+.faq-item-question{
+    margin:0 0 30px 0;
 }
 
 /* Back-to-top button */
@@ -115,14 +134,15 @@ h6{
     position:fixed;
     bottom:20px;
     right:20px;
-    background-color:rgba(16, 128, 188, 0.6);
+    background-color:#2f84aa;
     display:block;
     z-index:999;
     text-align:center;
     border-radius:30px;
-    -webkit-transition: background-color 0.2s ease;
-    -o-transition: background-color 0.2s ease;
-    transition: background-color 0.2s ease;
+    box-shadow:0 5px 20px rgba(0,0,0,0.4);
+    /*-webkit-transition: box-shadow 0.1s ease;
+    -o-transition: box-shadow 0.1s ease;
+    transition: box-shadow 0.1s ease;*/
 }
 #back-top span{
     color:#fff;
@@ -144,17 +164,9 @@ h6{
     -o-transition: all 0.2s ease;
     transition: all 0.2s ease;
 }
-#back-top:hover i{
+/*#back-top:hover i{
     top:-12px;
-}
-#back-top:hover{
+}*/
+/*#back-top:hover{
     background-color:rgba(16, 128, 188, 0.9);
-}
-#back-top:active{
-    background-color:rgba(14, 110, 170, 0.9);
-}
-
-/* Bottom nav */
-.nav>li>a:focus{
-    background-color:transparent;
-}
+}*/

@@ -1,0 +1,38 @@
+/* General CSS for entire database site */
+
+/* Material Design */
+.btn:after{
+    content:none;
+}
+.btn{
+    box-shadow:0 2px 12px rgba(0,0,0,0.2);
+    -webkit-transition: box-shadow 0.2s ease;
+    -o-transition: box-shadow 0.2s ease;
+    transition: box-shadow 0.2s ease;
+}
+.btn:active,.btn:hover{
+    box-shadow:0 4px 20px rgba(0,0,0,0.2);
+}
+.fullwidthMD,.footer-top,.footer-bottom,.document-title{
+    box-shadow:0 0 18px rgba(0,0,0,0.5);
+}
+.boxMD{
+    box-shadow:0 0 8px rgba(0,0,0,0.08);
+}
+
+/* Bottom nav */
+.footer-bottom .nav > li{
+    border:none;
+    -webkit-transition: background-color 0.2s ease;
+    -o-transition: background-color 0.2s ease;
+    transition: background-color 0.2s ease;
+}
+@media (max-width: 767px){
+    .footer-bottom .nav > li:hover{
+        background-color:rgba(0,0,0,0.1);
+        color:#fff;
+    };
+}
+.nav>li>a:focus{
+    background-color:transparent;
+}

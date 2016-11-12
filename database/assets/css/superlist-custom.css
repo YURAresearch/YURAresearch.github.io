@@ -6286,6 +6286,7 @@ button.close {
   border-radius: 0px;
   padding: 9px 15px;
   position: relative;
+  outline: 0px !important;
   transition: background-color 0.15s linear; }
   .btn:after, .detail-gallery .owl-next:after, .detail-gallery .owl-prev:after {
     background-color: rgba(0, 0, 0, 0.15);
@@ -6298,13 +6299,13 @@ button.close {
     width: 100%; }
 
 .btn-primary, .fileinput-upload-button, .detail-gallery .owl-next, .detail-gallery .owl-prev {
-  background-color: #009f8b;
+  background-color: #009f8b !important;
   display: inline-block;
   padding: 9px 15px;
   transition: background-color 0.15s linear; }
   .btn-primary:active, .fileinput-upload-button:active, .detail-gallery .owl-next:active, .detail-gallery .owl-prev:active, .btn-primary:focus, .fileinput-upload-button:focus, .detail-gallery .owl-next:focus, .detail-gallery .owl-prev:focus, .btn-primary:hover, .fileinput-upload-button:hover, .detail-gallery .owl-next:hover, .detail-gallery .owl-prev:hover {
-    background-color: #008675 !important;
-    box-shadow: none !important;
+    /*background-color: #008675 !important;*/
+    /*box-shadow: none !important;*/
     outline: 0px !important;
     text-decoration: none; }
 
@@ -6326,8 +6327,8 @@ button.close {
   padding: 9px 15px;
   transition: background-color 0.15s linear; }
   .btn-secondary:active, .btn-secondary:focus, .btn-secondary:hover {
-    background-color: #0c6696 !important;
-    box-shadow: none !important;
+    /*background-color: #0c6696 !important;*/
+    /*box-shadow: none !important;*/
     color: #fff;
     outline: 0px !important;
     text-decoration: none; }
@@ -8677,7 +8678,7 @@ h2.widgettitle {
   line-height: 36px; }
 
 .card-row-properties dt {
-  border-bottom: 1px dashed #e9e9e9;
+  border-bottom: 1px solid #e9e9e9;
   line-height: 36px;
   text-align: right; }
   .card-row-properties dt:last-child {

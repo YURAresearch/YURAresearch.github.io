@@ -89,15 +89,15 @@ dt span.departments > span, .email, .website{
 	height:37px;
 }
 .sort.btn{
-	margin-left: 3px;
+	margin-left: 8px;
 	background-color:#606060;
 	margin-top: 3px;
 	color:#fff;
 }
-.sort.btn:hover{
+/*.sort.btn:hover{
 	background-color:#757575;
 	color:#fff;
-}
+}*/
 #reset-button-id{
 	background-color:#205699;
 	color:#fff;
@@ -108,6 +108,7 @@ dt span.departments > span, .email, .website{
 	margin-bottom: 3px;
     white-space: nowrap;
     overflow: visible;
+    box-shadow:0 2px 12px rgba(0,0,0,0.2);
     -webkit-transition: all 0.15s linear;
 	-o-transition: all 0.15s linear;
 	transition: all 0.15s linear;
@@ -116,7 +117,8 @@ dt span.departments > span, .email, .website{
 	color: #fff !important;
 }
 #reset-button-id:hover{
-	background-color:#3068ad;
+	/*background-color:#3068ad;*/
+	box-shadow:0 4px 20px rgba(0,0,0,0.2);
 }
 #reset-button-id::selection{
 	background-color:transparent;
@@ -152,19 +154,24 @@ dt span.departments > span, .email, .website{
 	text-align:center;
 	margin:10px 0 10px auto;
 	color:#fff;
-	-webkit-transition: background-color 0.1s ease;
-	-o-transition: background-color 0.1s ease;
-	transition: background-color 0.1s ease;
+	box-shadow:0 2px 10px rgba(0,0,0,0.2);
+	-webkit-transition: all 0.1s ease;
+	-o-transition: all 0.1s ease;
+	transition: all 0.1s ease;
 }
-.show-text:hover{
+/*.show-text:hover{
 	background-color:#9fafbf;
-}
+}*/
 .hiddentrig:checked ~ .show-text{
 	background-color:#b8b8b8;
 }
-.hiddentrig:checked ~ .show-text:hover{
+/*.hiddentrig:checked ~ .show-text:hover{
 	background-color:#bfbfbf;
+}*/
+.show-text:hover,.show-text:active{
+	box-shadow:0 3px 15px rgba(0,0,0,0.2);
 }
+
 
 /* Pagination nav bar */
 .pager{
@@ -199,7 +206,7 @@ dt span.departments > span, .email, .website{
 }
 .pager .disabled, .pager .disabled a, .pager .disabled a:hover{
 	cursor: default !important;
-	background:#fff;
+	background:transparent;
 }
 .pager a::selection, .pager span::selection, #prev::selection, #next::selection, .pager::selection{
 	background:transparent !important;
@@ -254,14 +261,15 @@ span#prev:hover,span#next:hover{
 	position:fixed;
 	bottom:20px;
 	right:20px;
-	background-color:rgba(16, 128, 188, 0.6);
+	background-color:#2f84aa;
 	display:block;
 	z-index:999;
 	text-align:center;
 	border-radius:30px;
-	-webkit-transition: background-color 0.2s ease;
+	box-shadow:0 5px 20px rgba(0,0,0,0.4);
+	/*-webkit-transition: background-color 0.2s ease;
 	-o-transition: background-color 0.2s ease;
-	transition: background-color 0.2s ease;
+	transition: background-color 0.2s ease;*/
 }
 #back-top i{
 	color:#fff;
@@ -273,7 +281,7 @@ span#prev:hover,span#next:hover{
 	-o-transition: all 0.2s ease;
 	transition: all 0.2s ease;
 }
-#back-top:hover i{
+/*#back-top:hover i{
 	top:8px;
 }
 #back-top:hover{
@@ -281,9 +289,4 @@ span#prev:hover,span#next:hover{
 }
 #back-top:active{
 	background-color:rgba(14, 110, 170, 0.9);
-}
-
-/* Bottom nav */
-.nav>li>a:focus{
-	background-color:transparent;
-}
+}*/
