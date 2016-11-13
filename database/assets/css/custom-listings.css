@@ -50,9 +50,6 @@ a:focus{
 	-o-transition: background-color 0.3s ease;
 	transition: background-color 0.3s ease;
 }
-.list a:active;.list a:focus;.list a:visited{
-	color:#008675 !important;
-}
 #databaseitem{
 	/* Hide template*/
 	display:none;
@@ -245,7 +242,6 @@ dt span.departments > span, .email, .website{
 	}
 }
 span#prev:hover,span#next:hover{
-	/*background-color:#009f8b;*/
 	box-shadow:0 3px 8px rgba(0,0,0,0.5);
 }
 
@@ -262,9 +258,6 @@ span#prev:hover,span#next:hover{
 	text-align:center;
 	border-radius:30px;
 	box-shadow:0 5px 20px rgba(0,0,0,0.4);
-	/*-webkit-transition: background-color 0.2s ease;
-	-o-transition: background-color 0.2s ease;
-	transition: background-color 0.2s ease;*/
 }
 #back-top i{
 	color:#fff;

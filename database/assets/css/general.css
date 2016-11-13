@@ -5,7 +5,6 @@
     content:none;
 }
 .btn{
-    /*box-shadow:0 2px 12px rgba(0,0,0,0.2);*/
     box-shadow:0 2px 5px rgba(0,0,0,0.4);
     border-radius:2px;
     -webkit-transition: box-shadow 0.15s linear;
@@ -13,7 +12,6 @@
     transition: box-shadow 0.15s linear;
 }
 .btn:active,.btn:hover{
-    /*box-shadow:0 6px 16px rgba(0,0,0,0.2);*/
     box-shadow:0 3px 8px rgba(0,0,0,0.4);
 }
 .fullwidthMD,.footer-top,.footer-bottom,.document-title{
@@ -55,7 +53,7 @@
     .footer-bottom .nav > li:hover{
         background-color:rgba(0,0,0,0.1);
         color:#fff;
-    };
+    }
 }
 .nav>li>a:focus{
     background-color:transparent;
