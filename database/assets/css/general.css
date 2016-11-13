@@ -20,7 +20,7 @@
     box-shadow:0 1px 6px rgba(0,0,0,0.9);
 }
 .boxMD{
-    box-shadow:0 1px 4px rgba(0,0,0,0.1);
+    box-shadow:0 1px 4px rgba(0,0,0,0.15);
 }
 .boxMD,.boxMD .card-row-inner,.boxMD .card-row{
     border-radius:3px;

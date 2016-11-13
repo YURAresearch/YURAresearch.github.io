@@ -111,11 +111,22 @@ h6{
 /* FAQs block */
 .faq-item{
     margin:20px 0;
-    padding:5px;
-    background-color: transparent;
+    padding:30px;
+    background-color:#fff;
+    border-radius:3px;
+    box-shadow:0 1px 4px rgba(0,0,0,0.1);
 }
-.faq-item::after,.faq-item::before{
-    content:none;
+.faq-item:before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-width: 24px 24px 0 0;
+  border-style: solid;
+  border-color: #009f8b #fff;
+}
+.faq-item:after{
+    content:none; /* Get rid of little box */
 }
 .faq-item-question h3{
     font-size:25px;

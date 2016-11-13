@@ -9333,7 +9333,7 @@ h2.widgettitle {
   margin: 0px 0px 30px 60px;
   padding: 20px;
   position: relative; }
-  .faq-item:before {
+  /*.faq-item:before {
     background-color: #0b5983;
     color: #fff;
     content: '?';
@@ -9346,7 +9346,7 @@ h2.widgettitle {
     position: absolute;
     text-align: center;
     top: 0px;
-    width: 44px; }
+    width: 44px; }*/
   .faq-item:after {
     border: 5px solid transparent;
     border-bottom-color: #0b5983;
