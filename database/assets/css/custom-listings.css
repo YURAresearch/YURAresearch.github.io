@@ -25,14 +25,14 @@ a:focus{
 #home>a{
 	color:#fff;
 }
-#home>a:hover,#home>a:active{
+/*#home>a:hover,#home>a:active{
 	color:#b6dce9;
-}
-#home>a{
+}*/
+/*#home>a{
 	-webkit-transition: color 0.1s linear;
 	-o-transition: color 0.1s linear;
 	transition: color 0.1s linear;
-}
+}*/
 
 /* Listings (general) */
 .list{
@@ -98,7 +98,7 @@ dt span.departments > span, .email, .website{
 }
 .sort.btn{
 	margin-left: 8px;
-	background-color:#606060;
+	background-color:#777;
 	margin-top: 5px;
 	color:#fff;
 	width:125px;
@@ -113,7 +113,7 @@ dt span.departments > span, .email, .website{
 	margin-bottom: 3px;
     white-space: nowrap;
     overflow: visible;
-    box-shadow:0 2px 5px rgba(0,0,0,0.5);
+    box-shadow:0 1px 4px rgba(0,0,0,0.4);
     -webkit-transition: all 0.15s linear;
 	-o-transition: all 0.15s linear;
 	transition: all 0.15s linear;
@@ -123,7 +123,7 @@ dt span.departments > span, .email, .website{
 }
 #reset-button-id:hover{
 	/*background-color:#3068ad;*/
-	box-shadow:0 3px 8px rgba(0,0,0,0.5);
+	box-shadow:0 1.5px 6px rgba(0,0,0,0.4);
 }
 #reset-button-id::selection{
 	background-color:transparent;
@@ -160,7 +160,7 @@ dt span.departments > span, .email, .website{
 	margin:10px 0 10px auto;
 	color:#fff;
 	border-radius:1.5px;
-	box-shadow:0 2px 5px rgba(0,0,0,0.5);
+	box-shadow:0 1px 4px rgba(0,0,0,0.4);
 	-webkit-transition: all 0.15s linear;
 	-o-transition: all 0.15s linear;
 	transition: all 0.15s linear;
@@ -189,13 +189,13 @@ dt span.departments > span, .email, .website{
 }
 .pager .pagination li a{
 	padding:4px 6px;
-	width:30px;
+	width:28px;
 	/*border:1px solid #eaeaea;*/
 	border:none;
 	border-radius:2px !important;
-	margin:3px;
+	margin:2px;
     float: none !important; /* Fix pagination weird spacing */
-    box-shadow:0 1.5px 5px rgba(0,0,0,0.3) !important;
+    box-shadow:0 1px 4px rgba(0,0,0,0.3) !important;
 }
 @media (min-width: 650px){
 	.pager .pagination li > a{
@@ -226,7 +226,7 @@ dt span.departments > span, .email, .website{
 	transition: all 0.15s linear;
 	text-align:center;
 	white-space:nowrap;
-	box-shadow:0 2px 5px rgba(0,0,0,0.5);
+	box-shadow:0 1.25px 5px rgba(0,0,0,0.4);
 }
 #prev .fa,#next .fa{
 	color:#fff;
@@ -242,7 +242,7 @@ dt span.departments > span, .email, .website{
 	}
 }
 span#prev:hover,span#next:hover{
-	box-shadow:0 3px 8px rgba(0,0,0,0.5);
+	box-shadow:0 1.5px 6px rgba(0,0,0,0.4);
 }
 
 /* Back-to-top button */
@@ -257,7 +257,7 @@ span#prev:hover,span#next:hover{
 	z-index:999;
 	text-align:center;
 	border-radius:30px;
-	box-shadow:0 5px 20px rgba(0,0,0,0.4);
+	box-shadow:0 4px 16px rgba(0,0,0,0.4);
 }
 #back-top i{
 	color:#fff;
