@@ -51,9 +51,6 @@ h6{
 .btn-secondary{
     background-color: #1080bc !important;
 }
-/*.btn-secondary:active, .btn-secondary:focus, .btn-secondary:hover{
-    background-color: #0f74aa !important;
-}*/
 .background-secondary,.faq-item:before{
     background-color: #0f74aa;
 }
@@ -98,14 +95,6 @@ h6{
 }
 
 /* Feedback block */
-/*.contact-info-item a:hover i{
-    background-color:rgba(255,255,255,0.2);
-}
-.contact-info-item a i{
-    -webkit-transition: background-color 0.1s linear;
-    -o-transition: background-color 0.1s linear;
-    transition: background-color 0.1s linear;
-}*/
 .box .box-icon{
     background-color:#2c6587;
     color:#fff;
@@ -117,7 +106,6 @@ h6{
 .faq-item{
     margin:20px 0;
     padding:5px;
-    /*box-shadow: 0 0 8px rgba(0,0,0,0.08);*/
     background-color: transparent;
 }
 .faq-item::after,.faq-item::before{
@@ -146,9 +134,6 @@ h6{
     text-align:center;
     border-radius:30px;
     box-shadow:0 5px 20px rgba(0,0,0,0.4);
-    /*-webkit-transition: box-shadow 0.1s ease;
-    -o-transition: box-shadow 0.1s ease;
-    transition: box-shadow 0.1s ease;*/
 }
 #back-top span{
     color:#fff;
@@ -170,9 +155,3 @@ h6{
     -o-transition: all 0.2s ease;
     transition: all 0.2s ease;
 }
-/*#back-top:hover i{
-    top:-12px;
-}*/
-/*#back-top:hover{
-    background-color:rgba(16, 128, 188, 0.9);
-}*/

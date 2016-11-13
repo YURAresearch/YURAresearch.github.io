@@ -82,9 +82,6 @@ dt span.departments > span, .email, .website{
 }
 
 /* Buttons and filters */
-/*.form-control,.selectize-input{
-	border-color:#ccc !important;
-}*/
 #searchbox,#deptDropdown .selectize-input{
 	border:none;
 	background-color:#f6f6f6;
@@ -109,10 +106,6 @@ dt span.departments > span, .email, .website{
 	color:#fff;
 	width:125px;
 }
-/*.sort.btn:hover{
-	background-color:#757575;
-	color:#fff;
-}*/
 #reset-button-id{
 	background-color:#205699;
 	color:#fff;
@@ -175,18 +168,9 @@ dt span.departments > span, .email, .website{
 	-o-transition: all 0.15s linear;
 	transition: all 0.15s linear;
 }
-/*.show-text:hover{
-	background-color:#9fafbf;
-}*/
 .hiddentrig:checked ~ .show-text{
 	background-color:#b8b8b8;
 }
-/*.hiddentrig:checked ~ .show-text:hover{
-	background-color:#bfbfbf;
-}*/
-/*.show-text:hover,.show-text:active{
-	box-shadow:0 3px 8px rgba(0,0,0,0.6);
-}*/
 
 
 /* Pagination nav bar */
@@ -265,16 +249,6 @@ span#prev:hover,span#next:hover{
 	box-shadow:0 3px 8px rgba(0,0,0,0.5);
 }
 
-/* Feedback block */
-/*.contact-info-item a:hover i{
-    background-color:rgba(255,255,255,0.2);
-}
-.contact-info-item a i{
-    -webkit-transition: background-color 0.1s linear;
-    -o-transition: background-color 0.1s linear;
-    transition: background-color 0.1s linear;
-}*/
-
 /* Back-to-top button */
 #back-top{
 	height:60px;
@@ -302,12 +276,3 @@ span#prev:hover,span#next:hover{
 	-o-transition: all 0.2s ease;
 	transition: all 0.2s ease;
 }
-/*#back-top:hover i{
-	top:8px;
-}
-#back-top:hover{
-	background-color:rgba(16, 128, 188, 0.9);
-}
-#back-top:active{
-	background-color:rgba(14, 110, 170, 0.9);
-}*/
