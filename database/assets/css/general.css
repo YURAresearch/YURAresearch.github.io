@@ -5,19 +5,43 @@
     content:none;
 }
 .btn{
-    box-shadow:0 2px 12px rgba(0,0,0,0.2);
-    -webkit-transition: box-shadow 0.2s ease;
-    -o-transition: box-shadow 0.2s ease;
-    transition: box-shadow 0.2s ease;
+    /*box-shadow:0 2px 12px rgba(0,0,0,0.2);*/
+    box-shadow:0 2px 5px rgba(0,0,0,0.4);
+    border-radius:2px;
+    -webkit-transition: box-shadow 0.15s linear;
+    -o-transition: box-shadow 0.15s linear;
+    transition: box-shadow 0.15s linear;
 }
 .btn:active,.btn:hover{
-    box-shadow:0 4px 20px rgba(0,0,0,0.2);
+    /*box-shadow:0 6px 16px rgba(0,0,0,0.2);*/
+    box-shadow:0 3px 8px rgba(0,0,0,0.4);
 }
 .fullwidthMD,.footer-top,.footer-bottom,.document-title{
-    box-shadow:0 0 18px rgba(0,0,0,0.5);
+    box-shadow:0 1px 6px rgba(0,0,0,0.9);
 }
 .boxMD{
-    box-shadow:0 0 8px rgba(0,0,0,0.08);
+    box-shadow:0 1px 4px rgba(0,0,0,0.1);
+}
+.boxMD,.boxMD .card-row-inner,.boxMD .card-row{
+    border-radius:3px;
+}
+.contact-info .fa{
+    background-color:#1290d3;
+    color:#fff;
+    border:none;
+    box-shadow:0 2px 5px rgba(0,0,0,0.4);
+    -webkit-transition: box-shadow 0.15s linear;
+    -o-transition: box-shadow 0.15s linear;
+    transition: box-shadow 0.15s linear;
+}
+.contact-info a:hover .fa{
+    box-shadow:0 3px 8px rgba(0,0,0,0.4);
+}
+#mce-EMAIL{
+    border:none;
+    border-radius:3px;
+    background-color:rgba(0,0,0,0.3);
+    color:#fafafa;
 }
 
 /* Bottom nav */

@@ -82,8 +82,22 @@ dt span.departments > span, .email, .website{
 }
 
 /* Buttons and filters */
-.form-control,.selectize-input{
+/*.form-control,.selectize-input{
 	border-color:#ccc !important;
+}*/
+#searchbox,#deptDropdown .selectize-input{
+	border:none;
+	background-color:#f6f6f6;
+	margin-top:5px;
+	border-radius:3px;
+	color:#555555;
+}
+#deptDropdown .selectize-input{
+	line-height: 28px;
+}
+#deptDropdown .selectize-dropdown,#deptDropdown .selectize-dropdown .optgroup-header{
+	border:none;
+	background-color:#fcfcfc;
 }
 .filter-actions{
 	height:37px;
@@ -91,8 +105,9 @@ dt span.departments > span, .email, .website{
 .sort.btn{
 	margin-left: 8px;
 	background-color:#606060;
-	margin-top: 3px;
+	margin-top: 5px;
 	color:#fff;
+	width:125px;
 }
 /*.sort.btn:hover{
 	background-color:#757575;
@@ -108,7 +123,7 @@ dt span.departments > span, .email, .website{
 	margin-bottom: 3px;
     white-space: nowrap;
     overflow: visible;
-    box-shadow:0 2px 12px rgba(0,0,0,0.2);
+    box-shadow:0 2px 5px rgba(0,0,0,0.5);
     -webkit-transition: all 0.15s linear;
 	-o-transition: all 0.15s linear;
 	transition: all 0.15s linear;
@@ -118,7 +133,7 @@ dt span.departments > span, .email, .website{
 }
 #reset-button-id:hover{
 	/*background-color:#3068ad;*/
-	box-shadow:0 4px 20px rgba(0,0,0,0.2);
+	box-shadow:0 3px 8px rgba(0,0,0,0.5);
 }
 #reset-button-id::selection{
 	background-color:transparent;
@@ -154,10 +169,11 @@ dt span.departments > span, .email, .website{
 	text-align:center;
 	margin:10px 0 10px auto;
 	color:#fff;
-	box-shadow:0 2px 10px rgba(0,0,0,0.2);
-	-webkit-transition: all 0.1s ease;
-	-o-transition: all 0.1s ease;
-	transition: all 0.1s ease;
+	border-radius:1.5px;
+	box-shadow:0 2px 5px rgba(0,0,0,0.5);
+	-webkit-transition: all 0.15s linear;
+	-o-transition: all 0.15s linear;
+	transition: all 0.15s linear;
 }
 /*.show-text:hover{
 	background-color:#9fafbf;
@@ -168,15 +184,16 @@ dt span.departments > span, .email, .website{
 /*.hiddentrig:checked ~ .show-text:hover{
 	background-color:#bfbfbf;
 }*/
-.show-text:hover,.show-text:active{
-	box-shadow:0 3px 15px rgba(0,0,0,0.2);
-}
+/*.show-text:hover,.show-text:active{
+	box-shadow:0 3px 8px rgba(0,0,0,0.6);
+}*/
 
 
 /* Pagination nav bar */
 .pager{
 	margin-top:30px;
 	margin-bottom:60px;
+	padding:20px 0;
 }
 @media (max-width: 490px){
 	.pager ul{
@@ -192,10 +209,12 @@ dt span.departments > span, .email, .website{
 .pager .pagination li a{
 	padding:4px 6px;
 	width:30px;
-	border:1px solid #eaeaea;
-	border-radius:0px !important;
-	margin:1.5px 0 0 1.5px;
+	/*border:1px solid #eaeaea;*/
+	border:none;
+	border-radius:2px !important;
+	margin:3px;
     float: none !important; /* Fix pagination weird spacing */
+    box-shadow:0 1.5px 5px rgba(0,0,0,0.3) !important;
 }
 @media (min-width: 650px){
 	.pager .pagination li > a{
@@ -221,11 +240,12 @@ dt span.departments > span, .email, .website{
 	cursor:pointer;
 	color:#fff;
 	display:inline-block;
-	-webkit-transition: background-color 0.15s ease;
-	-o-transition: background-color 0.15s ease;
-	transition: background-color 0.15s ease;
+	-webkit-transition: all 0.15s linear;
+	-o-transition: all 0.15s linear;
+	transition: all 0.15s linear;
 	text-align:center;
 	white-space:nowrap;
+	box-shadow:0 2px 5px rgba(0,0,0,0.5);
 }
 #prev .fa,#next .fa{
 	color:#fff;
@@ -241,18 +261,19 @@ dt span.departments > span, .email, .website{
 	}
 }
 span#prev:hover,span#next:hover{
-	background-color:#009f8b;
+	/*background-color:#009f8b;*/
+	box-shadow:0 3px 8px rgba(0,0,0,0.5);
 }
 
 /* Feedback block */
-.contact-info-item a:hover i{
+/*.contact-info-item a:hover i{
     background-color:rgba(255,255,255,0.2);
 }
 .contact-info-item a i{
     -webkit-transition: background-color 0.1s linear;
     -o-transition: background-color 0.1s linear;
     transition: background-color 0.1s linear;
-}
+}*/
 
 /* Back-to-top button */
 #back-top{
