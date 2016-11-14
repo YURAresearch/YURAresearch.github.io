@@ -25,14 +25,6 @@ a:focus{
 #home>a{
 	color:#fff;
 }
-/*#home>a:hover,#home>a:active{
-	color:#b6dce9;
-}*/
-/*#home>a{
-	-webkit-transition: color 0.1s linear;
-	-o-transition: color 0.1s linear;
-	transition: color 0.1s linear;
-}*/
 
 /* Listings (general) */
 .list{
@@ -74,6 +66,9 @@ dt span.departments > span, .email, .website{
 	padding-top:9.5px;
 	padding-bottom:9.5px;
 }
+.headout-chev{
+	font-size:80%;
+}
 .highlight {
   background-color: yellow;
 }
@@ -81,10 +76,14 @@ dt span.departments > span, .email, .website{
 /* Buttons and filters */
 #searchbox,#deptDropdown .selectize-input{
 	border:none;
-	background-color:#f6f6f6;
+	background-color:#f1f1f1;
 	margin-top:5px;
 	border-radius:3px;
 	color:#555555;
+	box-shadow:none;
+}
+#searchbox:focus{
+	background-color:#f6f6f6;
 }
 #deptDropdown .selectize-input{
 	line-height: 28px;
