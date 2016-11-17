@@ -41,6 +41,17 @@
     background-color:rgba(0,0,0,0.15);
     color:#fafafa;
 }
+#feedback-form .form-group input,#feedback-form .form-group textarea{
+    border:none !important;
+    background-color:#f1f1f1;
+    margin-top:5px;
+    border-radius:3px;
+    color:#555555;
+    box-shadow:none;
+}
+#feedback-form .form-group input:focus,#feedback-form .form-group textarea:focus{
+    background-color:#f6f6f6;
+}
 
 /* Head */
 .document-title{
@@ -56,9 +67,6 @@
     color:#ccc;
     white-space: nowrap;
 }
-/*.document-title .breadcrumb a:hover{
-    color:#72c6f3;
-}*/
 .document-title a{
     padding:7px;
 }
