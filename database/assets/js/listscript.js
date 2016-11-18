@@ -1,11 +1,14 @@
 // Javascript for listings page
 
+
+"use strict";
+
 // Starting filters
-$(window).on('beforeunload', function(){
+$(window).on('beforeunload', function() {
     $('#searchbox').val('');
     $("#categories")[0].selectize.clear();
 });
-$(window).on('load', function(){
+$(window).on('load', function() {
     labsList.search();
     labsList.filter();
 });
@@ -28,7 +31,7 @@ var getUrlParameter = function getUrlParameter(sParam) {
 
 // Validation of login ticket using our webserver.
 var tech = getUrlParameter('ticket');
-if(tech === undefined)
+if (tech === undefined)
 {
     $("#rdbcontent").hide();
     $("#login-warning").show();
@@ -98,7 +101,7 @@ var options = {
     ],
     page: 15,
     item: 'databaseitem',
-    plugins:[ListPagination(paginationParams)]
+    plugins: [ListPagination(paginationParams)]
 };
 
 // Make list (List.js)
@@ -107,22 +110,26 @@ var labsList = new List('labs', options);
 // Functions for various js work after entries have loaded; called after list.js call to add
 function checkPrevNext() {
     // Take care of hiding prev or next buttons
-    if($('.active').length === 0){
-        $('#next').css('visibility','hidden');
-        $('#prev').css('visibility','hidden');
+    if ($('.active').length === 0) {
+        // Check empty
+        $('#next').css('visibility', 'hidden');
+        $('#prev').css('visibility', 'hidden');
     }
-    else{
-        if($('.active').next().length === 0){
-            $('#next').css('visibility','hidden');
+    else {
+        console.log("HA");
+        // Check next
+        if ($('.active').next().length === 0) {
+            $('#next').css('visibility', 'hidden');
         }
-        else{
-            $('#next').css('visibility','visible');
+        else {
+            $('#next').css('visibility', 'visible');
         }
-        if($('.active').prev().length === 0){
-            $('#prev').css('visibility','hidden');
+        // Check prev
+        if ($('.active').prev().length === 0) {
+            $('#prev').css('visibility', 'hidden');
         }
-        else{
-            $('#prev').css('visibility','visible');
+        else {
+            $('#prev').css('visibility', 'visible');
         }
     }
 }
@@ -133,26 +140,28 @@ function postEntryWork() {
         checkPrevNext();
         $('html, body').scrollTop(200);
     });
-    $('#prev').click(function(){
+    $('#prev').click(function() {
         $('.active').prev().trigger('click');
         checkPrevNext();
     });
-    $('#next').click(function(){
+    $('#next').click(function() {
         $('.active').next().trigger('click');
         checkPrevNext();
     });
+    $('#searchbox').keyup(checkPrevNext);
+    $('#categories').change(checkPrevNext);
 
     // Scroll to top button
     $('#back-top').hide();
-    $(window).scroll(function(){
-        if($(this).scrollTop() > 300){
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 300) {
             $('#back-top').fadeIn(300);
         }
-        else{
+        else {
             $('#back-top').fadeOut(300);
         }
     });
-    $('#back-top').click(function(){
+    $('#back-top').click(function() {
         $('body,html').animate({scrollTop:0}, 400);
     });
 
@@ -162,6 +171,7 @@ function postEntryWork() {
         $("#categories")[0].selectize.clear();
         labsList.search();
         labsList.filter();
+        checkPrevNext();
     });
 }
 
@@ -173,12 +183,11 @@ var updateResults = function(error, options, response) {
 
     // Parse response from sheet, curate, and load
     var data = [];
-    var i;
     var id_num = 0;
     var deptTemp = "";
-    for (i = 1; i < response["rows"].length; i++) {
+    for (var i = 1; i < response["rows"].length; i++) {
         response["rows"][i]["cells"]["web1"] = response["rows"][i]["cells"]["website"];
-        id_num = Math.floor((Math.random()*10000)+1);
+        id_num = Math.floor((Math.random() * 10000) + 1);
         response["rows"][i]["cells"]["description"] =
             "<input type='checkbox' class='hiddentrig' id='item"+id_num+"'><span class='desc-text'>" +
             response["rows"][i]["cells"]["description"] +
@@ -221,43 +230,43 @@ $('#categories').selectize({
 // Filtering
 // Filtering data based on search box and category selection
 var filterData = function() {
-   var searchString = $('#searchbox').val().toLowerCase();
-   var categorySelection = $('#categories').val();
-   var modCategorySelection = "<span>" + categorySelection + "</span>";
-   var searchArray = searchString.split(" ");
-   if (searchString && categorySelection){
-     labsList.filter(function(item) {
-       var isTrue = true;
-       for (var i = 0; i < searchArray.length; i++) {
-          if ((item.values().description.toLowerCase().indexOf(searchArray[i]) == -1 && item.values().name.toLowerCase().indexOf(searchArray[i]) == -1) || item.values().departments.indexOf(modCategorySelection) == -1) {
-            isTrue=false;
-          }
-        }
-        return isTrue;
-     });
-   }
+    var searchString = $('#searchbox').val().toLowerCase();
+    var categorySelection = $('#categories').val();
+    var modCategorySelection = "<span>" + categorySelection + "</span>";
+    var searchArray = searchString.split(" ");
+    if (searchString && categorySelection) {
+        labsList.filter(function(item) {
+            var isTrue = true;
+            for (var i = 0; i < searchArray.length; i++) {
+                if ((item.values().description.toLowerCase().indexOf(searchArray[i]) == -1 && item.values().name.toLowerCase().indexOf(searchArray[i]) == -1) || item.values().departments.indexOf(modCategorySelection) == -1) {
+                    isTrue = false;
+                }
+            }
+            return isTrue;
+        });
+    }
 
-   else if (categorySelection) {
-       labsList.filter(function(item) {
-           return (item.values().departments.indexOf(modCategorySelection) != -1);
-       });
-   }
+    else if (categorySelection) {
+        labsList.filter(function(item) {
+            return (item.values().departments.indexOf(modCategorySelection) != -1);
+        });
+    }
 
-   else if (searchString) {
-     labsList.filter(function(item) {
-       var isTrue = true;
-       for (var i = 0; i < searchArray.length; i++) {
-          if (item.values().description.toLowerCase().indexOf(searchArray[i]) == -1 && item.values().name.toLowerCase().indexOf(searchArray[i]) == -1) {
-            isTrue=false;
-          }
-        }
-        return isTrue;
-     });
-   }
-   else {
-     labsList.filter();
-   }
-  };
+    else if (searchString) {
+        labsList.filter(function(item) {
+            var isTrue = true;
+            for (var i = 0; i < searchArray.length; i++) {
+                if (item.values().description.toLowerCase().indexOf(searchArray[i]) == -1 && item.values().name.toLowerCase().indexOf(searchArray[i]) == -1) {
+                    isTrue=false;
+                }
+            }
+            return isTrue;
+        });
+    }
+    else {
+        labsList.filter();
+    }
+};
 
 $('#searchbox').keyup(filterData);
 $('#categories').change(filterData);
