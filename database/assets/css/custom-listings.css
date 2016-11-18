@@ -122,7 +122,7 @@ dt span.departments > span, .email, .website{
 }
 #reset-button-id:hover{
 	/*background-color:#3068ad;*/
-	box-shadow:0 1.5px 6px rgba(0,0,0,0.4);
+	box-shadow:0 2px 8px rgba(0,0,0,0.4);
 }
 #reset-button-id::selection{
 	background-color:transparent;

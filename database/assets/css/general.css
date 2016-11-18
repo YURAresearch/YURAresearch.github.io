@@ -12,7 +12,7 @@
     transition: box-shadow 0.15s linear;
 }
 .btn:active,.btn:hover{
-    box-shadow:0 1.5px 6px rgba(0,0,0,0.4);
+    box-shadow:0 2px 8px rgba(0,0,0,0.4);
 }
 .fullwidthMD,.footer-top,.footer-bottom,.document-title{
     box-shadow:0 1.5px 6px rgba(0,0,0,0.9);
