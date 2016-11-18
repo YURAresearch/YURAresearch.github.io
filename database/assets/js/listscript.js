@@ -133,7 +133,6 @@ function checkPrevNext() {
         $('#prev').css('visibility', 'hidden');
     }
     else {
-        console.log("HA");
         // Check next
         if ($('.active').next().length === 0) {
             $('#next').css('visibility', 'hidden');
