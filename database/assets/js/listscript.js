@@ -201,17 +201,17 @@ var updateResults = function(error, options, response) {
     var data = [];
     var id_num = 0;
     var deptTemp = "";
-    for (var i = 1; i < response["rows"].length; i++) {
-        response["rows"][i]["cells"]["web1"] = response["rows"][i]["cells"]["website"];
+    for (var i = 1; i < response.rows.length; i++) {
+        response.rows[i].cells.web1 = response.rows[i].cells.website;
         id_num = Math.floor((Math.random() * 10000) + 1);
-        response["rows"][i]["cells"]["description"] =
-            "<input type='checkbox' class='hiddentrig' id='item"+id_num+"'><span class='desc-text'>" +
-            response["rows"][i]["cells"]["description"] +
-            "</span><label class='show-text' for='item"+id_num+"'>";
-        response["rows"][i]["cells"]["email2"] = "mailto:" + response["rows"][i]["cells"]["email"];
-        deptTemp = "<span>" + response["rows"][i]["cells"]["departments"].replace(/;\s*/g, "</span><span>");
-        response["rows"][i]["cells"]["departments"] = deptTemp.slice(0,deptTemp.length-6);
-        data.push(response["rows"][i]["cells"]);
+        response.rows[i].cells.description =
+            "<input type='checkbox' class='hiddentrig' id='item" + id_num + "'><span class='desc-text'>" +
+            response.rows[i].cells.description +
+            "</span><label class='show-text' for='item" + id_num + "'>";
+        response.rows[i].cells.email2 = "mailto:" + response.rows[i].cells.email;
+        deptTemp = "<span>" + response.rows[i].cells.departments.replace(/;\s*/g, "</span><span>");
+        response.rows[i].cells.departments = deptTemp.slice(0, deptTemp.length - 6);
+        data.push(response.rows[i].cells);
     }
     // Load entries by relaying to list.js code
     labsList.add(data);
