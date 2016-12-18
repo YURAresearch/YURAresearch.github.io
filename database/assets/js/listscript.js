@@ -26,10 +26,11 @@ $(window).on('beforeunload', function() {
     $("#categories")[0].selectize.clear();
 });
 $(window).on('load', function() {
-    labsList.search();
-    labsList.filter();
+    RDBList.search();
+    RDBList.filter();
 });
 
+// Logging-in controls
 // Hiding when not logged in
 var getUrlParameter = function getUrlParameter(sParam) {
     var sPageURL = decodeURIComponent(window.location.search.substring(1)),
@@ -50,6 +51,7 @@ var getUrlParameter = function getUrlParameter(sParam) {
 var tech = getUrlParameter('ticket');
 if (tech === undefined)
 {
+    // Hide database and show notice
     $("#rdbcontent").hide();
     $("#login-warning").show();
 }
@@ -112,21 +114,22 @@ var options = {
         'departments',
         'email',
         'description',
-        {name: 'website', attr: 'href'},
-        {name: 'web1', attr: 'href'},
-        {name: 'email2', attr: 'href'}
+        {name: 'website', attr: 'href'}, // Go to website link
+        {name: 'web1', attr: 'href'}, // Name link
+        {name: 'email2', attr: 'href'}, // Email link
+        'desc_unwrapped' // Not used for html DOM but for searching
     ],
     page: 15,
-    item: 'databaseitem',
-    plugins: [ListPagination(paginationParams)]
+    item: 'databaseitem', // Direct to the databaseitem element
+    plugins: [ListPagination(paginationParams)] // For pages manipulation
 };
 
 // Make list (List.js)
-var labsList = new List('labs', options);
+var RDBList = new List('labs', options);
 
 // Functions for various js work after entries have loaded; called after list.js call to add
 function checkPrevNext() {
-    // Take care of hiding prev or next buttons
+    // Take care of hiding prev or next buttons, depending on pages and current page
     if ($('.active').length === 0) {
         // Check empty
         $('#next').css('visibility', 'hidden');
@@ -154,16 +157,17 @@ function postEntryWork() {
     checkPrevNext();
     $('.pager ul').click(function() {
         checkPrevNext();
-        $('html, body').scrollTop(200);
+        $('html, body').scrollTop(200); // Go back to top whenever pages changed
     });
     $('#prev').click(function() {
-        $('.active').prev().trigger('click');
+        $('.active').prev().trigger('click'); // Transmit click event to the previous page number
         checkPrevNext();
     });
     $('#next').click(function() {
-        $('.active').next().trigger('click');
+        $('.active').next().trigger('click'); // Transmit click event to the next page number
         checkPrevNext();
     });
+    // Pages would change upon filters as well
     $('#searchbox').keyup(checkPrevNext);
     $('#categories').change(checkPrevNext);
 
@@ -185,8 +189,8 @@ function postEntryWork() {
     $('#reset-button-id').click(function() {
         $('#searchbox').val('');
         $("#categories")[0].selectize.clear();
-        labsList.search();
-        labsList.filter();
+        RDBList.search();
+        RDBList.filter();
         checkPrevNext();
     });
 }
@@ -202,19 +206,32 @@ var updateResults = function(error, options, response) {
     var id_num = 0;
     var deptTemp = "";
     for (var i = 1; i < response.rows.length; i++) {
+        // Replicate url to also use as hyperlink address
         response.rows[i].cells.web1 = response.rows[i].cells.website;
+
+        // Format description
+        // Save an unwrapped copy for searching
+        response.rows[i].cells.desc_unwrapped = response.rows[i].cells.description
+        // For hide/show control
+        // Assign id_num to each description so each of the hide/show button can correspond to their text specifically
         id_num = Math.floor((Math.random() * 10000) + 1);
         response.rows[i].cells.description =
             "<input type='checkbox' class='hiddentrig' id='item" + id_num + "'><span class='desc-text'>" +
             response.rows[i].cells.description +
             "</span><label class='show-text' for='item" + id_num + "'>";
+
+        // Replicate email to also use as mailto: link
         response.rows[i].cells.email2 = "mailto:" + response.rows[i].cells.email;
-        deptTemp = "<span>" + response.rows[i].cells.departments.replace(/;\s*/g, "</span><span>");
-        response.rows[i].cells.departments = deptTemp.slice(0, deptTemp.length - 6);
+
+        // Format departments
+        deptTemp = "<span>" + response.rows[i].cells.departments.replace(/;\s*/g, "</span><span>"); // Commas to separate lines (span)
+        response.rows[i].cells.departments = deptTemp.slice(0, deptTemp.length - 6); // Get rid of the extra "<span>" at the end
+
+        // We're set!
         data.push(response.rows[i].cells);
     }
     // Load entries by relaying to list.js code
-    labsList.add(data);
+    RDBList.add(data);
 
     // Ready to present the entries!
     $("#loader").hide();
@@ -227,7 +244,7 @@ var updateResults = function(error, options, response) {
 
 // Parameters for sheetrock.js
 var params = {
-    url: 'https://docs.google.com/spreadsheets/d/1hJSYPwbuKZiVFaqV2a1yIEkjrjbZ_Mz9XM4xSK0j-WQ/edit#gid=806509658',
+    url: 'https://docs.google.com/spreadsheets/d/1hJSYPwbuKZiVFaqV2a1yIEkjrjbZ_Mz9XM4xSK0j-WQ/edit#gid=806509658', // See sheetrock documentation
     query: "select A,B,C,D,E",
     callback: updateResults,
     reset: true
@@ -237,7 +254,7 @@ var params = {
 $("#hr, .pager").hide();
 sheetrock(params);
 
-//Formatting categories dropdown
+// Formatting categories dropdown
 $('#categories').selectize({
     sortField: 'text'
 });
@@ -246,43 +263,62 @@ $('#categories').selectize({
 // Filtering
 // Filtering data based on search box and category selection
 var filterData = function() {
-    var searchString = $('#searchbox').val().toLowerCase();
+    // Get keyword search string
+    var searchString = $('#searchbox').val().toLowerCase(); // Convert to lowercase
+    var searchArray = searchString.split(" ").filter(Boolean); // Split by space and remove empty items (multiple spaces)
+    var keywordLength = searchArray.length; // Save length for iteration
+
+    // Get dept/school search filter
     var categorySelection = $('#categories').val();
+    // Due to formatting, span tags are present; include to make sure only full match dept names are included i.e. American Studies but not African American Studies
     var modCategorySelection = "<span>" + categorySelection + "</span>";
-    var searchArray = searchString.split(" ");
-    if (searchString && categorySelection) {
-        labsList.filter(function(item) {
-            var isTrue = true;
-            for (var i = 0; i < searchArray.length; i++) {
-                if ((item.values().description.toLowerCase().indexOf(searchArray[i]) == -1 && item.values().name.toLowerCase().indexOf(searchArray[i]) == -1) || item.values().departments.indexOf(modCategorySelection) == -1) {
-                    isTrue = false;
+
+    // Start filtering!
+    // See List.js documentation: "RDBList.filter(function(item){...});" limits shown listings to only when the function returns true, depending on value of item
+    // Both keyword and dept
+    if (keywordLength && categorySelection) {
+        RDBList.filter(function(item) {
+            // Eliminate if dept not in list
+            if (item.values().departments.indexOf(modCategorySelection) == -1){
+                return false;
+            }
+            // The item also need to have all the keywords
+            for (var i = 0; i < keywordLength; i++) {
+                if (item.values().desc_unwrapped.toLowerCase().indexOf(searchArray[i]) == -1 &&
+                    item.values().name.toLowerCase().indexOf(searchArray[i]) == -1) {
+                        return false;
                 }
             }
-            return isTrue;
+            // You passed the tests!
+            return true;
         });
     }
-
+    // Only dept
     else if (categorySelection) {
-        labsList.filter(function(item) {
+        RDBList.filter(function(item) {
+            // Check department
             return (item.values().departments.indexOf(modCategorySelection) != -1);
         });
     }
-
-    else if (searchString) {
-        labsList.filter(function(item) {
-            var isTrue = true;
-            for (var i = 0; i < searchArray.length; i++) {
-                if (item.values().description.toLowerCase().indexOf(searchArray[i]) == -1 && item.values().name.toLowerCase().indexOf(searchArray[i]) == -1) {
-                    isTrue=false;
+    // Only keywords
+    else if (keywordLength) {
+        RDBList.filter(function(item) {
+            // Must include all keywords. Searches only name and description
+            for (var i = 0; i < keywordLength; i++) {
+                if (item.values().desc_unwrapped.toLowerCase().indexOf(searchArray[i]) == -1 &&
+                    item.values().name.toLowerCase().indexOf(searchArray[i]) == -1) {
+                        return false;
                 }
             }
-            return isTrue;
+            // You're good!
+            return true;
         });
     }
+    // None
     else {
-        labsList.filter();
+        RDBList.filter(); // Remove all filters
     }
 };
-
+// Events for triggering filters
 $('#searchbox').keyup(filterData);
 $('#categories').change(filterData);

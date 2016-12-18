@@ -41,12 +41,15 @@ var TESTIMONIALS = [
 
 ];
 
+// Handle testimonials block
 var testimonialNum = TESTIMONIALS.length;
-var thisone = Math.floor(Math.random() * testimonialNum);
+var thisone = Math.floor(Math.random() * testimonialNum); // Randomly chooses first one to show
+// Initial load
 $('#testimonials-item footer>p').text('"' + TESTIMONIALS[thisone][0] + '"');
 $('#testimonials-item footer>cite').text("- " + TESTIMONIALS[thisone][1]);
+// Testimonial changing function
 function changeTestimonial() {
-    thisone = (thisone + 1 ) % testimonialNum;
+    thisone = (thisone + 1 ) % testimonialNum; // Advance to next testimonial, with looping
     $('#testimonials-item footer>p, #testimonials-item footer>cite').fadeOut(500,function() {
         $('#testimonials-item footer>p').text('"' + TESTIMONIALS[thisone][0] + '"').fadeIn(500);
         $('#testimonials-item footer>cite').text("- " + TESTIMONIALS[thisone][1]).fadeIn(500);

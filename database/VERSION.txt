@@ -1,8 +1,11 @@
 YURA Research Database (RDB)
 Yale Undergraduate Research Association (YURA)
-Current version: 1.0
+Current version: 1.1
 --------------------------------------------------
 Update log:
+
+v1.1
+    Various bugfixes, improved searching and layout, better detailed commenting
 
 v1.0
 	Material Design, various minor bug fixes and improvements

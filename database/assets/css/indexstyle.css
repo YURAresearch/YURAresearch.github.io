@@ -58,6 +58,9 @@ h5 {
 h6 {
     font-size: 20px;
 }
+#learnmore p {
+    font-size: 16px;
+}
 .page-header p {
     font-size: 18px;
 }
@@ -111,7 +114,7 @@ h6 {
 #testimonial-page cite {
     margin-top: 5px;
     font-size: 15px;
-    color: #bbb;
+    color: #a8a8a8;
 }
 @media (max-width: 500px) {
     #testimonials blockquote {
@@ -122,6 +125,33 @@ h6 {
     }
     #testimonials footer cite{
         font-size: 12px !important;
+    }
+}
+
+/* Awesomeness block */
+#sellingblock .box-content h2, #sellingblock .box-content p {
+    color: #eee;
+}
+/* The following 3 pieces are to adjust the responsive layout of the block to only expand at 992px instead of 768px width; the layout was off originally */
+@media (max-width: 992px) {
+    #sellingblock .box {
+        margin-bottom: 30px;
+    }
+}
+@media (min-width: 768px) {
+    #sellingblock .col-sm-4, .categories > ul > li {
+        width: 750px;
+    }
+    #sellingblock .col-sm-4{
+        float: none;
+    }
+}
+@media (min-width: 992px) {
+    #sellingblock .col-sm-4, .categories > ul > li {
+        width: 33.33333%;
+    }
+    #sellingblock .col-sm-4 {
+        float: left;
     }
 }
 

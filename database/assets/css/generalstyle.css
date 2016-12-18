@@ -112,6 +112,15 @@ along with the RDB code.  If not, see <http://www.gnu.org/licenses/>.
     border-radius: 3px;
 }
 
+/* Body */
+#invitefeedback {
+    font-size: 25px;
+    color: #0f74aa;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+
 /* Bottom nav */
 .footer-bottom .nav>li {
     border: none;

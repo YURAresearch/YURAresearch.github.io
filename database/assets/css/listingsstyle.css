@@ -72,6 +72,9 @@ a:focus {
 .card-row-properties dd {
 	margin-right: 8px;
 }
+a.website:focus {
+	color: #008675;
+}
 .website, .email {
 	word-wrap: break-word;
 	word-break: break-all;
