@@ -211,7 +211,7 @@ var updateResults = function(error, options, response) {
 
         // Format description
         // Save an unwrapped copy for searching
-        response.rows[i].cells.desc_unwrapped = response.rows[i].cells.description
+        response.rows[i].cells.desc_unwrapped = response.rows[i].cells.description;
         // For hide/show control
         // Assign id_num to each description so each of the hide/show button can correspond to their text specifically
         id_num = Math.floor((Math.random() * 10000) + 1);
