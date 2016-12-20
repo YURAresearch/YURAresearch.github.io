@@ -30,6 +30,9 @@ $(window).on('load', function() {
     RDBList.filter();
 });
 
+// var for saving searched keywords; for highlighting
+var savedkeywords = [];
+
 // Logging-in controls
 // Hiding when not logged in
 var getUrlParameter = function getUrlParameter(sParam) {
@@ -151,6 +154,9 @@ function checkPrevNext() {
             $('#prev').css('visibility', 'visible');
         }
     }
+
+    // Also, help take care of keeping highlights on the side
+    highlightf();
 }
 function postEntryWork() {
     // Checking page buttons and add events
@@ -259,6 +265,15 @@ $('#categories').selectize({
     sortField: 'text'
 });
 
+// Highlight match terms (mark.js)
+var hlinstance = null;
+var hlcontext = null;
+var highlightf = function() {
+    if (hlinstance) {hlinstance.unmark();} // Remove existing highlights
+    hlcontext = document.querySelectorAll(".name, .desc-text"); // Determines where to search-- name and description
+    hlinstance = new Mark(hlcontext); // Setup instance
+    hlinstance.mark(savedkeywords); // Gotcha! Default is case insensitive
+}
 
 // Filtering
 // Filtering data based on search box and category selection
@@ -318,7 +333,14 @@ var filterData = function() {
     else {
         RDBList.filter(); // Remove all filters
     }
+
+    // Highlight match terms
+    savedkeywords = searchArray;
+    highlightf();
 };
 // Events for triggering filters
 $('#searchbox').keyup(filterData);
 $('#categories').change(filterData);
+
+
+

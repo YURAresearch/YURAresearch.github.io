@@ -90,8 +90,14 @@ dt span.departments > span, .email, .website {
 .headout-chev {
 	font-size: 80%;
 }
-.highlight {
-  background-color: yellow;
+mark {
+  background-color: #a0f6fa;
+  color: inherit;
+  border: none;
+  border-radius: 2px;
+  box-shadow: none;
+  padding: 0px;
+  margin: 0px;
 }
 
 /* Buttons and filters */
