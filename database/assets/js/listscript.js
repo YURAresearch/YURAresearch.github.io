@@ -273,7 +273,7 @@ var highlightf = function() {
     hlcontext = document.querySelectorAll(".name, .desc-text"); // Determines where to search-- name and description
     hlinstance = new Mark(hlcontext); // Setup instance
     hlinstance.mark(savedkeywords); // Gotcha! Default is case insensitive
-}
+};
 
 // Filtering
 // Filtering data based on search box and category selection
@@ -341,6 +341,3 @@ var filterData = function() {
 // Events for triggering filters
 $('#searchbox').keyup(filterData);
 $('#categories').change(filterData);
-
-
-
