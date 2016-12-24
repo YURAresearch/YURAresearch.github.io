@@ -29,7 +29,8 @@
 }
 
 #holidays .footer-bottom .nav > li > a:hover,
-#holidays #invitefeedback {
+#holidays #invitefeedback,
+#holidays #loader p {
     color: #076708;
 }
 
