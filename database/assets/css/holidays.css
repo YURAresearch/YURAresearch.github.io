@@ -53,3 +53,14 @@
 #holidays .faq-item a {
     color: #367C32;
 }
+
+#holidays #rdbcontent #hr .name:after {
+    background: url('../img/snowman.png') no-repeat 0 0;
+    background-size: 100%;
+    content: '';
+    width: 25px;
+    height: 25px;
+    margin-left: 8px;
+    margin-bottom: -7.5px;
+    display: inline-block;
+}
