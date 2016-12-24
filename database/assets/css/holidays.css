@@ -1,11 +1,11 @@
 /* Holidays special theme styles */
 
 #holidays .background-secondary {
-    background-color: #5E1510;
+    background-color: #531814;
 }
 
 #holidays .contact-info .fa {
-    background-color: #AC231E;
+    background-color: #832E2B;
 }
 
 #holidays .background-black-light {
@@ -17,14 +17,17 @@
 }
 
 #holidays .footer-top {
-    background-color: #185717;
+    background-color: #1C401B;
 }
 
 #holidays .footer-bottom {
-    background-color: #113C10;
+    background-color: #10300F;
 }
 
-#holidays #testimonial-page footer p,
+#holidays #testimonial-page footer p {
+    color: #5A1E1E;
+}
+
 #holidays .footer-bottom .nav > li > a:hover,
 #holidays #invitefeedback {
     color: #076708;
@@ -33,7 +36,7 @@
 #holidays #back-top,
 #holidays .box .box-icon,
 #holidays #reset-button-id{
-    background-color: #09830B;
+    background-color: #185D19;
 }
 
 #holidays .btn-primary {
@@ -42,4 +45,10 @@
 
 #holidays .btn-secondary {
     background-color: #8F382B !important;
+}
+
+#holidays #rdbcontent #hr a,
+#holidays .post-content a,
+#holidays .faq-item a {
+    color: #367C32;
 }
