@@ -44,7 +44,8 @@
     background-color: #2A7A35 !important;
 }
 
-#holidays .btn-secondary {
+#holidays .btn-secondary,
+#holidays .pager li a:hover {
     background-color: #8F382B !important;
 }
 
