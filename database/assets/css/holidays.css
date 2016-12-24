@@ -1,0 +1,45 @@
+/* Holidays special theme styles */
+
+#holidays .background-secondary {
+    background-color: #5E1510;
+}
+
+#holidays .contact-info .fa {
+    background-color: #AC231E;
+}
+
+#holidays .background-black-light {
+    background-color: #183B11;
+}
+
+#holidays .faq-item:before {
+    border-color: #09890B #fff;
+}
+
+#holidays .footer-top {
+    background-color: #185717;
+}
+
+#holidays .footer-bottom {
+    background-color: #113C10;
+}
+
+#holidays #testimonial-page footer p,
+#holidays .footer-bottom .nav > li > a:hover,
+#holidays #invitefeedback {
+    color: #076708;
+}
+
+#holidays #back-top,
+#holidays .box .box-icon,
+#holidays #reset-button-id{
+    background-color: #09830B;
+}
+
+#holidays .btn-primary {
+    background-color: #2A7A35 !important;
+}
+
+#holidays .btn-secondary {
+    background-color: #8F382B !important;
+}
