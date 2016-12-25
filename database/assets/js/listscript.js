@@ -128,7 +128,7 @@ var options = {
 };
 
 // Make list (List.js)
-var RDBList = new List('labs', options);
+var RDBList = new List('RDB', options);
 
 // Functions for various js work after entries have loaded; called after list.js call to add
 function checkPrevNext() {
@@ -241,7 +241,7 @@ var updateResults = function(error, options, response) {
 
     // Ready to present the entries!
     $("#loader").hide();
-    $("#hr, .pager").show();
+    $("#rdblistings, .pager").show();
 
     // Note: by this points the entries are all set
     // Take care of all events and js work etc
@@ -257,7 +257,7 @@ var params = {
 };
 
 // Hide entries while load entries (sheetrock)
-$("#hr, .pager").hide();
+$("#rdblistings, .pager").hide();
 sheetrock(params);
 
 // Formatting categories dropdown
