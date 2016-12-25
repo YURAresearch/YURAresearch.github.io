@@ -18,20 +18,25 @@
 // along with the RDB code.  If not, see <http://www.gnu.org/licenses/>.
 // --------------------------------------------------------------------------
 
+// Key plugins used:
+// - sheetrock.js (Connect to Google Sheet, listing data loading)
+// - list.js (Listings formatting and behaviors, pagination, filtering/searching)
+// - selectize.js (Departments/Schools filter dropdown)
+// - mark.js (Highlighting)
+
 "use strict";
 
-// Starting filters
+// Starting initial filters state
 $(window).on('beforeunload', function() {
+    // Clear filters/search
     $('#searchbox').val('');
     $("#categories")[0].selectize.clear();
 });
 $(window).on('load', function() {
+    // Initialize filter/search state (empty)
     RDBList.search();
     RDBList.filter();
 });
-
-// var for saving searched keywords; for highlighting
-var savedkeywords = [];
 
 // Logging-in controls
 // Hiding when not logged in
@@ -98,8 +103,8 @@ else
     */
 }
 
-// Initialize List (using List.js)
-// Pagination parameters (List.js plugin)
+// Initialize List (using list.js)
+// Pagination parameters (list.js plugin)
 var paginationParams = {
     name: "listPages",
     paginationClass: "pagination",
@@ -107,7 +112,7 @@ var paginationParams = {
     outerWindow: 1
 };
 
-// Entries list parameters (List.js)
+// Entries list parameters (list.js)
 var options = {
     // valueNames: class names for the different values of each list item
     // page: how many items that should be visible at the same time. Default 200
@@ -127,10 +132,11 @@ var options = {
     plugins: [ListPagination(paginationParams)] // For pages manipulation
 };
 
-// Make list (List.js)
+// Make list (list.js)
 var RDBList = new List('RDB', options);
 
-// Functions for various js work after entries have loaded; called after list.js call to add
+// Events setup functions for various js work after entries have loaded; called after list.js call to add
+// (Re)check pages state and adjust prev/next buttons; Update highlighting
 function checkPrevNext() {
     // Take care of hiding prev or next buttons, depending on pages and current page
     if ($('.active').length === 0) {
@@ -158,6 +164,7 @@ function checkPrevNext() {
     // Also, help take care of keeping highlights on the side
     highlightf();
 }
+// Pagination events, back to top, and reset filters, etc.
 function postEntryWork() {
     // Checking page buttons and add events
     checkPrevNext();
@@ -201,7 +208,10 @@ function postEntryWork() {
     });
 }
 
-// Retrieve and load Data from Google Spreadsheet (using sheetrock.js)
+// Retrieve and load data from Google Spreadsheet (using sheetrock.js)
+// Hide entries while load entries (sheetrock.js)
+$("#rdblistings, .pager").hide();
+
 // Update entries (sheetrock call)
 var updateResults = function(error, options, response) {
     // Report error
@@ -248,7 +258,7 @@ var updateResults = function(error, options, response) {
     postEntryWork();
 };
 
-// Parameters for sheetrock.js
+// Parameters for sheetrock
 var params = {
     url: 'https://docs.google.com/spreadsheets/d/1hJSYPwbuKZiVFaqV2a1yIEkjrjbZ_Mz9XM4xSK0j-WQ/edit#gid=806509658', // See sheetrock documentation
     query: "select A,B,C,D,E",
@@ -256,11 +266,11 @@ var params = {
     reset: true
 };
 
-// Hide entries while load entries (sheetrock)
-$("#rdblistings, .pager").hide();
+// Sheetrock!
 sheetrock(params);
 
-// Formatting categories dropdown
+// Remaining functionalities to setup
+// Creating and formatting categories dropdown (selectize.js)
 $('#categories').selectize({
     sortField: 'text'
 });
@@ -268,6 +278,9 @@ $('#categories').selectize({
 // Highlight match terms (mark.js)
 var hlinstance = null;
 var hlcontext = null;
+// var for saving searched keywords; for highlighting
+var savedkeywords = [];
+// Highlighting updating function
 var highlightf = function() {
     if (hlinstance) {hlinstance.unmark();} // Remove existing highlights
     hlcontext = document.querySelectorAll(".name, .desc-text"); // Determines where to search-- name and description
@@ -275,8 +288,7 @@ var highlightf = function() {
     hlinstance.mark(savedkeywords); // Gotcha! Default is case insensitive
 };
 
-// Filtering
-// Filtering data based on search box and category selection
+// Filtering; based on search box and category selection (list.js)
 var filterData = function() {
     // Get keyword search string
     var searchString = $('#searchbox').val().toLowerCase(); // Convert to lowercase
