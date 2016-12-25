@@ -215,7 +215,7 @@ $("#rdblistings, .pager").hide();
 // Update entries (sheetrock call)
 var updateResults = function(error, options, response) {
     // Report error
-    if(error){console.log("Errors: ", error);}
+    if(error) {console.log("Errors: ", error);}
 
     // Parse response from sheet, curate, and load
     var data = [];
@@ -240,6 +240,8 @@ var updateResults = function(error, options, response) {
         response.rows[i].cells.email2 = "mailto:" + response.rows[i].cells.email;
 
         // Format departments
+        // Departments are formatted as "Dept, Dept, Dept,"
+        // Processing to "<span>Dept</span><span>Dept</span><span>Dept</span>"
         deptTemp = "<span>" + response.rows[i].cells.departments.replace(/;\s*/g, "</span><span>"); // Commas to separate lines (span)
         response.rows[i].cells.departments = deptTemp.slice(0, deptTemp.length - 6); // Get rid of the extra "<span>" at the end
 
@@ -254,7 +256,7 @@ var updateResults = function(error, options, response) {
     $("#rdblistings, .pager").show();
 
     // Note: by this points the entries are all set
-    // Take care of all events and js work etc
+    // Take care of all events and js work etc.
     postEntryWork();
 };
 
