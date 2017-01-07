@@ -175,7 +175,7 @@ mark {
 .show-text {
 	cursor: pointer;
 	display: block;
-	background-color: #98a8b8;
+	background-color: #6EB39B;
 	width: 100px;
 	line-height: 25px;
 	font-size: 13px;
@@ -191,7 +191,7 @@ mark {
 	transition: all 0.15s linear;
 }
 .hiddentrig:checked ~ .show-text {
-	background-color: #b8b8b8;
+	background-color: #81A6BC;
 }
 
 

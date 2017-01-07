@@ -67,6 +67,10 @@ h6 {
 #maintext {
     padding-bottom: 50px;
 }
+.post-info-rdb p {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
 @media (max-width: 600px) {
     .post-info-rdb p {
         font-size: 16px;
@@ -132,7 +136,8 @@ h6 {
 #sellingblock .box-content h2, #sellingblock .box-content p {
     color: #eee;
 }
-/* The following 3 pieces are to adjust the responsive layout of the block to only expand at 992px instead of 768px width; the layout was off originally */
+/* The following 3 pieces are to adjust the responsive layout of the block
+   to only expand at 992px instead of 768px width; the layout was off originally */
 @media (max-width: 992px) {
     #sellingblock .box {
         margin-bottom: 30px;
