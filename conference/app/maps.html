@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>YURC 2017</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/jquery-ui.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery-ui.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="http://maps.google.com/maps/api/js"></script>
+		<script src="assets/js/gmaps.js"></script>
+		<style type="text/css">
+    #map {
+      height: 400px;
+			width: 100%;
+    }
+  </style>
+
+	</head>
+	<body>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header" class="alt">
+						<a href="index.html" class="logo">YURC 2017</a>
+					</header>
+
+				<!-- Banner -->
+				<!-- Note: The "styleN" class below should match that of the header element. -->
+					<section id="banner" class="style3">
+						<div class="inner">
+							<span class="image">
+								<img src="images/pic07.jpg" alt="" />
+							</span>
+							<header class="major">
+								<h1>Maps</h1>
+							</header>
+							<div class="content">
+								<p>Lorem ipsum dolor sit amet nullam consequat<br />
+								sed veroeros. tempus adipiscing nulla.</p>
+							</div>
+						</div>
+					</section>
+
+				<!-- Main -->
+					<div id="main">
+						<section id="one">
+							<div class="inner">
+								<header class="major">
+									<h2>Omni New Haven Hotel</h2>
+								</header>
+								<div id="map"></div>
+  <script>
+    var map = new GMaps({
+      el: '#map',
+      lat: 41.305916,
+      lng: -72.927481,
+			zoom: 18,
+    });
+		map.addMarker({
+			lat: 41.305916,
+			lng: -72.927481,
+  title: 'Lima',
+  click: function(e) {
+    alert('You clicked in this marker');
+  }
+});
+  </script>
+						</section>
+					</div>
+					<!-- Footer -->
+						<footer id="footer">
+							<div class="inner">
+								<ul class="copyright">
+									<li>&copy; Yale Undergraduate Research Association 2017</li>
+								</ul>
+							</div>
+						</footer>
+
+			</div>
+
+		<!-- Scripts
+		<script async defer
+		    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB43F0ThHHVtWhAoAOkhuck57MVNqjZA7k&callback=initMap">
+		    </script> -->
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+	</body>
+</html>
