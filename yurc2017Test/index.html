@@ -27,6 +27,15 @@
   		@page { size: landscape; }
 	</style>
 
+	<style>
+      #map {
+        width: 100%;
+        height: 400px;
+        background-color: grey;
+      }
+    </style>
+
+
 </head>
 
 <body>
@@ -42,7 +51,7 @@
 
 			<div class="ui-grid-a ui-responsive">
 				<div class="ui-block-a"><a href="#two" class="ui-btn ui-shadow ui-corner-all" data-transition="slide">Project Abstracts</a></div>
-				<div class="ui-block-b"><a href="#three" class="ui-btn ui-shadow ui-corner-all" data-transition="slide">Map</a></div>
+				<div class="ui-block-b"><a href="#twelve" class="ui-btn ui-shadow ui-corner-all" data-transition="slide">Map</a></div>
 		</div>
 		<div class="ui-grid-a ui-responsive">
 				<div class="ui-block-a"><a href="#four" class="ui-btn ui-shadow ui-corner-all" data-transition="slide">Schedule of Events</a></div>
@@ -407,6 +416,72 @@
 		<h3> Saturday, 2/11 at 2:15 in Room X</h3>
 		<p>A description of the workshop can be entered here</a></p>
 		<br>
+
+
+	</div><!-- /content -->
+
+	<div data-role="footer">
+		<h4>&copy; Yale Undergraduate Research Association 2017</h4>
+	</div><!-- /footer -->
+</div><!-- /page three -->
+
+
+
+
+<!-- Start of keynote speaker page: #ten -->
+<div data-role="page" id="twelve" data-theme="a">
+
+	<div data-role="header">
+		<a href="#one" data-direction="reverse" data-transition="slide"  data-icon="home">Main Menu</a>
+		<!--<h1>Plenary Speakers</h1>-->
+		<h1>Map</h1>
+
+
+		<!--<h1><img src="images/Joan_Steitz.jpeg" style="width: 100%;"></h1> -->
+	</div><!-- /header -->
+
+
+
+	<div role="main" class="ui-content">
+
+		<div id="map"></div>
+		<script>
+      function initMap() {
+
+    	
+        var omni = {lat: 41.305738, lng: -72.927495};
+        var union = {lat: 41.29755, lng: -72.926629};
+        var yale = {lat: 41.30865, lng: -72.928775};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 15,
+          center: omni
+        });
+        var marker = new google.maps.Marker({
+          position: omni,
+          label: "Omni Hotel",
+          map: map
+        });
+
+        var marker2 = new google.maps.Marker({
+          position: union,
+          label: "Union Station",
+          map: map
+        });
+
+        var marker3 = new google.maps.Marker({
+          position: yale,
+          label: "Yale Old Campus",
+          map: map
+        });
+        
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2vEvynjQ_aqM1kSns_3NO9GpsWMfGELQ&callback=initMap">
+    </script>
+
+
+
 
 
 	</div><!-- /content -->
