@@ -444,6 +444,17 @@
 
 	<div role="main" class="ui-content">
 
+		<p>The Yale Undergraduate Research Conference will be taking place at the Omni Hotel in downtown New Haven, only a short walk away from Yale's historic Old Campus. For your convenience, the nearest Train Station, the Omni Hotel, and Old Campus are marked on the map below. Participants will be housed in the various residential colleges at Yale, all within walking distance of Old Campus.<p>
+
+		<h4>Omni Hotel</h4>
+		<p>155 Temple St, New Haven, CT 06510<p>
+
+		<h4>Yale Old Campus</h4>
+			<p>Phelps Gate, College Street, New Haven, CT<p>
+
+		<h4>New Haven Union Train Station</h4>
+			<p>50 Union Ave, New Haven, CT 06519<p>
+
 		<div id="map"></div>
 		<script>
       function initMap() {
@@ -453,7 +464,7 @@
         var union = {lat: 41.29755, lng: -72.926629};
         var yale = {lat: 41.30865, lng: -72.928775};
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 15,
+          zoom: 14,
           center: omni
         });
         var marker = new google.maps.Marker({
@@ -464,7 +475,7 @@
 
         var marker2 = new google.maps.Marker({
           position: union,
-          label: "Union Station",
+          label: "Union Train Station",
           map: map
         });
 
