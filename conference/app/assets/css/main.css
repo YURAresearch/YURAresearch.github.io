@@ -20,6 +20,10 @@
 .ABSImage{
 	max-width: 100%;
 }
+.underline{
+	padding-bottom: 3px;
+	border-bottom: solid 3px #FFFFFF;
+}
 	article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
 		display: block;
 	}
