@@ -121,41 +121,44 @@ var rowsP;
                 }
             }
 
-           //Populates view page (Page "six") with values of project info
-            function ViewPageLogic(i) {
-                return function(){
-                    $('.desc').show();
-                    //abstrInd = i;
-                    var title = document.getElementById("ABSTitle");
-                    var name = document.getElementById("ABSName");
-                    var field = document.getElementById("ABSField");
-                    var email = document.getElementById("ABSEmail");
-                    var college = document.getElementById("ABSCollege")
-                    var session = document.getElementById("ABSSession");
-                    //var year = document.getElementById("ABSYear");
+             //Populates view page (Page "six") with values of project info
+              function ViewPageLogic(i) {
+                  return function(){
+                      $('.desc').show();
+                      //abstrInd = i;
+                      var title = document.getElementById("ABSTitle");
+                      var name = document.getElementById("ABSName");
+                      var field = document.getElementById("ABSField");
+                      var email = document.getElementById("ABSEmail");
+                      var college = document.getElementById("ABSCollege")
+                      var session = document.getElementById("ABSSession");
+                      var image = document.getElementById("ABSImage");
+
+                      //var year = document.getElementById("ABSYear");
 
 
-                    //var mentor = document.getElementById("ABSMentor");
-                    //var lab = document.getElementById("ABSLab");
-                    //var inst = document.getElementById("ABSInst");
-                    var abstract = document.getElementById("ABSAbstract");
+                      //var mentor = document.getElementById("ABSMentor");
+                      //var lab = document.getElementById("ABSLab");
+                      //var inst = document.getElementById("ABSInst");
+                      var abstract = document.getElementById("ABSAbstract");
 
-                    name.innerHTML = rows[i].Name + ", "+ rows[i].Year;
-                    title.innerHTML = rows[i]['Project Title'];
-                    field.innerHTML = "Field: " + rows[i].Field;
-                    email.innerHTML = rows[i].Email;
-                    college.innerHTML = rows[i].College;
-                    session.innerHTML = rows[i].Session;
-                    //lab.innerHTML = rows[i].Laboratory;
-                    //year.innerHTML = "Year: " + rows[i].Year;
-                    abstract.innerHTML = "Abstract:\n" + rows[i].Abstract;
-                    console.log(i);
-                    $('.query').hide();
-                }
-            }
+                      name.innerHTML = rows[i].Name + ", "+ rows[i].Year;
+                      title.innerHTML = rows[i]['Project Title'];
+                      field.innerHTML = "Field: " + rows[i].Field;
+                      email.innerHTML = rows[i].Email;
+                      college.innerHTML = rows[i].College;
+                      session.innerHTML = rows[i].Session;
+                      image.innerHTML="<img src='images/presenters/"+rows[i].Name+" .jpg' />";
+                      //lab.innerHTML = rows[i].Laboratory;
+                      //year.innerHTML = "Year: " + rows[i].Year;
+                      abstract.innerHTML = rows[i].Abstract;
+                      console.log(i);
+                      $('.query').hide();
+                  }
+              }
 
 
-            //clears off the values in the table
+              //clears off the values in the table
             function clearTable()
             {
                 var table = document.getElementById("myTable");

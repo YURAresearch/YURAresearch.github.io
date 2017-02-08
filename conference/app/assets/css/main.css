@@ -17,7 +17,9 @@
 		font: inherit;
 		vertical-align: baseline;
 	}
-
+.ABSImage{
+	max-width: 100%;
+}
 	article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
 		display: block;
 	}
@@ -1710,6 +1712,7 @@
 		line-height: 1.65;
 		margin: 0 0 1em 0;
 		word-wrap:break-word; !important
+
 	}
 
 		h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
