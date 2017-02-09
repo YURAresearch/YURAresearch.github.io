@@ -142,11 +142,11 @@ var rowsP;
                       //var inst = document.getElementById("ABSInst");
                       var abstract = document.getElementById("ABSAbstract");
 
-                      name.innerHTML = rows[i].Name + ", "+ rows[i].Year;
+                      name.innerHTML = rows[i].Name;
                       title.innerHTML = rows[i]['Project Title'];
                       field.innerHTML = "Field: " + rows[i].Field;
                       email.innerHTML = rows[i].Email;
-                      college.innerHTML = rows[i].College;
+                      college.innerHTML = rows[i].College+ ", "+ rows[i].Year;
                       session.innerHTML = rows[i].Session;
                       image.innerHTML="<img src='images/presenters/"+rows[i].Name+" .jpg' />";
                       //lab.innerHTML = rows[i].Laboratory;
