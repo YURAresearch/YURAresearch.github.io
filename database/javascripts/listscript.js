@@ -1,4 +1,5 @@
-// Javascript for listings page// --------------------------------------------------------------------------
+// Javascript for listings page
+// --------------------------------------------------------------------------
 // GPL statement:
 // This file is part of RDB.
 
@@ -36,7 +37,8 @@ $(window).on('load', function() {
     RDBList.filter();
 });
 
-/ Initialize List (using list.js)// Pagination parameters (list.js plugin)
+/ Initialize List (using list.js)
+// Pagination parameters (list.js plugin)
 var paginationParams = {
     name: "listPages",
     paginationClass: "pagination",
@@ -194,7 +196,7 @@ var updateResults = function(error, options, response) {
 
 // Parameters for sheetrock
 var params = {
-    url: 'https://docs.google.com/spreadsheets/d/1hJSYPwbuKZiVFaqV2a1yIEkjrjbZ_Mz9XM4xSK0j-WQ/edit#gid=806509658', // See sheetrock documentation
+    url: 'https://docs.google.com/spreadsheets/d/1hJSYPwbuKZiVFaqV2a1yIEkjrjbZ_Mz9XM4xSK0j-WQ/edit#gid=869997991', // See sheetrock documentation
     query: "select A,B,C,D,E",
     callback: updateResults,
     reset: true
